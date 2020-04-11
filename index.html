@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>covid19_Tracker</title>
+    <link rel="stylesheet" href="/resources/lib/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="/resources/css/index.css">
+</head>
+<body>
+    <!--World & Bd Top Info on Cards-->
+    <div class="container">
+        <!--World Info-->
+        <br/>
+        <div class="row">
+            <h5 style="text-align: center;">*** Live Top COVID-19 Records ***</h5>
+        </div>
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card hoverable light-blue lighten-3">           
+                    <div class="card-content"> 
+                        <h5>Total Cases(World)</h5>
+                        <h4 id="total_cases_World">1700378</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card hoverable red accent-3">           
+                    <div class="card-content"> 
+                        <h5>Total Deaths</h5>
+                        <h4 id="total_deaths_World">102755</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card hoverable green">           
+                    <div class="card-content"> 
+                        <h5>Total Recovary</h5>
+                        <h4 id="total_recovary_World">376548</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--BD Info-->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card hoverable light-blue lighten-3">           
+                    <div class="card-content"> 
+                        <h5>Total Cases(BD)</h5>
+                        <h4 id="total_cases_BD">424</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card hoverable red accent-3">           
+                    <div class="card-content"> 
+                        <h5>Total Deaths</h5>
+                        <h4 id="total_deaths_BD">27</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card hoverable green">           
+                    <div class="card-content"> 
+                        <h5>Total Recovary</h5>
+                        <h4 id="total_recovary_BD">33</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <br/>
+        <div class="row">
+            <h5 class="table_Head">*** List of Bangladesh Records ***</h5>
+        </div>
+        <div class="cyan lighten-3" id="bd_Track_Info"></div>
+    </div>
+    <div class="container">
+        <br/>
+        <div class="row">
+            <h5 class="table_Head">*** List of 6 Continent Records ***</h5>
+        </div>
+        <div class="blue lighten-3" id="Info_6_continent_ID"></div>
+    </div>
+    <div class="container">
+        <br/>
+        <div class="row">
+            <h5 class="table_Head">*** List of Top 10 Country Records ***</h5>
+        </div>
+        <div class="red lighten-1" id="Info_Top_10_country_ID"></div>
+    </div>
+    <div class="container">
+        <br/>
+        <div class="row">
+            <h5 class="table_Head">*** List of Global Records ***</h5>
+        </div>
+        <div class="green lighten-3" id="Info_Global_Track_ID"></div>
+        <br/>
+    </div>
+    
+</body>
+    <script src="/resources/lib/jquery/jquery.min.js"></script>
+    <script src="/resources/lib/materialize/js/materialize.min.js"></script>
+    <script src="/resources/js/bd_Track_Info.js"></script>
+    <script src="/resources/js/global_Track_info.js"></script>
+</html>
