@@ -8,7 +8,7 @@
     overflow-y: scroll;
 }
 
-#chart_pie {
+.chart_Design {
     height: 376px;
     max-width: 920px;
     margin: 0px auto;
