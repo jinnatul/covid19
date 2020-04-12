@@ -61,11 +61,13 @@ function set_Info(res) {
             $('#total_cases_World').text(res[index]["cases"])
             $('#total_deaths_World').text(res[index]["deaths"])
             $('#total_recovary_World').text(res[index]["recovered"])
+            $('#total_critical_World').text(res[index]["critical"])
         }
         else if (res[index]["country"] === "Bangladesh") {
             $('#total_cases_BD').text(res[index]["cases"])
             $('#total_deaths_BD').text(res[index]["deaths"])
             $('#total_recovary_BD').text(res[index]["recovered"])
+            $('#total_test_BD').text(res[index]["totalTests"])
         }
     }
     Info_Continent_Table += "</table>";
