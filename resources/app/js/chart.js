@@ -5,7 +5,7 @@ window.onload = function () {
         exportEnabled: true,
         animationEnabled: true,
         title: {
-            text: ""
+            text: "COVID-19"
         },
         data: [{
             type: "pie",
@@ -29,7 +29,7 @@ window.onload = function () {
         exportEnabled: true,
         animationEnabled: true,
         title:{
-            text: ""
+            text: "Test Info BD"
         },
         legend:{
             cursor: "pointer",
@@ -50,8 +50,68 @@ window.onload = function () {
         }]
     });
     
+
+    var Chart_spline = new CanvasJS.Chart("chart_spline", {
+        animationEnabled: true,
+        title:{
+            text: "COVID-19 Positive in Bangladesh"
+        },
+        axisX:{
+            valueFormatString: "DD MMM"
+        },
+        axisY: {
+            title: "Number of Cases",
+            includeZero: false
+        },
+        data: [{
+            type: "spline",
+            xValueFormatString: "DD MMM",
+            color: "#F08080",
+            dataPoints: [
+                { x: new Date(2020, 2, 08), y:  3 },
+                { x: new Date(2020, 2, 09), y:  0 },
+                { x: new Date(2020, 2, 10), y:  0 },
+                { x: new Date(2020, 2, 11), y:  0 },
+                { x: new Date(2020, 2, 12), y:  0 },
+                { x: new Date(2020, 2, 13), y:  0 },
+                { x: new Date(2020, 2, 14), y:  2 },
+                { x: new Date(2020, 2, 15), y:  0 },
+                { x: new Date(2020, 2, 16), y:  3 },
+                { x: new Date(2020, 2, 17), y:  2 },
+                { x: new Date(2020, 2, 18), y:  4 },
+                { x: new Date(2020, 2, 19), y:  4 },
+                { x: new Date(2020, 2, 20), y:  2 },
+                { x: new Date(2020, 2, 21), y:  4 },
+                { x: new Date(2020, 2, 22), y:  3 },
+                { x: new Date(2020, 2, 23), y:  6 },
+                { x: new Date(2020, 2, 24), y:  6 },
+                { x: new Date(2020, 2, 25), y:  0 },
+                { x: new Date(2020, 2, 26), y:  5 },
+                { x: new Date(2020, 2, 27), y:  4 },
+                { x: new Date(2020, 2, 28), y:  0 },
+                { x: new Date(2020, 2, 29), y:  0 },
+                { x: new Date(2020, 2, 30), y:  1 },
+                { x: new Date(2020, 2, 31), y:  2 },
+                { x: new Date(2020, 3, 1), y:  3 },
+                { x: new Date(2020, 3, 2), y:  2 },
+                { x: new Date(2020, 3, 3), y:  5 },
+                { x: new Date(2020, 3, 4), y:  9 },
+                { x: new Date(2020, 3, 5), y:  18 },
+                { x: new Date(2020, 3, 6), y:  35 },
+                { x: new Date(2020, 3, 7), y:  41 },
+                { x: new Date(2020, 3, 8), y:  54 },
+                { x: new Date(2020, 3, 9), y:  112 },
+                { x: new Date(2020, 3, 10), y:  94 },
+                { x: new Date(2020, 3, 11), y:  58 },
+                { x: new Date(2020, 3, 12), y:  139 }
+            ]
+        }]
+    });
+    
+
     Chart_pie.render();
     Chart_doughnut.render();
+    Chart_spline.render();
 }
 
 function explodePie (e) {
