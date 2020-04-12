@@ -7,3 +7,9 @@
     height: 20rem;
     overflow-y: scroll;
 }
+
+#chart_pie {
+    height: 376px;
+    max-width: 920px;
+    margin: 0px auto;
+}
