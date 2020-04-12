@@ -1,3 +1,9 @@
 .customContainer {
     margin: 4rem;
-  }
+}
+
+.scrollable {
+    width: auto;
+    height: 20rem;
+    overflow-y: scroll;
+}
