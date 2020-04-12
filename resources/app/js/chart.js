@@ -54,7 +54,7 @@ window.onload = function () {
     var Chart_spline = new CanvasJS.Chart("chart_spline", {
         animationEnabled: true,
         title:{
-            text: "COVID-19 Positive in Bangladesh"
+            text: "COVID-19 Positives in Bangladesh"
         },
         axisX:{
             valueFormatString: "DD MMM"
@@ -109,9 +109,140 @@ window.onload = function () {
     });
     
 
+    var Chart_line = new CanvasJS.Chart("chart_line", {
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
+        animationEnabled: true,
+        title:{
+            text: "COVID-19 Deaths in Bangladesh"   
+        },
+        axisX: {
+            valueFormatString: "DD MMM"
+        },
+        axisY:{
+            includeZero: false
+        },
+        data: [{        
+            type: "line",
+            markerSize: 12,
+            xValueFormatString: "DD MMM",
+            yValueFormatString: "###",
+            dataPoints: [        
+                { x: new Date(2020, 02, 8), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 02, 9) , y: 0, indexLabel: "zero", markerType: "", markerColor: "green" },
+                { x: new Date(2020, 02, 10), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 02, 11) , y: 0, indexLabel: "zero", markerType: "", markerColor: "green" },
+                { x: new Date(2020, 02, 12), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 02, 13) , y: 0, indexLabel: "zero", markerType: "", markerColor: "green" },
+                { x: new Date(2020, 02, 14), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 02, 15) , y: 0, indexLabel: "zero", markerType: "", markerColor: "green" },
+                { x: new Date(2020, 02, 16), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 02, 17) , y: 0, indexLabel: "zero", markerType: "", markerColor: "green" },
+                { x: new Date(2020, 02, 18), y: 1, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" },
+                { x: new Date(2020, 02, 19) , y: 0, indexLabel: "down", markerType: "cross", markerColor: "#6B8E23" },
+                { x: new Date(2020, 02, 20), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 02, 21) , y: 1, indexLabel: "up", markerType: "triangle", markerColor: "tomato" },
+                { x: new Date(2020, 02, 22), y: 0, indexLabel: "down", markerType: "cross",  markerColor: "#6B8E23" },
+                { x: new Date(2020, 02, 23) , y: 1, indexLabel: "up", markerType: "triangle", markerColor: "tomato" },
+                { x: new Date(2020, 02, 24), y: 1, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" },
+                { x: new Date(2020, 02, 25) , y: 0, indexLabel: "down", markerType: "cross", markerColor: "#6B8E23" },
+                { x: new Date(2020, 02, 26), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 02, 27) , y: 0, indexLabel: "zero", markerType: "", markerColor: "green" },
+                { x: new Date(2020, 02, 28), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 02, 29) , y: 0, indexLabel: "zero", markerType: "", markerColor: "green" },
+                { x: new Date(2020, 02, 30), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 02, 31) , y: 0, indexLabel: "zero", markerType: "", markerColor: "green" },
+                { x: new Date(2020, 03, 1), y: 1, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" },
+                { x: new Date(2020, 03, 2) , y: 0, indexLabel: "down", markerType: "cross", markerColor: "#6B8E23" },
+                { x: new Date(2020, 03, 3), y: 0, indexLabel: "zero", markerType: "",  markerColor: "green" },
+                { x: new Date(2020, 03, 4) , y: 1, indexLabel: "up", markerType: "triangle", markerColor: "tomato" },
+                { x: new Date(2020, 03, 5), y: 1, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" },
+                { x: new Date(2020, 03, 6) , y: 3, indexLabel: "up", markerType: "triangle", markerColor: "tomato" },
+                { x: new Date(2020, 03, 7), y: 5, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" },
+                { x: new Date(2020, 03, 8) , y: 3, indexLabel: "down", markerType: "cross", markerColor: "#6B8E23" },
+                { x: new Date(2020, 03, 9), y: 1, indexLabel: "down", markerType: "cross",  markerColor: "#6B8E23" },
+                { x: new Date(2020, 03, 10) , y: 6, indexLabel: "up", markerType: "triangle", markerColor: "tomato" },
+                { x: new Date(2020, 03, 11), y: 3, indexLabel: "down", markerType: "cross",  markerColor: "#6B8E23" },
+                { x: new Date(2020, 03, 12), y: 4, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" }
+            ]
+        }]
+    });
+
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title:{
+            text: "COVID-19 Cases in Bangladesh"
+        },
+        axisX:{
+            valueFormatString: "DD MMM",
+            crosshair: {
+                enabled: true,
+                snapToDataPoint: true
+            }
+        },
+        axisY: {
+            title: "COVID-19 Cases in BD",
+            includeZero: false,
+            valueFormatString: "##0.00",
+            crosshair: {
+                enabled: true,
+                snapToDataPoint: true,
+                labelFormatter: function(e) {
+                    return  CanvasJS.formatNumber(e.value, "##0.00");
+                }
+            }
+        },
+        data: [{
+            type: "area",
+            xValueFormatString: "DD MMM",
+            yValueFormatString: "##0.00",
+            dataPoints: [
+                { x: new Date(2020, 2, 08), y:  3 },
+                { x: new Date(2020, 2, 09), y:  3 },
+                { x: new Date(2020, 2, 10), y:  3 },
+                { x: new Date(2020, 2, 11), y:  3 },
+                { x: new Date(2020, 2, 12), y:  3 },
+                { x: new Date(2020, 2, 13), y:  3 },
+                { x: new Date(2020, 2, 14), y:  5 },
+                { x: new Date(2020, 2, 15), y:  5 },
+                { x: new Date(2020, 2, 16), y:  8 },
+                { x: new Date(2020, 2, 17), y:  10 },
+                { x: new Date(2020, 2, 18), y:  14 },
+                { x: new Date(2020, 2, 19), y:  18 },
+                { x: new Date(2020, 2, 20), y:  20 },
+                { x: new Date(2020, 2, 21), y:  24 },
+                { x: new Date(2020, 2, 22), y:  27 },
+                { x: new Date(2020, 2, 23), y:  33 },
+                { x: new Date(2020, 2, 24), y:  39 },
+                { x: new Date(2020, 2, 25), y:  39 },
+                { x: new Date(2020, 2, 26), y:  44 },
+                { x: new Date(2020, 2, 27), y:  48 },
+                { x: new Date(2020, 2, 28), y:  48 },
+                { x: new Date(2020, 2, 29), y:  48 },
+                { x: new Date(2020, 2, 30), y:  49 },
+                { x: new Date(2020, 2, 31), y:  51 },
+                { x: new Date(2020, 3, 1), y:  54 },
+                { x: new Date(2020, 3, 2), y:  56 },
+                { x: new Date(2020, 3, 3), y:  61 },
+                { x: new Date(2020, 3, 4), y:  70 },
+                { x: new Date(2020, 3, 5), y:  88 },
+                { x: new Date(2020, 3, 6), y:  123 },
+                { x: new Date(2020, 3, 7), y:  164 },
+                { x: new Date(2020, 3, 8), y:  218 },
+                { x: new Date(2020, 3, 9), y:  330 },
+                { x: new Date(2020, 3, 10), y:  424 },
+                { x: new Date(2020, 3, 11), y:  482 },
+                { x: new Date(2020, 3, 12), y:  621 }
+            ]
+        }]
+    });
+    
+
     Chart_pie.render();
     Chart_doughnut.render();
     Chart_spline.render();
+    Chart_line.render();
+    chart.render();
 }
 
 function explodePie (e) {
