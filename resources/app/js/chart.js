@@ -168,7 +168,7 @@ window.onload = function () {
     });
 
 
-    var chart = new CanvasJS.Chart("chartContainer", {
+    var Chart_area = new CanvasJS.Chart("chart_area", {
         animationEnabled: true,
         title:{
             text: "COVID-19 Cases in Bangladesh"
@@ -242,7 +242,7 @@ window.onload = function () {
     Chart_doughnut.render();
     Chart_spline.render();
     Chart_line.render();
-    chart.render();
+    Chart_area.render();
 }
 
 function explodePie (e) {
