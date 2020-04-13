@@ -6,20 +6,24 @@ window.onload = function () {
         exportEnabled: true,
         animationEnabled: true,
         title: {
-            text: "COVID-19 Total"
+            text:  "Division wise cases in BD"
         },
         data: [{
-            type: "pie",
+            type: "column",
             startAngle: 25,
             toolTipContent: "<b>{label}</b>: {y}",
             showInLegend: "true",
             legendText: "{label}",
             indexLabelFontSize: 16,
-            indexLabel: "{label} - {y}",
+            indexLabel:  "{y}",
             dataPoints: [
-                { y: 803, label: "Coronavirus cases" },
-                { y: 39, label: "Deaths" },
-                { y: 42, label: "Recovered" }
+                { y: 529, label: "Dhaka" },
+                { y: 33, label: "Chattagram" },
+                { y: 15, label: "Rangpur" },
+                { y: 14, label: "Mymensingh" },
+                { y: 3, label: "Sylhet" },
+                { y: 7, label: "Barishal" },
+                { y: 1, label: "Khulna" } 
             ]
         }]
     });
@@ -44,11 +48,10 @@ window.onload = function () {
             toolTipContent: "<b>{name}</b>: {y} (#percent%)",
             indexLabel: "{name} - #percent%",
             dataPoints: [
-                { y: 11223, name: "Total Test" },
                 { y: 803, name: "Coronavirus cases" },
                 { y: 39, name: "Deaths" },
                 { y: 42, name: "Recovered" }
-            ]
+             ]
         }]
     });
     
@@ -255,7 +258,7 @@ window.onload = function () {
             valueFormatString: "DD MMM"
         },
         data: [{
-            type: "bar",
+            type: "column",
             xValueFormatString: "DD MMM",
             color: "#F08080",
             dataPoints: [
