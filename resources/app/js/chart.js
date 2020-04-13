@@ -17,8 +17,8 @@ window.onload = function () {
             indexLabelFontSize: 16,
             indexLabel: "{label} - {y}",
             dataPoints: [
-                { y: 621, label: "Coronavirus cases" },
-                { y: 34, label: "Total Deaths" },
+                { y: 803, label: "Coronavirus cases" },
+                { y: 39, label: "Total Deaths" },
                 { y: 39, label: "Total Recovered" }
             ]
         }]
@@ -44,9 +44,9 @@ window.onload = function () {
             toolTipContent: "<b>{name}</b>: {y} (#percent%)",
             indexLabel: "{name} - #percent%",
             dataPoints: [
-                { y: 9653, name: "Total Test" },
-                { y: 621, name: "Coronavirus cases" },
-                { y: 34, name: "Total Deaths" },
+                { y: 11223, name: "Total Test" },
+                { y: 803, name: "Coronavirus cases" },
+                { y: 39, name: "Total Deaths" },
                 { y: 39, name: "Total Recovered" }
             ]
         }]
@@ -105,7 +105,8 @@ window.onload = function () {
                 { x: new Date(2020, 3, 9), y:  112 },
                 { x: new Date(2020, 3, 10), y:  94 },
                 { x: new Date(2020, 3, 11), y:  58 },
-                { x: new Date(2020, 3, 12), y:  139 }
+                { x: new Date(2020, 3, 12), y:  139 },
+                { x: new Date(2020, 3, 13), y:  182 }
             ]
         }]
     });
@@ -165,7 +166,8 @@ window.onload = function () {
                 { x: new Date(2020, 03, 9), y: 1, indexLabel: "down", markerType: "cross",  markerColor: "#6B8E23" },
                 { x: new Date(2020, 03, 10) , y: 6, indexLabel: "up", markerType: "triangle", markerColor: "tomato" },
                 { x: new Date(2020, 03, 11), y: 3, indexLabel: "down", markerType: "cross",  markerColor: "#6B8E23" },
-                { x: new Date(2020, 03, 12), y: 4, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" }
+                { x: new Date(2020, 03, 12), y: 4, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" },
+                { x: new Date(2020, 03, 13), y: 5, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" }
             ]
         }]
     });
@@ -236,7 +238,8 @@ window.onload = function () {
                 { x: new Date(2020, 3, 9), y:  330 },
                 { x: new Date(2020, 3, 10), y:  424 },
                 { x: new Date(2020, 3, 11), y:  482 },
-                { x: new Date(2020, 3, 12), y:  621 }
+                { x: new Date(2020, 3, 12), y:  621 },
+                { x: new Date(2020, 3, 13), y:  803 }
             ]
         }]
     });
@@ -291,7 +294,8 @@ window.onload = function () {
                 { x: new Date(2020, 3, 9), y:  330 },
                 { x: new Date(2020, 3, 10), y:  424 },
                 { x: new Date(2020, 3, 11), y:  482 },
-                { x: new Date(2020, 3, 12), y:  621 }
+                { x: new Date(2020, 3, 12), y:  621 },
+                { x: new Date(2020, 3, 13), y:  803 }
             ]
         }]
     });
