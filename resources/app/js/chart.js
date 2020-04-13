@@ -300,12 +300,109 @@ window.onload = function () {
         }]
     });
 
+
+    // Column Chart
+    var Chart_column = new CanvasJS.Chart("chart_column", {
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+            text: "COVID-19 in Dhaka"
+        },
+        data: [{
+            type: "column",
+            startAngle: 25,
+            toolTipContent: "<b>{label}</b>: {y}",
+            showInLegend: "true",
+            legendText: "{label}",
+            indexLabelFontSize: 16,
+            dataPoints: [
+                { y: 1, label: "Adabor" },
+                { y: 2, label: "Agargaon" },
+                { y: 1, label: "Ashkona" },
+                { y: 2, label: "Azimpur" },
+                { y: 3, label: "Babu Bazar" },
+                { y: 4, label: "Badda" },
+                { y: 3, label: "Baily Road" },
+                { y: 7, label: "Banani" },
+                { y: 7, label: "Bangshal" },
+                { y: 12, label: "Basabo" },
+                { y: 4, label: "Bashundhara" },
+                { y: 1, label: "Begunbari" },
+                { y: 1, label: "Beribadh" },
+                { y: 1, label: "Bosila" },
+                { y: 1, label: "BUET Area" },
+                { y: 1, label: "Central Road" },
+                { y: 4, label: "Chawk Bazar" },
+                { y: 1, label: "Dhakeshwari" },
+                { y: 14, label: "Dhanmondi" },
+                { y: 1, label: "Dholaikhal" },
+                { y: 1, label: "Doyaganj" },
+                { y: 1, label: "Eskaton" },
+                { y: 1, label: "Farmgate" },
+                { y: 3, label: "Gendaria" },
+                { y: 5, label: "Green Road" },
+                { y: 2, label: "Gulistan" },
+                { y: 4, label: "Gulshan" },
+                { y: 1, label: "Hatirjheel" },
+                { y: 2, label: "Hatirpool" },
+                { y: 8, label: "Hazaribagh" },
+                { y: 2, label: "Islampur" },
+                { y: 2, label: "Jailgate" },
+                { y: 11, label: "Jatrabari" },
+                { y: 3, label: "Jigatola" },
+                { y: 1, label: "Kamrangirchar" },
+                { y: 1, label: "Kazipara" },
+                { y: 1, label: "Kodomtoli" },
+                { y: 2, label: "Kotowali" },
+                { y: 13, label: "Lalbagh" },
+                { y: 2, label: "Laxmibazar" },
+                { y: 2, label: "Malibagh" },
+                { y: 1, label: "Manikdi" },
+                { y: 2, label: "Mirhajaribagh" },
+                { y: 5, label: "Mirpur-1" },
+                { y: 2, label: "Mirpur-6" },
+                { y: 5, label: "Mirpur-10" },
+                { y: 10, label: "Mirpur-11" },
+                { y: 8, label: "Mirpur-12" },
+                { y: 2, label: "Mirpur-13" },
+                { y: 1, label: "Mitford" },
+                { y: 4, label: "MogBazar" },
+                { y: 7, label: "Mohakhali" },
+                { y: 12, label: "Mohammadpur" },
+                { y: 2, label: "Mugda" },
+                { y: 1, label: "Nawabpur" },
+                { y: 2, label: "Narinda" },
+                { y: 1, label: "Nikunja" },
+                { y: 2, label: "Pirerbagh" },
+                { y: 2, label: "Purana Paltan" },
+                { y: 2, label: "Rajarbagh" },
+                { y: 1, label: "Rampura" },
+                { y: 1, label: "Rayerbazar" },
+                { y: 1, label: "Sayedabad" },
+                { y: 2, label: "Shah Ali Bagh" },
+                { y: 2, label: "Shahbagh" },
+                { y: 5, label: "Shantinagar" },
+                { y: 3, label: "Showari Ghat" },
+                { y: 1, label: "Siddheshwari" },
+                { y: 1, label: "Sonir Akhra" },
+                { y: 2, label: "Sutrapur" },
+                { y: 3, label: "Tejgaon" },
+                { y: 19, label: "Tolarbagh" },
+                { y: 1, label: "Urdu Road" },
+                { y: 17, label: "Uttara" },
+                { y: 16, label: "Wari" }
+            ]
+        }]
+    });
+
     Chart_pie.render();
     Chart_doughnut.render();
     Chart_spline.render();
     Chart_line.render();
     Chart_area.render();
     Chart_bar.render();
+    Chart_column.render();
 }
 
 function explodePie (e) {
