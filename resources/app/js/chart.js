@@ -18,8 +18,8 @@ window.onload = function () {
             indexLabel: "{label} - {y}",
             dataPoints: [
                 { y: 803, label: "Coronavirus cases" },
-                { y: 39, label: "Total Deaths" },
-                { y: 39, label: "Total Recovered" }
+                { y: 39, label: "Deaths" },
+                { y: 42, label: "Recovered" }
             ]
         }]
     });
@@ -31,7 +31,7 @@ window.onload = function () {
         exportEnabled: true,
         animationEnabled: true,
         title:{
-            text: "Test in Bangladesh"
+            text: "Tests in Bangladesh"
         },
         legend:{
             cursor: "pointer",
@@ -46,8 +46,8 @@ window.onload = function () {
             dataPoints: [
                 { y: 11223, name: "Total Test" },
                 { y: 803, name: "Coronavirus cases" },
-                { y: 39, name: "Total Deaths" },
-                { y: 39, name: "Total Recovered" }
+                { y: 39, name: "Deaths" },
+                { y: 42, name: "Recovered" }
             ]
         }]
     });
