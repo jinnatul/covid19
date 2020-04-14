@@ -23,7 +23,8 @@ window.onload = function () {
                 { y: 14, label: "Mymensingh" },
                 { y: 3, label: "Sylhet" },
                 { y: 7, label: "Barishal" },
-                { y: 1, label: "Khulna" } 
+                { y: 1, label: "Khulna" },
+                { y: 2, label: "Rajshahi" } 
             ]
         }]
     });
@@ -48,8 +49,8 @@ window.onload = function () {
             toolTipContent: "<b>{name}</b>: {y} (#percent%)",
             indexLabel: "{name} - #percent%",
             dataPoints: [
-                { y: 803, name: "Coronavirus cases" },
-                { y: 39, name: "Deaths" },
+                { y: 1012, name: "Coronavirus cases" },
+                { y: 46, name: "Deaths" },
                 { y: 42, name: "Recovered" }
              ]
         }]
@@ -109,7 +110,8 @@ window.onload = function () {
                 { x: new Date(2020, 3, 10), y:  94 },
                 { x: new Date(2020, 3, 11), y:  58 },
                 { x: new Date(2020, 3, 12), y:  139 },
-                { x: new Date(2020, 3, 13), y:  182 }
+                { x: new Date(2020, 3, 13), y:  182 },
+                { x: new Date(2020, 3, 14), y:  209 }
             ]
         }]
     });
@@ -170,7 +172,8 @@ window.onload = function () {
                 { x: new Date(2020, 03, 10) , y: 6, indexLabel: "up", markerType: "triangle", markerColor: "tomato" },
                 { x: new Date(2020, 03, 11), y: 3, indexLabel: "down", markerType: "cross",  markerColor: "#6B8E23" },
                 { x: new Date(2020, 03, 12), y: 4, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" },
-                { x: new Date(2020, 03, 13), y: 5, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" }
+                { x: new Date(2020, 03, 13), y: 5, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" },
+                { x: new Date(2020, 03, 14), y: 7, indexLabel: "up", markerType: "triangle",  markerColor: "tomato" }
             ]
         }]
     });
@@ -248,7 +251,7 @@ window.onload = function () {
     // });
     
 
-    // Bar Chart Total positive cases
+    // Column Chart Total positive cases
     var Chart_bar = new CanvasJS.Chart("chart_bar", {
         animationEnabled: true,
         title:{
@@ -262,7 +265,7 @@ window.onload = function () {
             xValueFormatString: "DD MMM",
             color: "red",
             dataPoints: [
-            { x: new Date(2020, 2, 08), y:  3 },
+                { x: new Date(2020, 2, 08), y:  3 },
                 { x: new Date(2020, 2, 09), y:  3 },
                 { x: new Date(2020, 2, 10), y:  3 },
                 { x: new Date(2020, 2, 11), y:  3 },
@@ -298,7 +301,8 @@ window.onload = function () {
                 { x: new Date(2020, 3, 10), y:  424 },
                 { x: new Date(2020, 3, 11), y:  482 },
                 { x: new Date(2020, 3, 12), y:  621 },
-                { x: new Date(2020, 3, 13), y:  803 }
+                { x: new Date(2020, 3, 13), y:  803 },
+                { x: new Date(2020, 3, 14), y:  1012 }
             ]
         }]
     });
