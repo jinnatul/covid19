@@ -13,3 +13,13 @@
     max-width: 920px;
     margin: 0px auto;
 }
+
+.advice_Image {
+    height: 300px;
+    width: 300px;
+}
+
+.mask_Image {
+    height: 300px;
+    width: 500px;
+}
