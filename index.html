@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="resources/lib/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="resources/app/css/index.css">
+    <script src="resources/app/js/data.js"></script>
 </head>
 <body>
 
@@ -19,6 +20,7 @@
                 <ul class="right hide-on-med-and-down">
                   <li><a class="navFontSize" href="#home">Home</a></li>
                   <li><a class="navFontSize" href="#bangladesh">Bangladesh</a></li>
+                  <li><a class="navFontSize" href="#district">District</a></li>
                   <li><a class="navFontSize" href="#charts">Charts</a></li>
                   <li><a class="navFontSize" href="#hotLine">HotLine</a></li>
                   <li><a class="navFontSize" href="#faq">FAQ</a></li>
@@ -32,8 +34,8 @@
     <!--Marquee session-->
     <div>
         <marquee behavior="scroll" direction="left" onmousedown="this.stop();" onmouseup="this.start()">
-            <h6>COVID19_Tracker provide live COVID-19 information about Bangladesh and World. Update Time: (16/04/2020: 4.35pm) 
-                World--> Coronavirus cases: 2094839, Deaths: 135564, Recovered: 520930, Critical Cases: 51092. 
+            <h6>COVID19_Tracker provide live COVID-19 information about Bangladesh and World. Update Time: (16/04/2020: 11.20pm) 
+                World--> Coronavirus cases: 2129355, Deaths: 142707, Recovered: 539000, Critical Cases: 57237. 
                 Bangladesh--> Coronavirus cases: 1572, Deaths: 60, Recovered: 49, Total Tests: 17003
             </h6>
         </marquee>
@@ -60,7 +62,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Coronavirus cases</h6>
-                        <h3 class="blue-text" id="total_cases_World">2094839</h3>
+                        <h3 class="blue-text" id="total_cases_World">2129355</h3>
                     </div>
                 </div>
             </div>
@@ -68,7 +70,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Deaths</h6>
-                        <h3 class="red-text" id="total_deaths_World">135564</h3>
+                        <h3 class="red-text" id="total_deaths_World">142707</h3>
                     </div>
                 </div>
             </div>
@@ -76,7 +78,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Recovered</h6>
-                        <h3 class="green-text" id="total_recovary_World">520930</h3>
+                        <h3 class="green-text" id="total_recovary_World">539000</h3>
                     </div>
                 </div>
             </div>
@@ -84,7 +86,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Critical Cases</h6>
-                        <h3 class="cyan-text" id="total_critical_World">51092</h3>
+                        <h3 class="cyan-text" id="total_critical_World">57237</h3>
                     </div>
                 </div>
             </div>
@@ -137,6 +139,26 @@
         </div>
     </div>
 
+
+    <!--Bangladesh District Map-->
+    <div class="customContainer" id="district">
+        <h4 class="center-align">District Affected</h4>
+        <div class="row">
+            <div class="card">
+                <div class="card-content">
+                    <p id ="each_District"></p>
+                    <iframe 
+                        src="resources/app/image/bdmap.svg" 
+                        id = "district_Map" 
+                        title="map" 
+                        width="1000"
+                        height="900" 
+                        frameBorder="0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--Charts-->
     <div class="customContainer" id="charts">
@@ -448,6 +470,7 @@
     <script src="resources/app/js/global_Track_info.js"></script>
     <script src="resources/app/js/chart.js"></script>
     <script src="resources/app/js/index.js"></script>
+    <script src="resources/app/js/bdmap.js"></script>
     <script>
         window.onscroll = scroll;
          function scroll() {

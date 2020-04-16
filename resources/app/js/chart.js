@@ -10,7 +10,6 @@ window.onload = function () {
 
     $.get(apiURL, function() {})
         .done(function(res) {
-            console.log(res);
             let sizeResponse = res["Bangladesh"].length;
             for (let index = 46; index < sizeResponse; index++) {
                 // Area chart Data
