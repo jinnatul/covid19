@@ -397,7 +397,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 3, 12), y:  621 },
                 { x: new Date(2020, 3, 13), y:  803 },
                 { x: new Date(2020, 3, 14), y:  1012 },
-                { x: new Date(2020, 3, 15), y:  1231 }
+                { x: new Date(2020, 3, 15), y:  1231 },
+                { x: new Date(2020, 3, 16), y:  1572 }
             ],
           },
           {
@@ -446,7 +447,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 12), y: 34 },
                 { x: new Date(2020, 03, 13), y: 39 },
                 { x: new Date(2020, 03, 14), y: 46 },
-                { x: new Date(2020, 03, 15), y: 50 }
+                { x: new Date(2020, 03, 15), y: 50 },
+                { x: new Date(2020, 03, 16), y: 60 }
             ],
           },
           {
@@ -495,7 +497,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 12), y: 39 },
                 { x: new Date(2020, 03, 13), y: 42 },
                 { x: new Date(2020, 03, 14), y: 42 },
-                { x: new Date(2020, 03, 15), y: 49 }
+                { x: new Date(2020, 03, 15), y: 49 },
+                { x: new Date(2020, 03, 16), y: 49 }
             ],
           },
         ],
@@ -522,8 +525,8 @@ function API_Fail_Then_loadData() {
             toolTipContent: "<b>{name}</b>: {y} (#percent%)",
             indexLabel: "{name} - #percent%",
             dataPoints: [
-                { y: 1231, name: "Coronavirus cases" },
-                { y: 50, name: "Deaths" },
+                { y: 1572, name: "Coronavirus cases" },
+                { y: 60, name: "Deaths" },
                 { y: 49, name: "Recovered" }
              ]
         }]
@@ -587,7 +590,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 3, 12), y:  139 },
                 { x: new Date(2020, 3, 13), y:  182 },
                 { x: new Date(2020, 3, 14), y:  209 },
-                { x: new Date(2020, 3, 15), y:  219 }
+                { x: new Date(2020, 3, 15), y:  219 },
+                { x: new Date(2020, 3, 16), y:  341 }
             ]
         }]
     });
@@ -651,7 +655,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 12), y: 4 },
                 { x: new Date(2020, 03, 13), y: 5 },
                 { x: new Date(2020, 03, 14), y: 7 },
-                { x: new Date(2020, 03, 15), y: 4 }
+                { x: new Date(2020, 03, 15), y: 4 },
+                { x: new Date(2020, 03, 16), y: 10 }
             ]
         }]
     });
