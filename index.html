@@ -10,10 +10,24 @@
 </head>
 <body>
 
+    
+
+    <div class="fixed-action-btn">
+        <a
+            class="btn-floating btn-medium blue-grey darken-4 tooltipped"
+            data-position="left"
+            data-tooltip="Top"
+            id="scrollTop"
+            onclick="toTop()">
+            <img style="height: 40px; width: 40px;" src="resources/app/image/arrowUP.jpg" alt="arw" srcset="">
+        </a>
+    </div>
+
     <!--World Info-->
     <div class="customContainer">
+        <h4 class="center-align">COVID-19 Summary</h4>
         <div class="row">
-            <h4 class="center-align">COVID-19 in World</h4>
+            <h5 class="center-align">World</h5>
             <div class="col s12 m3">
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
@@ -47,12 +61,10 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!--BD Info-->
-    <div class="customContainer">
+        <!--BD Info-->
         <div class="row">
-            <h4 class="center-align">COVID-19 in Bangladesh</h4>
+            <h5 class="center-align">Bangladesh</h5>
             <div class="col s12 m3">
                 <div class="card center-align hoverable">                 
                     <div class="card-content"> 
@@ -91,6 +103,7 @@
 
     <!--COVID-19 Bangladesh Daily Records-->
     <div class="customContainer">
+        <h4 class="center-align">BD Daily Info</h4>
         <div class="col s12 l8 m8 scrollable">
             <div id="bd_Track_Info"></div>
         </div>
@@ -99,6 +112,7 @@
 
     <!--Charts-->
     <div class="customContainer">
+        <h4 class="center-align">Charts</h4>
          <!--Total COVID-19 Info-->
         <div class="row">
             <div class="col s12 m12">
@@ -164,7 +178,7 @@
 
     <!--Hot Line Numbers (BD)-->
     <div class="customContainer">
-        <h4 class="center-align">Hot Line Numbers (IEDCR-BD)</h4>
+        <h4 class="center-align">HotLine (IEDCR-BD)</h4>
         <table class="centered">
             <tr>
                 <td>
@@ -357,184 +371,10 @@
         </div>
     </div>
 
-    <!--Public Advice
-    <div class="customContainer">
-        <h4 class="center-align">Advice for Public (WHO)</h4>
-        <div class="row">
-            <ul class="collapsible popout">
-                <li>
-                    <div class="collapsible-header">
-                        <h6>Protect yourself and stay healthy</h6>
-                    </div>
-                    <div class="collapsible-body">
-                        <div class="row">
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/protect_YourSelf1.jpg" alt="protect_YourSelf1" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/protect_YourSelf2.jpg" alt="protect_YourSelf2" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/protect_YourSelf3.jpg" alt="protect_YourSelf3" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/protect_YourSelf4.png" alt="protect_YourSelf4" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/protect_YourSelf5.png" alt="protect_YourSelf5" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/protect_YourSelf6.png" alt="protect_YourSelf6" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="collapsible-header">
-                        <h6>Be Ready for coronavirus</h6>
-                    </div>
-                    <div class="collapsible-body">
-                        <div class="row">
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/be_Ready1.png" alt="be_Ready1" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/be_Ready2.png" alt="be_Ready2" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/be_Ready3.png" alt="be_Ready3" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/be_Ready4.png" alt="be_Ready4" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/be_Ready5.png" alt="be_Ready5" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/be_Ready6.png" alt="be_Ready6" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="collapsible-header">
-                        <h6>Social Distance</h6>
-                    </div>
-                    <div class="collapsible-body">
-                        <div class="row">
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/social_Distance1.png" alt="social_Distance1" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/social_Distance2.png" alt="social_Distance2" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="advice_Image" src="resources/app/image/social_Distance3.png" alt="social_Distance3" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="active">
-                    <div class="collapsible-header">
-                        <h6>When and how to use masks</h6>
-                    </div>
-                    <div class="collapsible-body">
-                        <div class="row">
-                            <div class="col s12 m6">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="mask_Image" src="resources/app/image/use_Mask1.png" alt="use_Mask1" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m6">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="mask_Image" src="resources/app/image/use_Mask2.png" alt="use_Mask2" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 m6">
-                                <div class="card hoverable">
-                                    <div class="card-content">
-                                        <img class="mask_Image" src="resources/app/image/use_Mask3.png" alt="use_Mask3" srcset="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    -->
 
     <!--COVID-19 in World-->
     <div class="customContainer">
-        <h4 class="center-align">COVID-19 in World</h4>
+        <h4 class="center-align">COVID-19 in Global</h4>
         <div class="row">
             <ul class="collapsible popout">
                 <li>
@@ -580,6 +420,20 @@
     <script src="resources/app/js/global_Track_info.js"></script>
     <script src="resources/app/js/chart.js"></script>
     <script src="resources/app/js/index.js"></script>
+    <script>
+        window.onscroll = () => {
+          var toTop = document.getElementById("scrollTop");
+          window.scrollY > 500
+            ? (toTop.style.display = "Block")
+            : (toTop.style.display = "none");
+        }
+        function toTop() {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }
+    </script>
 
 </body>
 </html>
