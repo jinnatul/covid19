@@ -18,7 +18,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Coronavirus cases</h6>
-                        <h3 class="blue-text" id="total_cases_World">1933800</h3>
+                        <h3 class="blue-text" id="total_cases_World">2088648</h3>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Deaths</h6>
-                        <h3 class="red-text" id="total_deaths_World">120434</h3>
+                        <h3 class="red-text" id="total_deaths_World">134754</h3>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Recovered</h6>
-                        <h3 class="green-text" id="total_recovary_World">456539</h3>
+                        <h3 class="green-text" id="total_recovary_World">516008</h3>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Critical Cases</h6>
-                        <h3 class="cyan-text" id="total_critical_World">51143</h3>
+                        <h3 class="cyan-text" id="total_critical_World">51119</h3>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 <div class="card center-align hoverable">                 
                     <div class="card-content"> 
                         <h6>Coronavirus cases</h6>
-                        <h3 class="blue-text" id="total_cases_BD">1012</h3>
+                        <h3 class="blue-text" id="total_cases_BD">1231</h3>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Deaths</h6>
-                        <h3 class="red-text" id="total_deaths_BD">46</h3>
+                        <h3 class="red-text" id="total_deaths_BD">50</h3>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Recovered</h6>
-                        <h3 class="green-text" id="total_recovary_BD">42</h3>
+                        <h3 class="green-text" id="total_recovary_BD">49</h3>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Total Tests</h6>
-                        <h3 class="cyan-text" id="total_test_BD">13128</h3>
+                        <h3 class="cyan-text" id="total_test_BD">14868</h3>
                     </div>
                 </div>
             </div>
@@ -99,6 +99,17 @@
 
     <!--Charts-->
     <div class="customContainer">
+         <!--Total COVID-19 Info-->
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card hoverable">
+                    <div class="card-content">
+                        <div class="card chart_Design" id="chart_covid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <!--Pie Chart-->
             <div class="col s12 m6">
@@ -118,17 +129,6 @@
                 </div>
             </div>
         </div>
-
-        <!--Spline Chart Daily Positives-->
-        <div class="row">
-            <div class="col s12 m12">
-                <div class="card hoverable">
-                    <div class="card-content">
-                        <div class="card chart_Design" id="chart_spline"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
     
         <div class="row">
             <!--Line Chart Daily Deaths-->
@@ -140,11 +140,11 @@
                 </div>
             </div>
 
-            <!--Bar Chart Total corona cases-->
+            <!--Spline Chart Daily Positives-->
             <div class="col s12 m6">
                 <div class="card hoverable">
                     <div class="card-content">
-                        <div class="card chart_Design" id="chart_bar"></div>
+                        <div class="card chart_Design" id="chart_spline"></div>
                     </div>
                 </div>
             </div>
@@ -357,7 +357,7 @@
         </div>
     </div>
 
-    <!--Public Advice-->
+    <!--Public Advice
     <div class="customContainer">
         <h4 class="center-align">Advice for Public (WHO)</h4>
         <div class="row">
@@ -530,37 +530,44 @@
             </ul>
         </div>
     </div>
+    -->
 
-
-    <!--COVID-19 6 Continent Records-->
+    <!--COVID-19 in World-->
     <div class="customContainer">
+        <h4 class="center-align">COVID-19 in World</h4>
         <div class="row">
-            <h4 class="center-align">COVID-19 in 6 Continents</h4>
-        </div>
-        <div class="col s12 l8 m8 scrollable">
-            <div id="Info_6_continent_ID"></div>
-        </div>
-    </div>
-
-
-     <!--COVID-19 Top 10 Danger Country Records-->
-     <div class="customContainer">
-        <div class="row">
-            <h4 class="center-align">COVID-19 in Top 10 Danger Countries</h4>
-        </div>
-        <div class="col s12 l8 m8 scrollable">
-            <div id="Info_Top_10_country_ID"></div>
-        </div>
-    </div>
-
-
-    <!--COVID-19 Global Records-->
-    <div class="customContainer">
-        <div class="row">
-            <h4 class="center-align">COVID-19 in Global / World</h4>
-        </div>
-        <div class="col s12 l8 m8 scrollable">
-            <div id="Info_Global_Track_ID"></div>
+            <ul class="collapsible popout">
+                <li>
+                    <div class="collapsible-header">
+                        <h6>6 Continents</h6>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="col s12 l12 m12 scrollable">
+                            <div id="Info_6_continent_ID"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <h6>Top 10 Danger Countries</h6>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="col s12 l12 m12 scrollable">
+                            <div id="Info_Top_10_country_ID"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <h6>Global</h6>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="col s12 l12 m12 scrollable">
+                            <div id="Info_Global_Track_ID"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 
