@@ -72,10 +72,10 @@ var data = {
     //Rangpur Division
     Gaibandha_District:centered+ "Gaibandha<br>Positive: 6<br>Death: ",
     Rangpur_District: centered+"Rangpur<br>Positive: 2<br>Death: ",
-    Dinajpur_District: centered+"Dinajpur<br>Positive: <br>Death: ",
+    Dinajpur_District: centered+"Dinajpur<br>Positive: 8<br>Death: ",
     Kurigram_District:centered+ "Kurigram<br>Positive: <br>Death: ",
     Lalmonirhat_District:centered+ "Lalmonirhat<br>Positive: 1<br>Death: ",
-    Nilphamari_District:centered+ "Nilphamari<br>Positive: 3<br>Death: ",
+    Nilphamari_District:centered+ "Nilphamari<br>Positive: 6<br>Death: ",
     Thakurgaon_District: centered+"Thakurgaon<br>Positive: 3<br>Death: ",
     Panchaghar_District: centered+"Panchaghar<br>Positive: <br>Death: "
 }

@@ -5,6 +5,7 @@ $(function() {
     $.get(apiURL, function() {})
         .done(function(res) {
             set_Info(res);
+            console.log(res)
         })
 })
 
@@ -68,6 +69,10 @@ function set_Info(res) {
             $('#total_deaths_BD').text(res[index]["deaths"])
             $('#total_recovary_BD').text(res[index]["recovered"])
             $('#total_test_BD').text(res[index]["totalTests"])
+            $('#today_cases_BD').text(res[index]["todayCases"])
+            $('#today_deaths_BD').text(res[index]["todayDeaths"])
+            $('#active_BD').text(res[index]["active"])
+            $('#casesPerOneMillion_BD').text(res[index]["casesPerOneMillion"])
         }
     }
     Info_Continent_Table += "</table>";

@@ -9,6 +9,7 @@ window.addEventListener("load", function() {
     $(svgObject.querySelector('#Nilphamari_District')).css("fill", "red");
     $(svgObject.querySelector('#Lalmonirhat_District')).css("fill", "red");
     $(svgObject.querySelector('#Rangpur_District')).css("fill", "red");
+    $(svgObject.querySelector('#Dinajpur_District')).css("fill", "red");
     $(svgObject.querySelector('#Gaibandha_District')).css("fill", "red");
     $(svgObject.querySelector('#Rajshahi_District')).css("fill", "red");
     $(svgObject.querySelector('#Jamalpur_District')).css("fill", "red");
