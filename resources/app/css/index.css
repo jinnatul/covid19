@@ -27,3 +27,18 @@
 .navFontSize {
     font-size: large;
 }
+
+#logoImage {
+    height: 60px;
+    width: 60px;
+    margin: 2px 15px;
+}
+
+#cpa-logo {
+    font-family: "Google Sans", sans-serif;
+    font-size: 25px;
+    margin-top: 2px;
+    margin-left: 10px;
+    color: #ffffff;
+  }
+  
