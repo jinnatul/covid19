@@ -7,6 +7,7 @@ $(function() {
             set_Info(res);
             console.log(res)
         })
+    Counter();
 })
 
 function set_Info(res) {
@@ -82,4 +83,22 @@ function set_Info(res) {
     $("#Info_6_continent_ID").html(Info_Continent_Table);
     $("#Info_Top_10_country_ID").html(Info_Top_10_Country_Table);
     $("#Info_Global_Track_ID").html(Info_Global_Table);
+}
+
+function Counter() {
+    $(".count").each(function () {
+        $(this).prop("Counter", 0)
+            .animate(
+            {
+              Counter: $(this).text(),
+            },
+            {
+                duration: 1000,
+                easing: "swing",
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                },
+            }
+        );
+    });
 }
