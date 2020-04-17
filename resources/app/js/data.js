@@ -1,81 +1,163 @@
 var centered = "<center>"
 
-var data = {
-    //Sylhet Division
-    Moulvibazar_District: centered+ "Moulvibazar<br>Positive: 1<br>Death: ",
-    Sylhet_District:centered+ "Sylhet<br>Positive: 1<br>Death: ",
-    Sunamganj_District:centered+ "Sunamganj<br>Positive: 1<br>Death: ",
-    Habiganj_District: centered+"Habiganj<br>Positive: 1<br>Death: ",
+let positiveNumbers = [];
 
+//Dhaka Division
+positiveNumbers.push(6);
+positiveNumbers.push(33);
+positiveNumbers.push(9);
+positiveNumbers.push(5);
+positiveNumbers.push(12);
+positiveNumbers.push(9);
+positiveNumbers.push(98);
+positiveNumbers.push(636);
+positiveNumbers.push(255);
+positiveNumbers.push(64);
+positiveNumbers.push(26);
+positiveNumbers.push(6);
+positiveNumbers.push(2);
+positiveNumbers.push(23);
+positiveNumbers.push(17);
+positiveNumbers.push(7);
+positiveNumbers.push(5);
+
+//Chittagong Division
+positiveNumbers.push(0);
+positiveNumbers.push(1);
+positiveNumbers.push(36);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(2);
+positiveNumbers.push(1);
+positiveNumbers.push(7);
+positiveNumbers.push(14);
+positiveNumbers.push(8);
+
+//Barisal Division
+positiveNumbers.push(0);
+positiveNumbers.push(1);
+positiveNumbers.push(4);
+positiveNumbers.push(3);
+positiveNumbers.push(4);
+positiveNumbers.push(12);
+
+//Khulna Division
+positiveNumbers.push(0);
+positiveNumbers.push(1);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(1);
+positiveNumbers.push(0);
+positiveNumbers.push(1);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+
+//Rajshahi Division
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(0);
+positiveNumbers.push(3);
+
+//Rangpur Division
+positiveNumbers.push(13);
+positiveNumbers.push(3);
+positiveNumbers.push(8);
+positiveNumbers.push(2);
+positiveNumbers.push(2);
+positiveNumbers.push(6);
+positiveNumbers.push(3);
+positiveNumbers.push(0);
+
+//Sylhet Division
+positiveNumbers.push(2);
+positiveNumbers.push(3);
+positiveNumbers.push(1);
+positiveNumbers.push(1);
+
+
+var data = {
+    
     //Dhaka Division
-    Netrokona_District: centered+"Netrokona<br>Positive: 1<br>Death: ",
-    Kishorganj_District: centered+"Kishorganj<br>Positive: 10<br>Death: ",
-    Mymansingh_District: centered+"Mymansingh<br>Positive: 6<br>Death: ",
-    Sherpur_District: centered+"Sherpur<br>Positive: 2<br>Death: ",
-    Jamalpur_District: centered+"Jamalpur<br>Positive: 6<br>Death: ",
-    Tangail_District: centered+"Tangail<br>Positive: 7<br>Death: ",
-    Gazipur_District: centered+"Gazipur<br>Positive: 35<br>Death: ",
-    Dhaka_District: centered+"Dhaka<br>Positive: 407<br>Death: ",
-    Narayanganj_District: centered+"Narayanganj<br>Positive: 144<br>Death: ",
-    Narshingdi_District: centered+"Narshingdi<br>Positive: 20<br>Death: ",
-    Munshiganj_District: centered+"Munshiganj<br>Positive: 17<br>Death: ",
-    Shariatpur_District: centered+"Shariatpur<br>Positive: 1<br>Death: ",
-    Faridpur_District: centered+"Faridpur<br>Positive: <br>Death: ",
-    Madaripur_District: centered+"Madaripur<br>Positive: 19<br>Death: ",
-    Gopalganj_District: centered+"Gopalganj<br>Positive:16<br>Death: ",
-    Rajbari_District: centered+"Rajbari<br>Positive: 6<br>Death: ",
-    Manikganj_District: centered+"Manikganj<br>Positive: 5<br>Death: ",
+    Netrokona_District: centered+"Netrokona<br>Positive: "+positiveNumbers[0]+"<br>Death: ",
+    Kishorganj_District: centered+"Kishorganj<br>Positive: "+positiveNumbers[1]+"<br>Death: ",
+    Mymansingh_District: centered+"Mymansingh<br>Positive: "+positiveNumbers[2]+"<br>Death: ",
+    Sherpur_District: centered+"Sherpur<br>Positive: "+positiveNumbers[3]+"<br>Death: ",
+    Jamalpur_District: centered+"Jamalpur<br>Positive: "+positiveNumbers[4]+"<br>Death: ",
+    Tangail_District: centered+"Tangail<br>Positive: "+positiveNumbers[5]+"<br>Death: ",
+    Gazipur_District: centered+"Gazipur<br>Positive: "+positiveNumbers[6]+"<br>Death: ",
+    Dhaka_District: centered+"Dhaka<br>Positive: "+positiveNumbers[7]+"<br>Death: ",
+    Narayanganj_District: centered+"Narayanganj<br>Positive: "+positiveNumbers[8]+"<br>Death: ",
+    Narshingdi_District: centered+"Narshingdi<br>Positive: "+positiveNumbers[9]+"<br>Death: ",
+    Munshiganj_District: centered+"Munshiganj<br>Positive: "+positiveNumbers[10]+"<br>Death: ",
+    Shariatpur_District: centered+"Shariatpur<br>Positive: "+positiveNumbers[11]+"<br>Death: ",
+    Faridpur_District: centered+"Faridpur<br>Positive: "+positiveNumbers[12]+"<br>Death: ",
+    Madaripur_District: centered+"Madaripur<br>Positive: "+positiveNumbers[13]+"<br>Death: ",
+    Gopalganj_District: centered+"Gopalganj<br>Positive:"+positiveNumbers[14]+"<br>Death: ",
+    Rajbari_District: centered+"Rajbari<br>Positive: "+positiveNumbers[15]+"<br>Death: ",
+    Manikganj_District: centered+"Manikganj<br>Positive: "+positiveNumbers[16]+"<br>Death: ",
 
     //Chittagong Division
-    Bandarban_District: centered+"Bandarban<br>Positive: <br>Death: ",
-    CoxsBazar_District: centered+"Cox's Bazar<br>Positive: 1<br>Death: ",
-    Chittagong_District: centered+"Chittagong<br>Positive: 18<br>Death: ",
-    Rangamati_District: centered+"Rangamati<br>Positive: <br>Death: ",
-    Khagrachari_District: centered+"Khagrachari<br>Positive: <br>Death: ",
-    Feni_District: centered+"Feni<br>Positive: <br>Death: ",
-    Noakhali_District: centered+"Noakhali<br>Positive: <br>Death: ",
-    Lakshmipur_District: centered+"Lakshmipur<br>Positive: 1<br>Death: ",
-    Chandpur_District: centered+"Chandpur<br>Positive: 6<br>Death: ",
-    Comilla_District: centered+"Comilla<br>Positive: 9<br>Death: ",
-    Brahmanbaria_District: centered+"Brahmanbaria<br>Positive: 6<br>Death: ",
+    Bandarban_District: centered+"Bandarban<br>Positive: "+positiveNumbers[17]+"<br>Death: ",
+    CoxsBazar_District: centered+"Cox's Bazar<br>Positive: "+positiveNumbers[18]+"<br>Death: ",
+    Chittagong_District: centered+"Chittagong<br>Positive: "+positiveNumbers[19]+"<br>Death: ",
+    Rangamati_District: centered+"Rangamati<br>Positive: "+positiveNumbers[20]+"<br>Death: ",
+    Khagrachari_District: centered+"Khagrachari<br>Positive: "+positiveNumbers[21]+"<br>Death: ",
+    Feni_District: centered+"Feni<br>Positive: "+positiveNumbers[22]+"<br>Death: ",
+    Noakhali_District: centered+"Noakhali<br>Positive: "+positiveNumbers[23]+"<br>Death: ",
+    Lakshmipur_District: centered+"Lakshmipur<br>Positive: "+positiveNumbers[24]+"<br>Death: ",
+    Chandpur_District: centered+"Chandpur<br>Positive: "+positiveNumbers[25]+"<br>Death: ",
+    Comilla_District: centered+"Comilla<br>Positive: "+positiveNumbers[26]+"<br>Death: ",
+    Brahmanbaria_District: centered+"Brahmanbaria<br>Positive: "+positiveNumbers[27]+"<br>Death: ",
 
     //Barisal Division
-    Bhola_District: centered+"Bhola<br>Positive: <br>Death: ",
-    Patuakhali_District: centered+"Patuakhali<br>Positive: 1<br>Death: ",
-    Barguna_District: centered+"Barguna<br>Positive: 3<br>Death: ",
-    Jhalokhati_District: centered+"Jhalokhati<br>Positive: 3<br>Death: ",
-    Pirojpur_District: centered+"Pirojpur<br>Positive: <br>Death: ",
-    Barisal_District: centered+"Barisal<br>Positive: 7<br>Death: ",
+    Bhola_District: centered+"Bhola<br>Positive: "+positiveNumbers[28]+"<br>Death: ",
+    Patuakhali_District: centered+"Patuakhali<br>Positive: "+positiveNumbers[29]+"<br>Death: ",
+    Barguna_District: centered+"Barguna<br>Positive: "+positiveNumbers[30]+"<br>Death: ",
+    Jhalokhati_District: centered+"Jhalokhati<br>Positive: "+positiveNumbers[31]+"<br>Death: ",
+    Pirojpur_District: centered+"Pirojpur<br>Positive: "+positiveNumbers[32]+"<br>Death: ",
+    Barisal_District: centered+"Barisal<br>Positive: "+positiveNumbers[33]+"<br>Death: ",
 
     //Khulna Division
-    Bagerhat_District:centered+ "Bagerhat<br>Positive: <br>Death: ",
-    Khulna_District:centered+ "Khulna<br>Positive: <br>Death: ",
-    Satkhira_District:centered+ "Satkhira<br>Positive: <br>Death: ",
-    Jessore_District: centered+"Jessore<br>Positive: <br>Death: ",
-    Magura_District: centered+"Magura<br>Positive: <br>Death: ",
-    Narail_District: centered+"Narail<br>Positive: <br>Death: ",
-    Jhenaidah_District: centered+"Jhenaidah<br>Positive: <br>Death: ",
-    Chuadanga_District: centered+"Chuadanga<br>Positive: 1<br>Death: ",
-    Meherpur_District: centered+"Meherpur<br>Positive: <br>Death: ",
-    Kushtia_District: centered+"Kushtia<br>Positive: <br>Death: ",
+    Bagerhat_District:centered+ "Bagerhat<br>Positive: "+positiveNumbers[34]+"<br>Death: ",
+    Khulna_District:centered+ "Khulna<br>Positive: "+positiveNumbers[35]+"<br>Death: ",
+    Satkhira_District:centered+ "Satkhira<br>Positive: "+positiveNumbers[36]+"<br>Death: ",
+    Jessore_District: centered+"Jessore<br>Positive: "+positiveNumbers[37]+"<br>Death: ",
+    Magura_District: centered+"Magura<br>Positive: "+positiveNumbers[38]+"<br>Death: ",
+    Narail_District: centered+"Narail<br>Positive: "+positiveNumbers[39]+"<br>Death: ",
+    Jhenaidah_District: centered+"Jhenaidah<br>Positive: "+positiveNumbers[40]+"<br>Death: ",
+    Chuadanga_District: centered+"Chuadanga<br>Positive: "+positiveNumbers[41]+"<br>Death: ",
+    Meherpur_District: centered+"Meherpur<br>Positive: "+positiveNumbers[42]+"<br>Death: ",
+    Kushtia_District: centered+"Kushtia<br>Positive: "+positiveNumbers[43]+"<br>Death: ",
 
     //Rajshahi Division
-    Pabna_District: centered+"Pabna<br>Positive: <br>Death: ",
-    Natore_District:centered+ "Natore<br>Positive: <br>Death: ",
-    Sirajganj_District: centered+"Sirajganj<br>Positive: <br>Death: ",
-    Bogra_District: centered+"Bogra<br>Positive: <br>Death: ",
-    Joypurhat_District: centered+"Joypurhat<br>Positive: <br>Death: ",
-    Naogaon_District: centered+"Naogaon<br>Positive: <br>Death: ",
-    Nawabganj_District: centered+"Chapai Nawabganj<br>Positive: <br>Death: ",
-    Rajshahi_District: centered+"Rajshahi<br>Positive: 2<br>Death: ",
+    Pabna_District: centered+"Pabna<br>Positive: "+positiveNumbers[44]+"<br>Death: ",
+    Natore_District:centered+ "Natore<br>Positive: "+positiveNumbers[45]+"<br>Death: ",
+    Sirajganj_District: centered+"Sirajganj<br>Positive: "+positiveNumbers[46]+"<br>Death: ",
+    Bogra_District: centered+"Bogra<br>Positive: "+positiveNumbers[47]+"<br>Death: ",
+    Joypurhat_District: centered+"Joypurhat<br>Positive: "+positiveNumbers[48]+"<br>Death: ",
+    Naogaon_District: centered+"Naogaon<br>Positive: "+positiveNumbers[49]+"<br>Death: ",
+    Nawabganj_District: centered+"Chapai Nawabganj<br>Positive: "+positiveNumbers[50]+"<br>Death: ",
+    Rajshahi_District: centered+"Rajshahi<br>Positive: "+positiveNumbers[51]+"<br>Death: ",
 
     //Rangpur Division
-    Gaibandha_District:centered+ "Gaibandha<br>Positive: 6<br>Death: ",
-    Rangpur_District: centered+"Rangpur<br>Positive: 2<br>Death: ",
-    Dinajpur_District: centered+"Dinajpur<br>Positive: 8<br>Death: ",
-    Kurigram_District:centered+ "Kurigram<br>Positive: <br>Death: ",
-    Lalmonirhat_District:centered+ "Lalmonirhat<br>Positive: 1<br>Death: ",
-    Nilphamari_District:centered+ "Nilphamari<br>Positive: 6<br>Death: ",
-    Thakurgaon_District: centered+"Thakurgaon<br>Positive: 3<br>Death: ",
-    Panchaghar_District: centered+"Panchaghar<br>Positive: <br>Death: "
+    Gaibandha_District:centered+ "Gaibandha<br>Positive: "+positiveNumbers[52]+"<br>Death: ",
+    Rangpur_District: centered+"Rangpur<br>Positive: "+positiveNumbers[53]+"<br>Death: ",
+    Dinajpur_District: centered+"Dinajpur<br>Positive: "+positiveNumbers[54]+"<br>Death: ",
+    Kurigram_District:centered+ "Kurigram<br>Positive: "+positiveNumbers[55]+"<br>Death: ",
+    Lalmonirhat_District:centered+ "Lalmonirhat<br>Positive: "+positiveNumbers[56]+"<br>Death: ",
+    Nilphamari_District:centered+ "Nilphamari<br>Positive: "+positiveNumbers[57]+"<br>Death: ",
+    Thakurgaon_District: centered+"Thakurgaon<br>Positive: "+positiveNumbers[58]+"<br>Death: ",
+    Panchaghar_District: centered+"Panchaghar<br>Positive: "+positiveNumbers[59]+"<br>Death: ",
+
+    //Sylhet Division
+    Moulvibazar_District: centered+ "Moulvibazar<br>Positive: "+positiveNumbers[60]+"<br>Death: ",
+    Sylhet_District:centered+ "Sylhet<br>Positive: "+positiveNumbers[61]+"<br>Death: ",
+    Sunamganj_District:centered+ "Sunamganj<br>Positive: "+positiveNumbers[62]+"<br>Death: ",
+    Habiganj_District: centered+"Habiganj<br>Positive: "+positiveNumbers[63]+"<br>Death: "
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='shortcut icon' type='image/x-icon' href='resources/app/image/favicon.ico' />
     <title>covid19_Tracker</title>
     
     <link rel="stylesheet" href="resources/lib/materialize/css/materialize.min.css">
@@ -16,7 +17,8 @@
         <div class="navbar-fixed">
             <nav>
               <div class="nav-wrapper green lighten-1">
-                <a href="#home"><img id="logoImage" src="resources/app/image/covid19.png" alt="logo" srcset=""></a>
+                <a href="#home"><img  class="left" id="logoImage" src="resources/app/image/covid19.png" alt="logo" srcset=""><span style="color: black; font-size: xx-large;">COVID-19</span></a>
+                
                 <ul class="right hide-on-med-and-down">
                   <li><a class="navFontSize" href="#home">Home</a></li>
                   <li><a class="navFontSize" href="#bangladesh">Bangladesh</a></li>
@@ -34,9 +36,9 @@
     <!--Marquee session-->
     <div>
         <marquee behavior="scroll" direction="left" onmousedown="this.stop();" onmouseup="this.start()">
-            <h6>COVID19_Tracker provide live COVID-19 information about Bangladesh and World. Update Time: (16/04/2020: 11.20pm) 
+            <h6>COVID19_Tracker provide live COVID-19 information about Bangladesh and World. Update Time: (19/04/2020: 03.20pm) 
                 World--> Coronavirus cases: 2129355, Deaths: 142707, Recovered: 539000, Critical Cases: 57237. 
-                Bangladesh--> Coronavirus cases: 1572, Deaths: 60, Recovered: 49, Total Tests: 17003
+                Bangladesh--> Coronavirus cases: 1838, Deaths: 75, Recovered: 58, Total Tests: 19193
             </h6>
         </marquee>
     </div>
@@ -99,7 +101,7 @@
                 <div class="card center-align hoverable">                 
                     <div class="card-content"> 
                         <h6>Coronavirus cases</h6>
-                        <h3 class="blue-text" id="total_cases_BD">1572</h3>
+                        <h3 class="blue-text" id="total_cases_BD">1838</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +109,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Deaths</h6>
-                        <h3 class="red-text" id="total_deaths_BD">60</h3>
+                        <h3 class="red-text" id="total_deaths_BD">75</h3>
                     </div>
                 </div>
             </div>
@@ -115,7 +117,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Recovered</h6>
-                        <h3 class="green-text" id="total_recovary_BD">49</h3>
+                        <h3 class="green-text" id="total_recovary_BD">58</h3>
                     </div>
                 </div>
             </div>
@@ -123,7 +125,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Total Tests</h6>
-                        <h3 class="cyan-text" id="total_test_BD">17003</h3>
+                        <h3 class="cyan-text" id="total_test_BD">19193</h3>
                     </div>
                 </div>
             </div>
@@ -131,7 +133,7 @@
                 <div class="card center-align hoverable">                 
                     <div class="card-content"> 
                         <h6>Last 24 Hour cases</h6>
-                        <h3 class="blue-text" id="today_cases_BD">341</h3>
+                        <h3 class="blue-text" id="today_cases_BD">266</h3>
                     </div>
                 </div>
             </div>
@@ -139,7 +141,7 @@
                 <div class="card center-align hoverable">           
                     <div class="card-content"> 
                         <h6>Last 24 Hour Deaths</h6>
-                        <h3 class="red-text" id="today_deaths_BD">10</h3>
+                        <h3 class="red-text" id="today_deaths_BD">15</h3>
                     </div>
                 </div>
             </div>
@@ -179,6 +181,13 @@
             <div class="card">
                 <div class="card-content">
                     <p id ="each_District"></p>
+                    <div>
+                        <img class="left" src="resources/app/image/green.png" alt="green" srcset=""><h6 style="margin: 2rem;">Free Area</h6>
+                    </div>
+                    <div>
+                        <img  class="left" src="resources/app/image/red.png" alt="red" srcset=""><h6 style="margin: 2rem;">Affected by COVID-19</h6>
+                    </div>
+                    
                     <iframe 
                         src="resources/app/image/bdmap.svg" 
                         id = "district_Map" 

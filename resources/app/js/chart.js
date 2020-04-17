@@ -71,14 +71,14 @@ function Division_Dhaka_Info() {
             indexLabelFontSize: 16,
             indexLabel:  "{y}",
             dataPoints: [
-                { y: 529, label: "Dhaka" },
-                { y: 33, label: "Chattagram" },
-                { y: 15, label: "Rangpur" },
-                { y: 14, label: "Mymensingh" },
-                { y: 3, label: "Sylhet" },
-                { y: 7, label: "Barishal" },
-                { y: 1, label: "Khulna" },
-                { y: 2, label: "Rajshahi" } 
+                { y: 1181, label: "Dhaka" },
+                { y: 69, label: "Chattagram" },
+                { y: 37, label: "Rangpur" },
+                { y: 32, label: "Mymensingh" },
+                { y: 24, label: "Barishal" },
+                { y: 7, label: "Sylhet" },
+                { y: 3, label: "Rajshahi" },
+                { y: 3, label: "Khulna" }           
             ]
         }]
     });
@@ -213,7 +213,7 @@ function setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered
             name: "Infected",
             showInLegend: true,
             legendMarkerType: "circle",
-            type: "area",
+            type: "spline",
             color: "#64b5f6",
             markerSize: 0,
             dataPoints: covid_Infected_Array,
@@ -222,7 +222,7 @@ function setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered
             name: "Deaths",
             showInLegend: true,
             legendMarkerType: "circle",
-            type: "area",
+            type: "spline",
             color: "#d50000",
             markerSize: 0,
             dataPoints: covid_Deaths_Array,
@@ -231,7 +231,7 @@ function setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered
             name: "Recovered",
             showInLegend: true,
             legendMarkerType: "circle",
-            type: "area",
+            type: "spline",
             color: "#43a047",
             markerSize: 0,
             dataPoints: covid_Recovered_Array,
@@ -397,7 +397,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 3, 13), y:  803 },
                 { x: new Date(2020, 3, 14), y:  1012 },
                 { x: new Date(2020, 3, 15), y:  1231 },
-                { x: new Date(2020, 3, 16), y:  1572 }
+                { x: new Date(2020, 3, 16), y:  1572 },
+                { x: new Date(2020, 3, 17), y:  1838 }
             ],
           },
           {
@@ -447,7 +448,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 13), y: 39 },
                 { x: new Date(2020, 03, 14), y: 46 },
                 { x: new Date(2020, 03, 15), y: 50 },
-                { x: new Date(2020, 03, 16), y: 60 }
+                { x: new Date(2020, 03, 16), y: 60 },
+                { x: new Date(2020, 03, 17), y: 75 }
             ],
           },
           {
@@ -497,7 +499,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 13), y: 42 },
                 { x: new Date(2020, 03, 14), y: 42 },
                 { x: new Date(2020, 03, 15), y: 49 },
-                { x: new Date(2020, 03, 16), y: 49 }
+                { x: new Date(2020, 03, 16), y: 49 },
+                { x: new Date(2020, 03, 17), y: 58 }
             ],
           },
         ],
@@ -524,9 +527,9 @@ function API_Fail_Then_loadData() {
             toolTipContent: "<b>{name}</b>: {y} (#percent%)",
             indexLabel: "{name} - #percent%",
             dataPoints: [
-                { y: 1572, name: "Coronavirus cases" },
-                { y: 60, name: "Deaths" },
-                { y: 49, name: "Recovered" }
+                { y: 1838, name: "Coronavirus cases" },
+                { y: 75, name: "Deaths" },
+                { y: 58, name: "Recovered" }
              ]
         }]
     });
@@ -590,7 +593,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 3, 13), y:  182 },
                 { x: new Date(2020, 3, 14), y:  209 },
                 { x: new Date(2020, 3, 15), y:  219 },
-                { x: new Date(2020, 3, 16), y:  341 }
+                { x: new Date(2020, 3, 16), y:  341 },
+                { x: new Date(2020, 3, 17), y:  266 }
             ]
         }]
     });
@@ -655,7 +659,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 13), y: 5 },
                 { x: new Date(2020, 03, 14), y: 7 },
                 { x: new Date(2020, 03, 15), y: 4 },
-                { x: new Date(2020, 03, 16), y: 10 }
+                { x: new Date(2020, 03, 16), y: 10 },
+                { x: new Date(2020, 03, 17), y: 15 }
             ]
         }]
     });

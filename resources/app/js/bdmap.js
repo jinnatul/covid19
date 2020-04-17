@@ -5,11 +5,25 @@ window.addEventListener("load", function() {
     var svgObject = document.getElementById('district_Map').contentDocument;
     var svgSelector = svgObject.querySelector('.country');
 
+    console.log(data["Netrokona_District"]);
+    let each = data["Netrokona_District"];
+
+    //if (each.search("7")) console.log("yes");
+    //else console.log("no");
+
+    console.log(positiveNumbers.length);
+
     $(svgObject.querySelector('#Thakurgaon_District')).css("fill", "red");
     $(svgObject.querySelector('#Nilphamari_District')).css("fill", "red");
     $(svgObject.querySelector('#Lalmonirhat_District')).css("fill", "red");
     $(svgObject.querySelector('#Rangpur_District')).css("fill", "red");
     $(svgObject.querySelector('#Dinajpur_District')).css("fill", "red");
+    $(svgObject.querySelector('#Kurigram_District')).css("fill", "red");
+    $(svgObject.querySelector('#Faridpur_District')).css("fill", "red");
+    $(svgObject.querySelector('#Noakhali_District')).css("fill", "red");
+    $(svgObject.querySelector('#Pirojpur_District')).css("fill", "red");
+    $(svgObject.querySelector('#Narail_District')).css("fill", "red");
+    $(svgObject.querySelector('#Khulna_District')).css("fill", "red");
     $(svgObject.querySelector('#Gaibandha_District')).css("fill", "red");
     $(svgObject.querySelector('#Rajshahi_District')).css("fill", "red");
     $(svgObject.querySelector('#Jamalpur_District')).css("fill", "red");
@@ -57,7 +71,7 @@ window.addEventListener("load", function() {
         }
 
         eachDistrict.style.display = 'block';
-        $(eachDistrict).css('top', event.pageY - 30);
+        $(eachDistrict).css('top', event.pageY + 10);
         $(eachDistrict).css('left', event.pageX + 10);
 
     });
