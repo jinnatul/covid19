@@ -1,88 +1,151 @@
-var centered = "<center>"
-
 let positiveNumbers = [];
+let districtName = [];
 
 //Dhaka Division
-positiveNumbers.push(6); //Netrokona_District
-positiveNumbers.push(33); //Kishorganj_District
-positiveNumbers.push(9); //Mymansingh_District
-positiveNumbers.push(5); //Sherpur_District
-positiveNumbers.push(12); //Jamalpur_District
-positiveNumbers.push(9); //Tangail_District
-positiveNumbers.push(98); //Gazipur_District
-positiveNumbers.push(636); //Dhaka_District
-positiveNumbers.push(255); //Narayanganj_District
-positiveNumbers.push(64); //Narshingdi_District
-positiveNumbers.push(26); //Munshiganj_District
-positiveNumbers.push(6); //Shariatpur_District
-positiveNumbers.push(2); //Faridpur_District
-positiveNumbers.push(23); //Madaripur_District
-positiveNumbers.push(17); //Gopalganj_District
-positiveNumbers.push(7); //Rajbari_District
-positiveNumbers.push(5); //Manikganj_District
+districtName.push("Netrokona_District");
+positiveNumbers.push(6);
+districtName.push("Kishorganj_District");
+positiveNumbers.push(33); 
+districtName.push("Mymansingh_District");
+positiveNumbers.push(9); 
+districtName.push("Sherpur_District");
+positiveNumbers.push(5); 
+districtName.push("Jamalpur_District");
+positiveNumbers.push(12); 
+districtName.push("Tangail_District");
+positiveNumbers.push(9); 
+districtName.push("Gazipur_District");
+positiveNumbers.push(98); 
+districtName.push("Dhaka_District");
+positiveNumbers.push(636); 
+districtName.push("Narayanganj_District");
+positiveNumbers.push(255); 
+districtName.push("Narshingdi_District");
+positiveNumbers.push(64); 
+districtName.push("Munshiganj_District");
+positiveNumbers.push(26); 
+districtName.push("Shariatpur_District");
+positiveNumbers.push(6); 
+districtName.push("Faridpur_District");
+positiveNumbers.push(2); 
+districtName.push("Madaripur_District");
+positiveNumbers.push(23); 
+districtName.push("Gopalganj_District");
+positiveNumbers.push(17); 
+districtName.push("Rajbari_District");
+positiveNumbers.push(7); 
+districtName.push("Manikganj_District");
+positiveNumbers.push(5); 
 
 //Chittagong Division
-positiveNumbers.push(0); //Bandarban_District
-positiveNumbers.push(1); //CoxsBazar_District
-positiveNumbers.push(36); //Chittagong_District
-positiveNumbers.push(0); //Rangamati_District
-positiveNumbers.push(0); //Khagrachari_District
-positiveNumbers.push(0); //Feni_District
-positiveNumbers.push(2); //Noakhali_District
-positiveNumbers.push(1); //Lakshmipur_District
-positiveNumbers.push(7); //Chandpur_District
-positiveNumbers.push(14); //Comilla_District
-positiveNumbers.push(8); //Brahmanbaria_District
+districtName.push("Bandarban_District");
+positiveNumbers.push(0); 
+districtName.push("CoxsBazar_District");
+positiveNumbers.push(1); 
+districtName.push("Chittagong_District");
+positiveNumbers.push(36); 
+districtName.push("Rangamati_District");
+positiveNumbers.push(0); 
+districtName.push("Khagrachari_District");
+positiveNumbers.push(0); 
+districtName.push("Feni_District");
+positiveNumbers.push(0); 
+districtName.push("Noakhali_District");
+positiveNumbers.push(2); 
+districtName.push("Lakshmipur_District");
+positiveNumbers.push(1); 
+districtName.push("Chandpur_District");
+positiveNumbers.push(7); 
+districtName.push("Comilla_District");
+positiveNumbers.push(14); 
+districtName.push("Brahmanbaria_District");
+positiveNumbers.push(8); 
 
 //Barisal Division
-positiveNumbers.push(0); //Bhola_District
-positiveNumbers.push(1); //Patuakhali_District
-positiveNumbers.push(4); //Barguna_District
-positiveNumbers.push(3); //Jhalokhati_District
-positiveNumbers.push(4); //Pirojpur_District
-positiveNumbers.push(12); //Barisal_District
+districtName.push("Bhola_District");
+positiveNumbers.push(0); 
+districtName.push("Patuakhali_District");
+positiveNumbers.push(1); 
+districtName.push("Barguna_District");
+positiveNumbers.push(4); 
+districtName.push("Jhalokhati_District");
+positiveNumbers.push(3); 
+districtName.push("Pirojpur_District");
+positiveNumbers.push(4); 
+districtName.push("Barisal_District");
+positiveNumbers.push(12); 
 
 //Khulna Division
-positiveNumbers.push(0); //Bagerhat_District
-positiveNumbers.push(1); //Khulna_District
-positiveNumbers.push(0); //Satkhira_District
-positiveNumbers.push(0); //Jessore_District
-positiveNumbers.push(0); //Magura_District
-positiveNumbers.push(1); //Narail_District
-positiveNumbers.push(0); //Jhenaidah_District
-positiveNumbers.push(1); //Chuadanga_District
-positiveNumbers.push(0); //Meherpur_District
-positiveNumbers.push(0); //Kushtia_District
+districtName.push("Bagerhat_District");
+positiveNumbers.push(0); 
+districtName.push("Khulna_District");
+positiveNumbers.push(1); 
+districtName.push("Satkhira_District");
+positiveNumbers.push(0); 
+districtName.push("Jessore_District");
+positiveNumbers.push(0); 
+districtName.push("Magura_District");
+positiveNumbers.push(0); 
+districtName.push("Narail_District");
+positiveNumbers.push(1); 
+districtName.push("Jhenaidah_District");
+positiveNumbers.push(0); 
+districtName.push("Chuadanga_District");
+positiveNumbers.push(1); 
+districtName.push("Meherpur_District");
+positiveNumbers.push(0); 
+districtName.push("Kushtia_District");
+positiveNumbers.push(0); 
 
 //Rajshahi Division
-positiveNumbers.push(0); //Pabna_District
-positiveNumbers.push(0); //Natore_District
-positiveNumbers.push(0); //Sirajganj_District
-positiveNumbers.push(0); //Bogra_District
-positiveNumbers.push(0); //Joypurhat_District
-positiveNumbers.push(0); //Naogaon_District
-positiveNumbers.push(0); //Nawabganj_District
-positiveNumbers.push(3); //Rajshahi_District
+districtName.push("Pabna_District");
+positiveNumbers.push(0); 
+districtName.push("Natore_District");
+positiveNumbers.push(0); 
+districtName.push("Sirajganj_District");
+positiveNumbers.push(0); 
+districtName.push("Bogra_District");
+positiveNumbers.push(0); 
+districtName.push("Joypurhat_District");
+positiveNumbers.push(0); 
+districtName.push("Naogaon_District");
+positiveNumbers.push(0); 
+districtName.push("Nawabganj_District");
+positiveNumbers.push(0); 
+districtName.push("Rajshahi_District");
+positiveNumbers.push(3); 
 
 //Rangpur Division
-positiveNumbers.push(13); //Gaibandha_District
-positiveNumbers.push(3); //Rangpur_District
-positiveNumbers.push(8); //Dinajpur_District
-positiveNumbers.push(2); //Kurigram_District
-positiveNumbers.push(2); //Lalmonirhat_District
-positiveNumbers.push(6); //Nilphamari_District
-positiveNumbers.push(3); //Thakurgaon_District
-positiveNumbers.push(0); //Panchaghar_District
+districtName.push("Gaibandha_District");
+positiveNumbers.push(13); 
+districtName.push("Rangpur_District");
+positiveNumbers.push(3); 
+districtName.push("Dinajpur_District");
+positiveNumbers.push(8); 
+districtName.push("Kurigram_District");
+positiveNumbers.push(2); 
+districtName.push("Lalmonirhat_District");
+positiveNumbers.push(2); 
+districtName.push("Nilphamari_District");
+positiveNumbers.push(6); 
+districtName.push("Thakurgaon_District");
+positiveNumbers.push(3); 
+districtName.push("Panchaghar_District");
+positiveNumbers.push(0); 
 
 //Sylhet Division
-positiveNumbers.push(2); //Moulvibazar_District
-positiveNumbers.push(3); //Sylhet_District
-positiveNumbers.push(1); //Sunamganj_District
-positiveNumbers.push(1); //Habiganj_District
+districtName.push("Moulvibazar_District");
+positiveNumbers.push(2); 
+districtName.push("Sylhet_District");
+positiveNumbers.push(3); 
+districtName.push("Sunamganj_District");
+positiveNumbers.push(1); 
+districtName.push("Habiganj_District");
+positiveNumbers.push(1); 
 
 
+var centered = "<center>";
 var data = {
-    
     //Dhaka Division
     Netrokona_District: centered+"Netrokona<br>Positive: "+positiveNumbers[0]+"<br>Death: ",
     Kishorganj_District: centered+"Kishorganj<br>Positive: "+positiveNumbers[1]+"<br>Death: ",
