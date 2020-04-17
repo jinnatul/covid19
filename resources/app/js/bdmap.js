@@ -35,7 +35,7 @@ window.addEventListener("load", function() {
 
         eachDistrict.style.display = 'block';
         $(eachDistrict).css('top', event.pageY + 250);
-        $(eachDistrict).css('left', event.pageX - 30);
+        $(eachDistrict).css('left', event.pageX - 60);
 
     });
     $(svgSelector).mouseleave(function(event) {
