@@ -32,6 +32,7 @@ window.onload = function () {
             
             setInfected_chart(covid_Positive_Daily);
             setDeath_chart(covid_Deaths_Daily);
+            setTestVsPositive(covid_Positive_Daily);
         })
         .fail(function () {
             API_Fail_Then_loadData();
