@@ -82,6 +82,7 @@ function Division_Dhaka_Info() {
             ]
         }]
     });
+    Chart_pie.render();
     
     // Column Chart Dhaka area cases
     var Chart_DhakaInfo = new CanvasJS.Chart("chart_column", {
@@ -177,9 +178,153 @@ function Division_Dhaka_Info() {
             ]
         }]
     });
-
-    Chart_pie.render();
     Chart_DhakaInfo.render();
+
+    //Column Chart Total Quarantine
+    var Chart_Quarantine = new CanvasJS.Chart("chart_Quarantine", {
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+            text:  "Total Quarantine in BD"
+        },
+        data: [{
+            type: "column",
+            startAngle: 25,
+            toolTipContent: "<b>{label}</b>: {y}",
+            showInLegend: "true",
+            legendText: "{label}",
+            indexLabelFontSize: 16,
+            indexLabel:  "{y}",
+            dataPoints: [
+                { y: 19003, label: "Dhaka" },
+                { y: 16459, label: "Chattagram" },
+                { y: 15171, label: "Khulna" },
+                { y: 8340, label: "Rajshahi" },
+                { y: 7114, label: "Rangpur" },
+                { y: 4726, label: "Sylhet" },
+                { y: 3443, label: "Barishal" },
+                { y: 3189, label: "Mymensingh" }
+            ]
+        }]
+    });
+    Chart_Quarantine.render();
+
+    //Doughnut Chart Total Quarantine Details
+    var Chart_Quarantine_Details = new CanvasJS.Chart("chart_Quarantine_Details", {
+        theme: "light1",
+        exportFileName: "Doughnut Chart",
+        exportEnabled: true,
+        animationEnabled: true,
+        title:{
+            text: "Quarantine Details"
+        },
+        legend:{
+            cursor: "pointer",
+            itemclick: explodePie
+        },
+        data: [{
+            type: "doughnut",
+            innerRadius: 90,
+            showInLegend: true,
+            toolTipContent: "<b>{name}</b>: {y} (#percent%)",
+            indexLabel: "{name} - #percent%",
+            dataPoints: [
+                { y: 36574, name: "Current Quarantine" },
+                { y: 66505, name: "Leave Quarantine" }
+            ]
+        }]
+    });
+    Chart_Quarantine_Details.render();
+
+    //Column Chart Total Medical Employee
+    var Chart_medical_Em = new CanvasJS.Chart("chart_medical_Em", {
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+            text:  "Total Medical Employee in BD"
+        },
+        data: [{
+            type: "column",
+            startAngle: 25,
+            toolTipContent: "<b>{label}</b>: {y}",
+            showInLegend: "true",
+            legendText: "{label}",
+            indexLabelFontSize: 16,
+            indexLabel:  "{y}",
+            dataPoints: [
+                { y: 107, label: "Dhaka_Doctor" },
+                { y: 130, label: "Chattagram_Doctor" },
+                { y: 66, label: "Khulna_Doctor" },
+                { y: 91, label: "Rajshahi_Doctor" },
+                { y: 61, label: "Rangpur_Doctor" },
+                { y: 78, label: "Sylhet_Doctor" },
+                { y: 39, label: "Barishal_Doctor" },
+                { y: 23, label: "Mymensingh_Doctor" }
+            ]
+        },
+        {
+            type: "column",
+            startAngle: 25,
+            toolTipContent: "<b>{label}</b>: {y}",
+            showInLegend: "true",
+            legendText: "{label}",
+            indexLabelFontSize: 16,
+            indexLabel:  "{y}",
+            dataPoints: [
+                { y: 83, label: "Dhaka_Nurse" },
+                { y: 98, label: "Chattagram_Nurse" },
+                { y: 67, label: "Khulna_Nurse" },
+                { y: 129, label: "Rajshahi_Nurse" },
+                { y: 48, label: "Rangpur_Nurse" },
+                { y: 82, label: "Sylhet_Nurse" },
+                { y: 24, label: "Barishal_Nurse" },
+                { y: 15, label: "Mymensingh_Nurse" }
+            ]
+        },
+        {
+            type: "column",
+            startAngle: 25,
+            toolTipContent: "<b>{label}</b>: {y}",
+            showInLegend: "true",
+            legendText: "{label}",
+            indexLabelFontSize: 16,
+            indexLabel:  "{y}",
+            dataPoints: [
+                { y: 16, label: "Dhaka_Medical_Technologist" },
+                { y: 30, label: "Chattagram_Medical_Technologist" },
+                { y: 23, label: "Khulna_Medical_Technologist" },
+                { y: 17, label: "Rajshahi_Medical_Technologist" },
+                { y: 16, label: "Rangpur_Medical_Technologist" },
+                { y: 8, label: "Sylhet_Medical_Technologist" },
+                { y: 7, label: "Barishal_Medical_Technologist" },
+                { y: 13, label: "Mymensingh_Medical_Technologist" }
+            ]
+        },
+        {
+            type: "column",
+            startAngle: 25,
+            toolTipContent: "<b>{label}</b>: {y}",
+            showInLegend: "true",
+            legendText: "{label}",
+            indexLabelFontSize: 16,
+            indexLabel:  "{y}",
+            dataPoints: [
+                { y: 28, label: "Dhaka_Staff" },
+                { y: 54, label: "Chattagram_Staff" },
+                { y: 39, label: "Khulna_Staff" },
+                { y: 95, label: "Rajshahi_Staff" },
+                { y: 33, label: "Rangpur_Staff" },
+                { y: 23, label: "Sylhet_Staff" },
+                { y: 18, label: "Barishal_Staff" },
+                { y: 14, label: "Mymensingh_Staff" }
+            ]
+        }
+    ]
+    });
+    Chart_medical_Em.render();
+
 }
 
 
