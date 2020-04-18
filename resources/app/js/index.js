@@ -11,7 +11,7 @@ $(function() {
         {
             scrollTop: $(this.hash).offset().top
         },
-        1000
+        2000
         );
     });
 })
