@@ -468,6 +468,128 @@ function Division_Dhaka_Info() {
     });
     Chart_Quarantine_Timeline.render();
 
+    //Daily Test vs Positive Cases
+    var Chart_TestVsPositive = new CanvasJS.Chart("chart_TestVsPositive", {
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+            text: "Daily Test vs Positive Cases",
+        },
+        axisX: {
+            valueFormatString: "DD MMM",
+        },
+        legend: {
+            verticalAlign: "top",
+            horizontalAlign: "right",
+            dockInsidePlotArea: true,
+        },
+        toolTip: {
+            shared: true,
+        },
+        data: [
+            {
+                name: "Tests",
+                showInLegend: true,
+                legendMarkerType: "circle",
+                type: "column",
+                color: "blue",
+                markerSize: 0,
+                dataPoints: [
+                    { x: new Date(2020, 2, 11), y:  16 },
+                    { x: new Date(2020, 2, 12), y:  24 },
+                    { x: new Date(2020, 2, 13), y:  24 },
+                    { x: new Date(2020, 2, 14), y:  30 },
+                    { x: new Date(2020, 2, 15), y:  27 },
+                    { x: new Date(2020, 2, 16), y:  25 },
+                    { x: new Date(2020, 2, 17), y:  49 },
+                    { x: new Date(2020, 2, 18), y:  39 },
+                    { x: new Date(2020, 2, 19), y:  46 },
+                    { x: new Date(2020, 2, 20), y:  36 },
+                    { x: new Date(2020, 2, 21), y:  36 },
+                    { x: new Date(2020, 2, 22), y:  65 },
+                    { x: new Date(2020, 2, 23), y:  56 },
+                    { x: new Date(2020, 2, 24), y:  92 },
+                    { x: new Date(2020, 2, 25), y:  82 },
+                    { x: new Date(2020, 2, 26), y:  126 },
+                    { x: new Date(2020, 2, 27), y:  106 },
+                    { x: new Date(2020, 2, 28), y:  50 },
+                    { x: new Date(2020, 2, 29), y:  109 },
+                    { x: new Date(2020, 2, 30), y:  153 },
+                    { x: new Date(2020, 2, 31), y:  140 },
+                    { x: new Date(2020, 3, 1), y:  157 },
+                    { x: new Date(2020, 3, 2), y:  141 },
+                    { x: new Date(2020, 3, 3), y:  203 },
+                    { x: new Date(2020, 3, 4), y:  434 },
+                    { x: new Date(2020, 3, 5), y:  367 },
+                    { x: new Date(2020, 3, 6), y:  468 },
+                    { x: new Date(2020, 3, 7), y:  792 },
+                    { x: new Date(2020, 3, 8), y:  981 },
+                    { x: new Date(2020, 3, 9), y:  1097 },
+                    { x: new Date(2020, 3, 10), y:  1184 },
+                    { x: new Date(2020, 3, 11), y:  954 },
+                    { x: new Date(2020, 3, 12), y:  1340 },
+                    { x: new Date(2020, 3, 13), y:  1570 },
+                    { x: new Date(2020, 3, 14), y:  1905 },
+                    { x: new Date(2020, 3, 15), y:  1740 },
+                    { x: new Date(2020, 3, 16), y:  2135 },
+                    { x: new Date(2020, 3, 17), y:  2190 }
+                ]
+            },
+            {
+                name: "Positive",
+                showInLegend: true,
+                legendMarkerType: "circle",
+                type: "column",
+                color: "#d50000",
+                markerSize: 0,
+                dataPoints: [
+                    { x: new Date(2020, 2, 08), y:  3 },
+                    { x: new Date(2020, 2, 09), y:  0 },
+                    { x: new Date(2020, 2, 10), y:  0 },
+                    { x: new Date(2020, 2, 11), y:  0 },
+                    { x: new Date(2020, 2, 12), y:  0 },
+                    { x: new Date(2020, 2, 13), y:  0 },
+                    { x: new Date(2020, 2, 14), y:  2 },
+                    { x: new Date(2020, 2, 15), y:  0 },
+                    { x: new Date(2020, 2, 16), y:  3 },
+                    { x: new Date(2020, 2, 17), y:  2 },
+                    { x: new Date(2020, 2, 18), y:  4 },
+                    { x: new Date(2020, 2, 19), y:  4 },
+                    { x: new Date(2020, 2, 20), y:  2 },
+                    { x: new Date(2020, 2, 21), y:  4 },
+                    { x: new Date(2020, 2, 22), y:  3 },
+                    { x: new Date(2020, 2, 23), y:  6 },
+                    { x: new Date(2020, 2, 24), y:  6 },
+                    { x: new Date(2020, 2, 25), y:  0 },
+                    { x: new Date(2020, 2, 26), y:  5 },
+                    { x: new Date(2020, 2, 27), y:  4 },
+                    { x: new Date(2020, 2, 28), y:  0 },
+                    { x: new Date(2020, 2, 29), y:  0 },
+                    { x: new Date(2020, 2, 30), y:  1 },
+                    { x: new Date(2020, 2, 31), y:  2 },
+                    { x: new Date(2020, 3, 1), y:  3 },
+                    { x: new Date(2020, 3, 2), y:  2 },
+                    { x: new Date(2020, 3, 3), y:  5 },
+                    { x: new Date(2020, 3, 4), y:  9 },
+                    { x: new Date(2020, 3, 5), y:  18 },
+                    { x: new Date(2020, 3, 6), y:  35 },
+                    { x: new Date(2020, 3, 7), y:  41 },
+                    { x: new Date(2020, 3, 8), y:  54 },
+                    { x: new Date(2020, 3, 9), y:  112 },
+                    { x: new Date(2020, 3, 10), y:  94 },
+                    { x: new Date(2020, 3, 11), y:  58 },
+                    { x: new Date(2020, 3, 12), y:  139 },
+                    { x: new Date(2020, 3, 13), y:  182 },
+                    { x: new Date(2020, 3, 14), y:  209 },
+                    { x: new Date(2020, 3, 15), y:  219 },
+                    { x: new Date(2020, 3, 16), y:  341 },
+                    { x: new Date(2020, 3, 17), y:  266 }
+                ]
+            }
+        ],
+    });
+    Chart_TestVsPositive.render();
+
 }
 
 
@@ -607,89 +729,6 @@ function setDeath_chart(covid_Deaths_Daily) {
     });
     Chart_line.render();
 }
-
-//Daily Test vs Positive Cases
-function setTestVsPositive(covid_Positive_Daily) {
-    var Chart_TestVsPositive = new CanvasJS.Chart("chart_TestVsPositive", {
-        exportEnabled: true,
-        animationEnabled: true,
-        title: {
-            text: "Daily Test vs Positive Cases",
-        },
-        axisX: {
-            valueFormatString: "DD MMM",
-        },
-        legend: {
-            verticalAlign: "top",
-            horizontalAlign: "right",
-            dockInsidePlotArea: true,
-        },
-        toolTip: {
-            shared: true,
-        },
-        data: [
-            {
-                name: "Tests",
-                showInLegend: true,
-                legendMarkerType: "circle",
-                type: "column",
-                color: "blue",
-                markerSize: 0,
-                dataPoints: [
-                    { x: new Date(2020, 2, 11), y:  16 },
-                    { x: new Date(2020, 2, 12), y:  24 },
-                    { x: new Date(2020, 2, 13), y:  24 },
-                    { x: new Date(2020, 2, 14), y:  30 },
-                    { x: new Date(2020, 2, 15), y:  27 },
-                    { x: new Date(2020, 2, 16), y:  25 },
-                    { x: new Date(2020, 2, 17), y:  49 },
-                    { x: new Date(2020, 2, 18), y:  39 },
-                    { x: new Date(2020, 2, 19), y:  46 },
-                    { x: new Date(2020, 2, 20), y:  36 },
-                    { x: new Date(2020, 2, 21), y:  36 },
-                    { x: new Date(2020, 2, 22), y:  65 },
-                    { x: new Date(2020, 2, 23), y:  56 },
-                    { x: new Date(2020, 2, 24), y:  92 },
-                    { x: new Date(2020, 2, 25), y:  82 },
-                    { x: new Date(2020, 2, 26), y:  126 },
-                    { x: new Date(2020, 2, 27), y:  106 },
-                    { x: new Date(2020, 2, 28), y:  50 },
-                    { x: new Date(2020, 2, 29), y:  109 },
-                    { x: new Date(2020, 2, 30), y:  153 },
-                    { x: new Date(2020, 2, 31), y:  140 },
-                    { x: new Date(2020, 3, 1), y:  157 },
-                    { x: new Date(2020, 3, 2), y:  141 },
-                    { x: new Date(2020, 3, 3), y:  203 },
-                    { x: new Date(2020, 3, 4), y:  434 },
-                    { x: new Date(2020, 3, 5), y:  367 },
-                    { x: new Date(2020, 3, 6), y:  468 },
-                    { x: new Date(2020, 3, 7), y:  792 },
-                    { x: new Date(2020, 3, 8), y:  981 },
-                    { x: new Date(2020, 3, 9), y:  1097 },
-                    { x: new Date(2020, 3, 10), y:  1184 },
-                    { x: new Date(2020, 3, 11), y:  954 },
-                    { x: new Date(2020, 3, 12), y:  1340 },
-                    { x: new Date(2020, 3, 13), y:  1570 },
-                    { x: new Date(2020, 3, 14), y:  1905 },
-                    { x: new Date(2020, 3, 15), y:  1740 },
-                    { x: new Date(2020, 3, 16), y:  2135 },
-                    { x: new Date(2020, 3, 17), y:  2190 }
-                ]
-            },
-            {
-                name: "Positive",
-                showInLegend: true,
-                legendMarkerType: "circle",
-                type: "column",
-                color: "#d50000",
-                markerSize: 0,
-                dataPoints: covid_Positive_Daily
-            }
-        ],
-    });
-    Chart_TestVsPositive.render();
-}
-
 
 
 
@@ -1036,127 +1075,4 @@ function API_Fail_Then_loadData() {
         }]
     });
     Chart_line.render();
-
-
-    //Daily Test vs Positive Cases
-    var Chart_TestVsPositive = new CanvasJS.Chart("chart_TestVsPositive", {
-        exportEnabled: true,
-        animationEnabled: true,
-        title: {
-            text: "Daily Test vs Positive Cases",
-        },
-        axisX: {
-            valueFormatString: "DD MMM",
-        },
-        legend: {
-            verticalAlign: "top",
-            horizontalAlign: "right",
-            dockInsidePlotArea: true,
-        },
-        toolTip: {
-            shared: true,
-        },
-        data: [
-            {
-                name: "Tests",
-                showInLegend: true,
-                legendMarkerType: "circle",
-                type: "column",
-                color: "blue",
-                markerSize: 0,
-                dataPoints: [
-                    { x: new Date(2020, 2, 11), y:  16 },
-                    { x: new Date(2020, 2, 12), y:  24 },
-                    { x: new Date(2020, 2, 13), y:  24 },
-                    { x: new Date(2020, 2, 14), y:  30 },
-                    { x: new Date(2020, 2, 15), y:  27 },
-                    { x: new Date(2020, 2, 16), y:  25 },
-                    { x: new Date(2020, 2, 17), y:  49 },
-                    { x: new Date(2020, 2, 18), y:  39 },
-                    { x: new Date(2020, 2, 19), y:  46 },
-                    { x: new Date(2020, 2, 20), y:  36 },
-                    { x: new Date(2020, 2, 21), y:  36 },
-                    { x: new Date(2020, 2, 22), y:  65 },
-                    { x: new Date(2020, 2, 23), y:  56 },
-                    { x: new Date(2020, 2, 24), y:  92 },
-                    { x: new Date(2020, 2, 25), y:  82 },
-                    { x: new Date(2020, 2, 26), y:  126 },
-                    { x: new Date(2020, 2, 27), y:  106 },
-                    { x: new Date(2020, 2, 28), y:  50 },
-                    { x: new Date(2020, 2, 29), y:  109 },
-                    { x: new Date(2020, 2, 30), y:  153 },
-                    { x: new Date(2020, 2, 31), y:  140 },
-                    { x: new Date(2020, 3, 1), y:  157 },
-                    { x: new Date(2020, 3, 2), y:  141 },
-                    { x: new Date(2020, 3, 3), y:  203 },
-                    { x: new Date(2020, 3, 4), y:  434 },
-                    { x: new Date(2020, 3, 5), y:  367 },
-                    { x: new Date(2020, 3, 6), y:  468 },
-                    { x: new Date(2020, 3, 7), y:  792 },
-                    { x: new Date(2020, 3, 8), y:  981 },
-                    { x: new Date(2020, 3, 9), y:  1097 },
-                    { x: new Date(2020, 3, 10), y:  1184 },
-                    { x: new Date(2020, 3, 11), y:  954 },
-                    { x: new Date(2020, 3, 12), y:  1340 },
-                    { x: new Date(2020, 3, 13), y:  1570 },
-                    { x: new Date(2020, 3, 14), y:  1905 },
-                    { x: new Date(2020, 3, 15), y:  1740 },
-                    { x: new Date(2020, 3, 16), y:  2135 },
-                    { x: new Date(2020, 3, 17), y:  2190 }
-                ]
-            },
-            {
-                name: "Positive",
-                showInLegend: true,
-                legendMarkerType: "circle",
-                type: "column",
-                color: "#d50000",
-                markerSize: 0,
-                dataPoints: [
-                    { x: new Date(2020, 2, 08), y:  3 },
-                    { x: new Date(2020, 2, 09), y:  0 },
-                    { x: new Date(2020, 2, 10), y:  0 },
-                    { x: new Date(2020, 2, 11), y:  0 },
-                    { x: new Date(2020, 2, 12), y:  0 },
-                    { x: new Date(2020, 2, 13), y:  0 },
-                    { x: new Date(2020, 2, 14), y:  2 },
-                    { x: new Date(2020, 2, 15), y:  0 },
-                    { x: new Date(2020, 2, 16), y:  3 },
-                    { x: new Date(2020, 2, 17), y:  2 },
-                    { x: new Date(2020, 2, 18), y:  4 },
-                    { x: new Date(2020, 2, 19), y:  4 },
-                    { x: new Date(2020, 2, 20), y:  2 },
-                    { x: new Date(2020, 2, 21), y:  4 },
-                    { x: new Date(2020, 2, 22), y:  3 },
-                    { x: new Date(2020, 2, 23), y:  6 },
-                    { x: new Date(2020, 2, 24), y:  6 },
-                    { x: new Date(2020, 2, 25), y:  0 },
-                    { x: new Date(2020, 2, 26), y:  5 },
-                    { x: new Date(2020, 2, 27), y:  4 },
-                    { x: new Date(2020, 2, 28), y:  0 },
-                    { x: new Date(2020, 2, 29), y:  0 },
-                    { x: new Date(2020, 2, 30), y:  1 },
-                    { x: new Date(2020, 2, 31), y:  2 },
-                    { x: new Date(2020, 3, 1), y:  3 },
-                    { x: new Date(2020, 3, 2), y:  2 },
-                    { x: new Date(2020, 3, 3), y:  5 },
-                    { x: new Date(2020, 3, 4), y:  9 },
-                    { x: new Date(2020, 3, 5), y:  18 },
-                    { x: new Date(2020, 3, 6), y:  35 },
-                    { x: new Date(2020, 3, 7), y:  41 },
-                    { x: new Date(2020, 3, 8), y:  54 },
-                    { x: new Date(2020, 3, 9), y:  112 },
-                    { x: new Date(2020, 3, 10), y:  94 },
-                    { x: new Date(2020, 3, 11), y:  58 },
-                    { x: new Date(2020, 3, 12), y:  139 },
-                    { x: new Date(2020, 3, 13), y:  182 },
-                    { x: new Date(2020, 3, 14), y:  209 },
-                    { x: new Date(2020, 3, 15), y:  219 },
-                    { x: new Date(2020, 3, 16), y:  341 },
-                    { x: new Date(2020, 3, 17), y:  266 }
-                ]
-            }
-        ],
-    });
-    Chart_TestVsPositive.render();
 }
