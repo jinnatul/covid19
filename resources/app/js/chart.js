@@ -468,6 +468,113 @@ function Division_Dhaka_Info() {
     });
     Chart_Quarantine_Timeline.render();
 
+    //Institution Quarantine Timeline 
+    var Chart_Institution_Quarantine_Timeline = new CanvasJS.Chart("chart_Institution_Quarantine_Timeline", {
+        theme: "light1",
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+          text: "Institution Isolation timeline",
+        },
+        axisX: {
+          valueFormatString: "DD MMM",
+        },
+        axisY: {
+          title: "Number of People",
+        },
+        legend: {
+          verticalAlign: "top",
+          horizontalAlign: "right",
+          dockInsidePlotArea: true,
+        },
+        toolTip: {
+          shared: true,
+        },
+        data: [
+          {
+            name: "Current_Isolation",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "spline",
+            color: "#d50000",
+            markerSize: 0,
+            dataPoints: [
+                { x: new Date(2020, 2, 18), y:  23 },
+                { x: new Date(2020, 2, 19), y:  42 },
+                { x: new Date(2020, 2, 20), y:  30 },
+                { x: new Date(2020, 2, 21), y:  30 },
+                { x: new Date(2020, 2, 22), y:  40 },
+                { x: new Date(2020, 2, 23), y:  40 },
+                { x: new Date(2020, 2, 24), y:  40 },
+                { x: new Date(2020, 2, 25), y:  47 },
+                { x: new Date(2020, 2, 26), y:  44 },
+                { x: new Date(2020, 2, 27), y:  47 },
+                { x: new Date(2020, 2, 28), y:  47 },
+                { x: new Date(2020, 2, 29), y:  56 },
+                { x: new Date(2020, 2, 30), y:  58 },
+                { x: new Date(2020, 2, 31), y:  71 },
+                { x: new Date(2020, 3, 1), y:  73 },
+                { x: new Date(2020, 3, 2), y:  78 },
+                { x: new Date(2020, 3, 3), y:  82 },
+                { x: new Date(2020, 3, 4), y:  77 },
+                { x: new Date(2020, 3, 5), y:  84 },
+                { x: new Date(2020, 3, 6), y:  107 },
+                { x: new Date(2020, 3, 7), y:  137 },
+                { x: new Date(2020, 3, 8), y:  111 },
+                { x: new Date(2020, 3, 9), y:  135 },
+                { x: new Date(2020, 3, 10), y:  152 },
+                { x: new Date(2020, 3, 11), y:  179 },
+                { x: new Date(2020, 3, 12), y:  215 },
+                { x: new Date(2020, 3, 13), y:  299 },
+                { x: new Date(2020, 3, 14), y:  383 },
+                { x: new Date(2020, 3, 15), y:  433 },
+                { x: new Date(2020, 3, 16), y:  461 }
+            ],
+          },
+          {
+            name: "Leave_Isolation",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "spline",
+            color: "#43a047",
+            markerSize: 0,
+            dataPoints: [        
+                { x: new Date(2020, 02, 18), y: 35 },
+                { x: new Date(2020, 02, 19), y: 35 },
+                { x: new Date(2020, 02, 20), y: 77 },
+                { x: new Date(2020, 02, 21), y: 77 },
+                { x: new Date(2020, 02, 22), y: 147 },
+                { x: new Date(2020, 02, 23), y: 187 },
+                { x: new Date(2020, 02, 24), y: 227 },
+                { x: new Date(2020, 02, 25), y: 267 },
+                { x: new Date(2020, 02, 26), y: 274 },
+                { x: new Date(2020, 02, 27), y: 284 },
+                { x: new Date(2020, 02, 28), y: 284 },
+                { x: new Date(2020, 02, 29), y: 284 },
+                { x: new Date(2020, 02, 30), y: 288 },
+                { x: new Date(2020, 02, 31), y: 288 },
+                { x: new Date(2020, 03, 1), y: 295 },
+                { x: new Date(2020, 03, 2), y: 295 },
+                { x: new Date(2020, 03, 3), y: 305 },
+                { x: new Date(2020, 03, 4), y: 333 },
+                { x: new Date(2020, 03, 5), y: 336 },
+                { x: new Date(2020, 03, 6), y: 336 },
+                { x: new Date(2020, 03, 7), y: 336 },
+                { x: new Date(2020, 03, 8), y: 378 },
+                { x: new Date(2020, 03, 9), y: 391 },
+                { x: new Date(2020, 03, 10), y: 398 },
+                { x: new Date(2020, 03, 11), y: 406 },
+                { x: new Date(2020, 03, 12), y: 417 },
+                { x: new Date(2020, 03, 13), y: 417 },
+                { x: new Date(2020, 03, 14), y: 422 },
+                { x: new Date(2020, 03, 15), y: 443 },
+                { x: new Date(2020, 03, 16), y: 452 }
+            ],
+          }
+        ],
+    });
+    Chart_Institution_Quarantine_Timeline.render();
+
     //Daily Test vs Positive Cases
     var Chart_TestVsPositive = new CanvasJS.Chart("chart_TestVsPositive", {
         exportEnabled: true,
