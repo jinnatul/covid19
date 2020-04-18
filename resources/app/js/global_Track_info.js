@@ -1,13 +1,14 @@
 $(function() {
 
+    Counter();
+
     let apiURL = "https://coronavirus-19-api.herokuapp.com/countries";
     
     $.get(apiURL, function() {})
         .done(function(res) {
             set_Info(res);
-            console.log(res)
+            //console.log(res)
         })
-    Counter();
 })
 
 function set_Info(res) {

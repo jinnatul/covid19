@@ -32,7 +32,6 @@ window.onload = function () {
             
             setInfected_chart(covid_Positive_Daily);
             setDeath_chart(covid_Deaths_Daily);
-            setTestVsPositive(covid_Positive_Daily);
         })
         .fail(function () {
             API_Fail_Then_loadData();
@@ -915,7 +914,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 3, 14), y:  1012 },
                 { x: new Date(2020, 3, 15), y:  1231 },
                 { x: new Date(2020, 3, 16), y:  1572 },
-                { x: new Date(2020, 3, 17), y:  1838 }
+                { x: new Date(2020, 3, 17), y:  1838 },
+                { x: new Date(2020, 3, 18), y:  2144 }
             ],
           },
           {
@@ -966,7 +966,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 14), y: 46 },
                 { x: new Date(2020, 03, 15), y: 50 },
                 { x: new Date(2020, 03, 16), y: 60 },
-                { x: new Date(2020, 03, 17), y: 75 }
+                { x: new Date(2020, 03, 17), y: 75 },
+                { x: new Date(2020, 03, 18), y: 84 }
             ],
           },
           {
@@ -1017,7 +1018,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 14), y: 42 },
                 { x: new Date(2020, 03, 15), y: 49 },
                 { x: new Date(2020, 03, 16), y: 49 },
-                { x: new Date(2020, 03, 17), y: 58 }
+                { x: new Date(2020, 03, 17), y: 58 },
+                { x: new Date(2020, 03, 18), y: 66 }
             ],
           },
         ],
@@ -1044,9 +1046,9 @@ function API_Fail_Then_loadData() {
             toolTipContent: "<b>{name}</b>: {y} (#percent%)",
             indexLabel: "{name} - #percent%",
             dataPoints: [
-                { y: 1838, name: "Coronavirus cases" },
-                { y: 75, name: "Deaths" },
-                { y: 58, name: "Recovered" }
+                { y: 2144, name: "Coronavirus cases" },
+                { y: 84, name: "Deaths" },
+                { y: 66, name: "Recovered" }
              ]
         }]
     });
@@ -1111,7 +1113,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 3, 14), y:  209 },
                 { x: new Date(2020, 3, 15), y:  219 },
                 { x: new Date(2020, 3, 16), y:  341 },
-                { x: new Date(2020, 3, 17), y:  266 }
+                { x: new Date(2020, 3, 17), y:  266 },
+                { x: new Date(2020, 3, 18), y:  306 }
             ]
         }]
     });
@@ -1177,7 +1180,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 14), y: 7 },
                 { x: new Date(2020, 03, 15), y: 4 },
                 { x: new Date(2020, 03, 16), y: 10 },
-                { x: new Date(2020, 03, 17), y: 15 }
+                { x: new Date(2020, 03, 17), y: 15 },
+                { x: new Date(2020, 03, 18), y:  9 }
             ]
         }]
     });

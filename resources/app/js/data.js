@@ -29,7 +29,7 @@ positiveNumbers.push(6);
 districtName.push("Faridpur_District");
 positiveNumbers.push(2); 
 districtName.push("Madaripur_District");
-positiveNumbers.push(23); 
+positiveNumbers.push(25); 
 districtName.push("Gopalganj_District");
 positiveNumbers.push(17); 
 districtName.push("Rajbari_District");
