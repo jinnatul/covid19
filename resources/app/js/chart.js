@@ -63,22 +63,23 @@ function Temporary_Info() {
             text:  "Division wise cases in BD"
         },
         data: [{
-            type: "column",
+            type: "spline",
             startAngle: 25,
             toolTipContent: "<b>{label}</b>: {y}",
             showInLegend: "true",
             legendText: "{label}",
+            color: "red",
             indexLabelFontSize: 16,
             indexLabel:  "{y}",
             dataPoints: [
-                { y: 1181, label: "Dhaka" },
-                { y: 69, label: "Chattagram" },
-                { y: 37, label: "Rangpur" },
+                { y: 1663, label: "Dhaka" },
+                { y: 97, label: "Chattagram" },
+                { y: 43, label: "Rangpur" },
                 { y: 32, label: "Mymensingh" },
-                { y: 24, label: "Barishal" },
+                { y: 36, label: "Barishal" },
                 { y: 7, label: "Sylhet" },
-                { y: 3, label: "Rajshahi" },
-                { y: 3, label: "Khulna" }           
+                { y: 5, label: "Rajshahi" },
+                { y: 6, label: "Khulna" }           
             ]
         }]
     });
@@ -197,7 +198,7 @@ function Temporary_Info() {
             text:  "Total Quarantine in BD"
         },
         data: [{
-            type: "column",
+            type: "spline",
             startAngle: 25,
             toolTipContent: "<b>{label}</b>: {y}",
             showInLegend: "true",
@@ -646,7 +647,9 @@ function Temporary_Info() {
                     { x: new Date(2020, 3, 14), y:  1905 },
                     { x: new Date(2020, 3, 15), y:  1740 },
                     { x: new Date(2020, 3, 16), y:  2135 },
-                    { x: new Date(2020, 3, 17), y:  2190 }
+                    { x: new Date(2020, 3, 17), y:  2190 },
+                    { x: new Date(2020, 3, 18), y:  2114 },
+                    { x: new Date(2020, 3, 19), y:  2634 }
                 ]
             },
             {
@@ -697,7 +700,9 @@ function Temporary_Info() {
                     { x: new Date(2020, 3, 14), y:  209 },
                     { x: new Date(2020, 3, 15), y:  219 },
                     { x: new Date(2020, 3, 16), y:  341 },
-                    { x: new Date(2020, 3, 17), y:  266 }
+                    { x: new Date(2020, 3, 17), y:  266 },
+                    { x: new Date(2020, 3, 18), y:  306 },
+                    { x: new Date(2020, 3, 19), y:  312 }
                 ]
             }
         ],
@@ -923,7 +928,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 3, 15), y:  1231 },
                 { x: new Date(2020, 3, 16), y:  1572 },
                 { x: new Date(2020, 3, 17), y:  1838 },
-                { x: new Date(2020, 3, 18), y:  2144 }
+                { x: new Date(2020, 3, 18), y:  2144 },
+                { x: new Date(2020, 3, 19), y:  2456 }
             ],
           },
           {
@@ -975,7 +981,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 15), y: 50 },
                 { x: new Date(2020, 03, 16), y: 60 },
                 { x: new Date(2020, 03, 17), y: 75 },
-                { x: new Date(2020, 03, 18), y: 84 }
+                { x: new Date(2020, 03, 18), y: 84 },
+                { x: new Date(2020, 03, 19), y: 91 }
             ],
           },
           {
@@ -1027,7 +1034,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 15), y: 49 },
                 { x: new Date(2020, 03, 16), y: 49 },
                 { x: new Date(2020, 03, 17), y: 58 },
-                { x: new Date(2020, 03, 18), y: 66 }
+                { x: new Date(2020, 03, 18), y: 66 },
+                { x: new Date(2020, 03, 19), y: 75 }
             ],
           },
         ],
@@ -1054,9 +1062,9 @@ function API_Fail_Then_loadData() {
             toolTipContent: "<b>{name}</b>: {y} (#percent%)",
             indexLabel: "{name} - #percent%",
             dataPoints: [
-                { y: 2144, name: "Coronavirus cases" },
-                { y: 84, name: "Deaths" },
-                { y: 66, name: "Recovered" }
+                { y: 2456, name: "Coronavirus cases" },
+                { y: 91, name: "Deaths" },
+                { y: 75, name: "Recovered" }
              ]
         }]
     });
@@ -1122,7 +1130,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 3, 15), y:  219 },
                 { x: new Date(2020, 3, 16), y:  341 },
                 { x: new Date(2020, 3, 17), y:  266 },
-                { x: new Date(2020, 3, 18), y:  306 }
+                { x: new Date(2020, 3, 18), y:  306 },
+                { x: new Date(2020, 3, 19), y:  312 }
             ]
         }]
     });
@@ -1189,7 +1198,8 @@ function API_Fail_Then_loadData() {
                 { x: new Date(2020, 03, 15), y: 4 },
                 { x: new Date(2020, 03, 16), y: 10 },
                 { x: new Date(2020, 03, 17), y: 15 },
-                { x: new Date(2020, 03, 18), y:  9 }
+                { x: new Date(2020, 03, 18), y:  9 },
+                { x: new Date(2020, 03, 19), y:  7 }
             ]
         }]
     });

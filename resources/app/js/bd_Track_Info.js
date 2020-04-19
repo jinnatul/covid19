@@ -43,6 +43,7 @@ $(function() {
     bd_Info_Array.push({Date: '16-04-2020', T_Tests: 2135,T_Positive_Cases: 341, T_Deaths: 10, T_Recovary: 0, Total: 1572});
     bd_Info_Array.push({Date: '17-04-2020', T_Tests: 2190,T_Positive_Cases: 266, T_Deaths: 15, T_Recovary: 9, Total: 1838});
     bd_Info_Array.push({Date: '18-04-2020', T_Tests: 2114,T_Positive_Cases: 306, T_Deaths: 9, T_Recovary: 8, Total: 2144});
+    bd_Info_Array.push({Date: '19-04-2020', T_Tests: 2634,T_Positive_Cases: 312, T_Deaths: 7, T_Recovary: 9, Total: 2456});
 
     let bd_table = "<table class='highlight'><tr><th>Date</th><th>Today_Tests</th><th>Today_Positive</th>";
         bd_table += "<th>Today_Deaths</th><th>Today_Recovered</th><th>Total positives</th></tr>"
