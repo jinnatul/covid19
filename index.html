@@ -8,6 +8,9 @@
     
     <link rel="stylesheet" href="resources/lib/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="resources/app/css/index.css">
+
+    <!--Js-->
+    <script src="resources/lib/jquery/jquery.min.js"></script>
     <script src="resources/app/js/data.js"></script>
 </head>
 <body>
@@ -175,9 +178,23 @@
     </div>
 
 
-    <!--Bangladesh District Map-->
+    <!--Bangladesh District Cases-->
     <div class="customContainer" id="district">
         <h4 class="center-align">District Affected</h4>
+        
+        <!--Chart Cases-->
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card hoverable">
+                    <div class="card-content">
+                        <h5 id="districtCount"></h5>
+                        <div class="card chart_Design" id="chart_District_Cases"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!--Map Cases-->
         <div class="row">
             <div class="card">
                 <div class="card-content">
@@ -559,8 +576,7 @@
     </div>
 
     
-    <!--Script section-->
-    <script src="resources/lib/jquery/jquery.min.js"></script> 
+    <!--Script section--> 
     <script src="resources/lib/materialize/js/materialize.min.js"></script>
     <script src="resources/lib/canvasjs/canvasjs.min.js"></script>
     <script src="resources/app/js/bd_Track_Info.js"></script>
@@ -568,6 +584,7 @@
     <script src="resources/app/js/chart.js"></script>
     <script src="resources/app/js/index.js"></script>
     <script src="resources/app/js/bdmap.js"></script>
+    <script src="resources/app/js/districtChart.js"></script>
     <script>
         window.onscroll = scroll;
          function scroll() {

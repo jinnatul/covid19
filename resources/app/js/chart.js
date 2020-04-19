@@ -853,7 +853,7 @@ function setDeath_chart(covid_Deaths_Daily) {
 function API_Fail_Then_loadData() {
     // Total COVID-19 Info
     var Chart_covid = new CanvasJS.Chart("chart_covid", {
-        theme: "dark1",
+        theme: "light1",
         exportEnabled: true,
         animationEnabled: true,
         title: {
@@ -1036,7 +1036,7 @@ function API_Fail_Then_loadData() {
 
     // Attack Info Percent
     var Chart_doughnut = new CanvasJS.Chart("chart_doughnut", {
-        theme: "dark1",
+        theme: "light1",
         exportFileName: "Doughnut Chart",
         exportEnabled: true,
         animationEnabled: true,
@@ -1064,7 +1064,7 @@ function API_Fail_Then_loadData() {
 
     // Daily positive cases
     var Chart_spline = new CanvasJS.Chart("chart_spline", {
-        theme: "dark1",
+        theme: "light1",
         animationEnabled: true,
         title:{
             text: "COVID-19 Positives in Bangladesh"
@@ -1130,7 +1130,7 @@ function API_Fail_Then_loadData() {
 
     // Daily Deaths Cases
     var Chart_line = new CanvasJS.Chart("chart_line", {
-        theme: "dark1", // "light1", "light2", "dark1", "dark2"
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
         animationEnabled: true,
         title:{
             text: "COVID-19 Deaths in Bangladesh"   
