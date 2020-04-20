@@ -4,12 +4,16 @@ $(function() {
     $.get(apiURL, function() {})
         .done(function(res) {
             mapMaker(res);
-        });
+        })
+        .fail(function () {
+            M.toast({html: 'Internal Problem!!!'})
+        })
 })
 
 
 function mapMaker(res) {
 
+    $('#districtCount').text("Affected District: " + (res["data"].length - 2))
     var tooltip = document.querySelector('#each_District');
     var svgObject = document.getElementById('district_Map').contentDocument;
     var svgSelector = svgObject.querySelector('.country');
@@ -45,6 +49,7 @@ function mapMaker(res) {
             $(svgObject.querySelector(disName)).css("fill", "#d50000");
         }
     }
+
     
     $tooltip = $('#each_District');
     $(svgSelector).mouseover(function(event) {

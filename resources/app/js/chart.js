@@ -34,11 +34,18 @@ window.onload = function () {
             setDeath_chart(covid_Deaths_Daily);
         })
         .fail(function () {
-            API_Fail_Then_loadData();
-        })
-
-    Temporary_Info();    
+            M.toast({html: 'Internal Problem!!!'})
+        });    
     
+    let dailyTest = [];
+    let dailyPositive = [];
+    for (let index = 3; index < bd_Info_Array.length; index++) {
+        dailyTest.push({ x: new Date(bd_Info_Array[index]["Date"]), y:  bd_Info_Array[index]["T_Tests"] });
+        dailyPositive.push({ x: new Date(bd_Info_Array[index]["Date"]), y:  bd_Info_Array[index]["T_Positive_Cases"] });
+    }
+    
+    Daily_Test_vs_Positive_Cases(dailyTest, dailyPositive);
+    DivitionCount();
 }
 
 function explodePie (e) {
@@ -51,6 +58,576 @@ function explodePie (e) {
 }
 
 
+/********* Dynamic /API Section *********/
+// Total Positive vs Deaths vs Recovered
+function setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered_Array) {
+    var Chart_covid = new CanvasJS.Chart("chart_covid", {
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+          text: "COVID-19 timeline in Bangladesh",
+        },
+        axisX: {
+          valueFormatString: "DD MMM",
+        },
+        axisY: {
+          title: "Number of People",
+        },
+        legend: {
+          verticalAlign: "top",
+          horizontalAlign: "right",
+          dockInsidePlotArea: true,
+        },
+        toolTip: {
+          shared: true,
+        },
+        data: [
+          {
+            name: "Infected",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "spline",
+            color: "#64b5f6",
+            markerSize: 0,
+            dataPoints: covid_Infected_Array,
+          },
+          {
+            name: "Deaths",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "spline",
+            color: "#d50000",
+            markerSize: 0,
+            dataPoints: covid_Deaths_Array,
+          },
+          {
+            name: "Recovered",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "spline",
+            color: "#43a047",
+            markerSize: 0,
+            dataPoints: covid_Recovered_Array,
+          },
+        ],
+    });
+    Chart_covid.render();
+}
+
+// Coronavirus_cases vs Deaths vs Recovered
+function setPercent_chart(Coronavirus_cases, Deaths, Recovered) {
+    var Chart_doughnut = new CanvasJS.Chart("chart_doughnut", {
+        theme: "light1",
+        exportFileName: "Doughnut Chart",
+        exportEnabled: true,
+        animationEnabled: true,
+        title:{
+            text: "Attack Percent(%) in BD"
+        },
+        legend:{
+            cursor: "pointer",
+            itemclick: explodePie
+        },
+        data: [{
+            type: "doughnut",
+            innerRadius: 90,
+            showInLegend: true,
+            toolTipContent: "<b>{name}</b>: {y} (#percent%)",
+            indexLabel: "{name} - #percent%",
+            dataPoints: [
+                { y: Coronavirus_cases, name: "Coronavirus cases" },
+                { y: Deaths, name: "Deaths" },
+                { y: Recovered, name: "Recovered" }
+             ]
+        }]
+    });
+    Chart_doughnut.render();
+}
+
+// Daily Positive cases
+function setInfected_chart(covid_Positive_Daily) {
+    var Chart_spline = new CanvasJS.Chart("chart_spline", {
+        animationEnabled: true,
+        title:{
+            text: "COVID-19 Positives in Bangladesh"
+        },
+        axisX:{
+            valueFormatString: "DD MMM"
+        },
+        axisY: {
+            title: "Number of Cases",
+            includeZero: false
+        },
+        data: [{
+            type: "column",
+            xValueFormatString: "DD MMM",
+            color: "#0288d1",
+            dataPoints: covid_Positive_Daily
+        }]
+    });
+    Chart_spline.render();
+}
+
+ // Daily Deaths cases
+function setDeath_chart(covid_Deaths_Daily) {
+    var Chart_line = new CanvasJS.Chart("chart_line", {
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        animationEnabled: true,
+        title:{
+            text: "COVID-19 Deaths in Bangladesh"   
+        },
+        axisX: {
+            valueFormatString: "DD MMM"
+        },
+        axisY:{
+            includeZero: false
+        },
+        data: [{        
+            type: "column",
+            markerSize: 12,
+            xValueFormatString: "DD MMM",
+            yValueFormatString: "###",
+            color: "#de4536",
+            dataPoints: covid_Deaths_Daily
+        }]
+    });
+    Chart_line.render();
+}
+
+//Daily Test vs Positive Cases
+function Daily_Test_vs_Positive_Cases(dailyTest, dailyPositive) {
+    var Chart_TestVsPositive = new CanvasJS.Chart("chart_TestVsPositive", {
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+            text: "Daily Test vs Positive Cases",
+        },
+        axisX: {
+            valueFormatString: "DD MMM",
+        },
+        legend: {
+            verticalAlign: "top",
+            horizontalAlign: "right",
+            dockInsidePlotArea: true,
+        },
+        toolTip: {
+            shared: true,
+        },
+        data: [
+            {
+                name: "Tests",
+                showInLegend: true,
+                legendMarkerType: "circle",
+                type: "spline",
+                color: "blue",
+                markerSize: 0,
+                dataPoints: dailyTest,
+            },
+            {
+                name: "Positive",
+                showInLegend: true,
+                legendMarkerType: "circle",
+                type: "spline",
+                color: "#d50000",
+                markerSize: 0,
+                dataPoints: dailyPositive,
+            }
+        ],
+    });
+    Chart_TestVsPositive.render();
+}
+
+// Column Chart Division wise Cases
+function DivitionCount() {
+    var Chart_Division_Count = new CanvasJS.Chart("chart_Division_Count", {
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+            text:  "Division wise cases in BD"
+        },
+        data: [{
+            type: "column",
+            startAngle: 25,
+            toolTipContent: "<b>{label}</b>: {y}",
+            showInLegend: "true",
+            legendText: "{label}",
+            color: "red",
+            indexLabelFontSize: 16,
+            indexLabel:  "{y}",
+            dataPoints: [
+                { y: 1663, label: "Dhaka" },
+                { y: 97, label: "Chattagram" },
+                { y: 43, label: "Rangpur" },
+                { y: 32, label: "Mymensingh" },
+                { y: 36, label: "Barishal" },
+                { y: 7, label: "Sylhet" },
+                { y: 5, label: "Rajshahi" },
+                { y: 6, label: "Khulna" }           
+            ]
+        }]
+    });
+    Chart_Division_Count.render();
+}
+
+
+/********* Static Section ********
+// Load data without API ( Data Entry Static Way)
+function API_Fail_Then_loadData() {
+    // Total COVID-19 Info
+    var Chart_covid = new CanvasJS.Chart("chart_covid", {
+        theme: "light1",
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+          text: "COVID-19 timeline in Bangladesh",
+        },
+        axisX: {
+          valueFormatString: "DD MMM",
+        },
+        axisY: {
+          title: "Number of People",
+        },
+        legend: {
+          verticalAlign: "top",
+          horizontalAlign: "right",
+          dockInsidePlotArea: true,
+        },
+        toolTip: {
+          shared: true,
+        },
+        data: [
+          {
+            name: "Infected",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "area",
+            color: "#64b5f6",
+            markerSize: 0,
+            dataPoints: [
+                { x: new Date(2020, 2, 08), y:  3 },
+                { x: new Date(2020, 2, 09), y:  3 },
+                { x: new Date(2020, 2, 10), y:  3 },
+                { x: new Date(2020, 2, 11), y:  3 },
+                { x: new Date(2020, 2, 12), y:  3 },
+                { x: new Date(2020, 2, 13), y:  3 },
+                { x: new Date(2020, 2, 14), y:  5 },
+                { x: new Date(2020, 2, 15), y:  5 },
+                { x: new Date(2020, 2, 16), y:  8 },
+                { x: new Date(2020, 2, 17), y:  10 },
+                { x: new Date(2020, 2, 18), y:  14 },
+                { x: new Date(2020, 2, 19), y:  18 },
+                { x: new Date(2020, 2, 20), y:  20 },
+                { x: new Date(2020, 2, 21), y:  24 },
+                { x: new Date(2020, 2, 22), y:  27 },
+                { x: new Date(2020, 2, 23), y:  33 },
+                { x: new Date(2020, 2, 24), y:  39 },
+                { x: new Date(2020, 2, 25), y:  39 },
+                { x: new Date(2020, 2, 26), y:  44 },
+                { x: new Date(2020, 2, 27), y:  48 },
+                { x: new Date(2020, 2, 28), y:  48 },
+                { x: new Date(2020, 2, 29), y:  48 },
+                { x: new Date(2020, 2, 30), y:  49 },
+                { x: new Date(2020, 2, 31), y:  51 },
+                { x: new Date(2020, 3, 1), y:  54 },
+                { x: new Date(2020, 3, 2), y:  56 },
+                { x: new Date(2020, 3, 3), y:  61 },
+                { x: new Date(2020, 3, 4), y:  70 },
+                { x: new Date(2020, 3, 5), y:  88 },
+                { x: new Date(2020, 3, 6), y:  123 },
+                { x: new Date(2020, 3, 7), y:  164 },
+                { x: new Date(2020, 3, 8), y:  218 },
+                { x: new Date(2020, 3, 9), y:  330 },
+                { x: new Date(2020, 3, 10), y:  424 },
+                { x: new Date(2020, 3, 11), y:  482 },
+                { x: new Date(2020, 3, 12), y:  621 },
+                { x: new Date(2020, 3, 13), y:  803 },
+                { x: new Date(2020, 3, 14), y:  1012 },
+                { x: new Date(2020, 3, 15), y:  1231 },
+                { x: new Date(2020, 3, 16), y:  1572 },
+                { x: new Date(2020, 3, 17), y:  1838 },
+                { x: new Date(2020, 3, 18), y:  2144 },
+                { x: new Date(2020, 3, 19), y:  2456 },
+                { x: new Date(2020, 3, 20), y:  2948 }
+            ],
+          },
+          {
+            name: "Deaths",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "area",
+            color: "#d50000",
+            markerSize: 0,
+            dataPoints: [        
+                { x: new Date(2020, 02, 8), y: 0 },
+                { x: new Date(2020, 02, 9), y: 0 },
+                { x: new Date(2020, 02, 10), y: 0 },
+                { x: new Date(2020, 02, 11), y: 0 },
+                { x: new Date(2020, 02, 12), y: 0 },
+                { x: new Date(2020, 02, 13), y: 0 },
+                { x: new Date(2020, 02, 14), y: 0 },
+                { x: new Date(2020, 02, 15), y: 0 },
+                { x: new Date(2020, 02, 16), y: 0 },
+                { x: new Date(2020, 02, 17), y: 0 },
+                { x: new Date(2020, 02, 18), y: 1 },
+                { x: new Date(2020, 02, 19), y: 1 },
+                { x: new Date(2020, 02, 20), y: 1 },
+                { x: new Date(2020, 02, 21), y: 2 },
+                { x: new Date(2020, 02, 22), y: 2 },
+                { x: new Date(2020, 02, 23), y: 3 },
+                { x: new Date(2020, 02, 24), y: 4 },
+                { x: new Date(2020, 02, 25), y: 5 },
+                { x: new Date(2020, 02, 26), y: 5 },
+                { x: new Date(2020, 02, 27), y: 5 },
+                { x: new Date(2020, 02, 28), y: 5 },
+                { x: new Date(2020, 02, 29), y: 5 },
+                { x: new Date(2020, 02, 30), y: 5 },
+                { x: new Date(2020, 02, 31), y: 5 },
+                { x: new Date(2020, 03, 1), y: 6 },
+                { x: new Date(2020, 03, 2), y: 6 },
+                { x: new Date(2020, 03, 3), y: 6 },
+                { x: new Date(2020, 03, 4), y: 8 },
+                { x: new Date(2020, 03, 5), y: 9 },
+                { x: new Date(2020, 03, 6), y: 12 },
+                { x: new Date(2020, 03, 7), y: 17 },
+                { x: new Date(2020, 03, 8), y: 20 },
+                { x: new Date(2020, 03, 9), y: 21 },
+                { x: new Date(2020, 03, 10), y: 27 },
+                { x: new Date(2020, 03, 11), y: 30 },
+                { x: new Date(2020, 03, 12), y: 34 },
+                { x: new Date(2020, 03, 13), y: 39 },
+                { x: new Date(2020, 03, 14), y: 46 },
+                { x: new Date(2020, 03, 15), y: 50 },
+                { x: new Date(2020, 03, 16), y: 60 },
+                { x: new Date(2020, 03, 17), y: 75 },
+                { x: new Date(2020, 03, 18), y: 84 },
+                { x: new Date(2020, 03, 19), y: 91 },
+                { x: new Date(2020, 03, 20), y: 101 }
+            ],
+          },
+          {
+            name: "Recovered",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "area",
+            color: "#43a047",
+            markerSize: 0,
+            dataPoints: [        
+                { x: new Date(2020, 02, 8), y: 0 },
+                { x: new Date(2020, 02, 9), y: 0 },
+                { x: new Date(2020, 02, 10), y: 0 },
+                { x: new Date(2020, 02, 11), y: 0 },
+                { x: new Date(2020, 02, 12), y: 0 },
+                { x: new Date(2020, 02, 13), y: 0 },
+                { x: new Date(2020, 02, 14), y: 0 },
+                { x: new Date(2020, 02, 15), y: 0 },
+                { x: new Date(2020, 02, 16), y: 2 },
+                { x: new Date(2020, 02, 17), y: 3 },
+                { x: new Date(2020, 02, 18), y: 3 },
+                { x: new Date(2020, 02, 19), y: 3 },
+                { x: new Date(2020, 02, 20), y: 3 },
+                { x: new Date(2020, 02, 21), y: 3 },
+                { x: new Date(2020, 02, 22), y: 3 },
+                { x: new Date(2020, 02, 23), y: 3 },
+                { x: new Date(2020, 02, 24), y: 5 },
+                { x: new Date(2020, 02, 25), y: 7 },
+                { x: new Date(2020, 02, 26), y: 11 },
+                { x: new Date(2020, 02, 27), y: 11 },
+                { x: new Date(2020, 02, 28), y: 15 },
+                { x: new Date(2020, 02, 29), y: 15 },
+                { x: new Date(2020, 02, 30), y: 19 },
+                { x: new Date(2020, 02, 31), y: 25 },
+                { x: new Date(2020, 03, 1), y: 25 },
+                { x: new Date(2020, 03, 2), y: 25 },
+                { x: new Date(2020, 03, 3), y: 26 },
+                { x: new Date(2020, 03, 4), y: 30 },
+                { x: new Date(2020, 03, 5), y: 33 },
+                { x: new Date(2020, 03, 6), y: 33 },
+                { x: new Date(2020, 03, 7), y: 33 },
+                { x: new Date(2020, 03, 8), y: 33 },
+                { x: new Date(2020, 03, 9), y: 33 },
+                { x: new Date(2020, 03, 10), y: 33 },
+                { x: new Date(2020, 03, 11), y: 36 },
+                { x: new Date(2020, 03, 12), y: 39 },
+                { x: new Date(2020, 03, 13), y: 42 },
+                { x: new Date(2020, 03, 14), y: 42 },
+                { x: new Date(2020, 03, 15), y: 49 },
+                { x: new Date(2020, 03, 16), y: 49 },
+                { x: new Date(2020, 03, 17), y: 58 },
+                { x: new Date(2020, 03, 18), y: 66 },
+                { x: new Date(2020, 03, 19), y: 75 },
+                { x: new Date(2020, 03, 20), y: 85 }
+            ],
+          },
+        ],
+    });
+    Chart_covid.render();
+
+    // Attack Info Percent
+    var Chart_doughnut = new CanvasJS.Chart("chart_doughnut", {
+        theme: "light1",
+        exportFileName: "Doughnut Chart",
+        exportEnabled: true,
+        animationEnabled: true,
+        title:{
+            text: "Attack Percent(%) in BD"
+        },
+        legend:{
+            cursor: "pointer",
+            itemclick: explodePie
+        },
+        data: [{
+            type: "doughnut",
+            innerRadius: 90,
+            showInLegend: true,
+            toolTipContent: "<b>{name}</b>: {y} (#percent%)",
+            indexLabel: "{name} - #percent%",
+            dataPoints: [
+                { y: 2948, name: "Coronavirus cases" },
+                { y: 101, name: "Deaths" },
+                { y: 85, name: "Recovered" }
+             ]
+        }]
+    });
+    Chart_doughnut.render();
+
+    // Daily positive cases
+    var Chart_spline = new CanvasJS.Chart("chart_spline", {
+        theme: "light1",
+        animationEnabled: true,
+        title:{
+            text: "COVID-19 Positives in Bangladesh"
+        },
+        axisX:{
+            valueFormatString: "DD MMM"
+        },
+        axisY: {
+            title: "Number of Cases",
+            includeZero: false
+        },
+        data: [{
+            type: "column",
+            xValueFormatString: "DD MMM",
+            color: "#0288d1",
+            dataPoints: [
+                { x: new Date(2020, 2, 08), y:  3 },
+                { x: new Date(2020, 2, 09), y:  0 },
+                { x: new Date(2020, 2, 10), y:  0 },
+                { x: new Date(2020, 2, 11), y:  0 },
+                { x: new Date(2020, 2, 12), y:  0 },
+                { x: new Date(2020, 2, 13), y:  0 },
+                { x: new Date(2020, 2, 14), y:  2 },
+                { x: new Date(2020, 2, 15), y:  0 },
+                { x: new Date(2020, 2, 16), y:  3 },
+                { x: new Date(2020, 2, 17), y:  2 },
+                { x: new Date(2020, 2, 18), y:  4 },
+                { x: new Date(2020, 2, 19), y:  4 },
+                { x: new Date(2020, 2, 20), y:  2 },
+                { x: new Date(2020, 2, 21), y:  4 },
+                { x: new Date(2020, 2, 22), y:  3 },
+                { x: new Date(2020, 2, 23), y:  6 },
+                { x: new Date(2020, 2, 24), y:  6 },
+                { x: new Date(2020, 2, 25), y:  0 },
+                { x: new Date(2020, 2, 26), y:  5 },
+                { x: new Date(2020, 2, 27), y:  4 },
+                { x: new Date(2020, 2, 28), y:  0 },
+                { x: new Date(2020, 2, 29), y:  0 },
+                { x: new Date(2020, 2, 30), y:  1 },
+                { x: new Date(2020, 2, 31), y:  2 },
+                { x: new Date(2020, 3, 1), y:  3 },
+                { x: new Date(2020, 3, 2), y:  2 },
+                { x: new Date(2020, 3, 3), y:  5 },
+                { x: new Date(2020, 3, 4), y:  9 },
+                { x: new Date(2020, 3, 5), y:  18 },
+                { x: new Date(2020, 3, 6), y:  35 },
+                { x: new Date(2020, 3, 7), y:  41 },
+                { x: new Date(2020, 3, 8), y:  54 },
+                { x: new Date(2020, 3, 9), y:  112 },
+                { x: new Date(2020, 3, 10), y:  94 },
+                { x: new Date(2020, 3, 11), y:  58 },
+                { x: new Date(2020, 3, 12), y:  139 },
+                { x: new Date(2020, 3, 13), y:  182 },
+                { x: new Date(2020, 3, 14), y:  209 },
+                { x: new Date(2020, 3, 15), y:  219 },
+                { x: new Date(2020, 3, 16), y:  341 },
+                { x: new Date(2020, 3, 17), y:  266 },
+                { x: new Date(2020, 3, 18), y:  306 },
+                { x: new Date(2020, 3, 19), y:  312 },
+                { x: new Date(2020, 3, 20), y:  492 }
+            ]
+        }]
+    });
+    Chart_spline.render();
+
+    // Daily Deaths Cases
+    var Chart_line = new CanvasJS.Chart("chart_line", {
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        animationEnabled: true,
+        title:{
+            text: "COVID-19 Deaths in Bangladesh"   
+        },
+        axisX: {
+            valueFormatString: "DD MMM"
+        },
+        axisY:{
+            includeZero: false
+        },
+        data: [{        
+            type: "column",
+            markerSize: 12,
+            xValueFormatString: "DD MMM",
+            yValueFormatString: "###",
+            color: "#de4536",
+            dataPoints: [        
+                { x: new Date(2020, 02, 8), y: 0 },
+                { x: new Date(2020, 02, 9), y: 0 },
+                { x: new Date(2020, 02, 10), y: 0 },
+                { x: new Date(2020, 02, 11), y: 0 },
+                { x: new Date(2020, 02, 12), y: 0 },
+                { x: new Date(2020, 02, 13), y: 0 },
+                { x: new Date(2020, 02, 14), y: 0 },
+                { x: new Date(2020, 02, 15), y: 0 },
+                { x: new Date(2020, 02, 16), y: 0 },
+                { x: new Date(2020, 02, 17), y: 0 },
+                { x: new Date(2020, 02, 18), y: 1 },
+                { x: new Date(2020, 02, 19), y: 0 },
+                { x: new Date(2020, 02, 20), y: 0 },
+                { x: new Date(2020, 02, 21), y: 1 },
+                { x: new Date(2020, 02, 22), y: 0 },
+                { x: new Date(2020, 02, 23), y: 1 },
+                { x: new Date(2020, 02, 24), y: 1 },
+                { x: new Date(2020, 02, 25), y: 1 },
+                { x: new Date(2020, 02, 26), y: 0 },
+                { x: new Date(2020, 02, 27), y: 0 },
+                { x: new Date(2020, 02, 28), y: 0 },
+                { x: new Date(2020, 02, 29), y: 0 },
+                { x: new Date(2020, 02, 30), y: 0 },
+                { x: new Date(2020, 02, 31), y: 0 },
+                { x: new Date(2020, 03, 1), y: 1 },
+                { x: new Date(2020, 03, 2), y: 0 },
+                { x: new Date(2020, 03, 3), y: 0 },
+                { x: new Date(2020, 03, 4), y: 2 },
+                { x: new Date(2020, 03, 5), y: 1 },
+                { x: new Date(2020, 03, 6), y: 3 },
+                { x: new Date(2020, 03, 7), y: 5 },
+                { x: new Date(2020, 03, 8), y: 3 },
+                { x: new Date(2020, 03, 9), y: 1 },
+                { x: new Date(2020, 03, 10), y: 6 },
+                { x: new Date(2020, 03, 11), y: 3 },
+                { x: new Date(2020, 03, 12), y: 4 },
+                { x: new Date(2020, 03, 13), y: 5 },
+                { x: new Date(2020, 03, 14), y: 7 },
+                { x: new Date(2020, 03, 15), y: 4 },
+                { x: new Date(2020, 03, 16), y: 10 },
+                { x: new Date(2020, 03, 17), y: 15 },
+                { x: new Date(2020, 03, 18), y:  9 },
+                { x: new Date(2020, 03, 19), y:  7 },
+                { x: new Date(2020, 03, 20), y:  10 }
+            ]
+        }]
+    });
+    Chart_line.render();
+}
 
 // Temporary Chart
 function Temporary_Info() {
@@ -649,7 +1226,8 @@ function Temporary_Info() {
                     { x: new Date(2020, 3, 16), y:  2135 },
                     { x: new Date(2020, 3, 17), y:  2190 },
                     { x: new Date(2020, 3, 18), y:  2114 },
-                    { x: new Date(2020, 3, 19), y:  2634 }
+                    { x: new Date(2020, 3, 19), y:  2634 },
+                    { x: new Date(2020, 3, 20), y:  2663 }
                 ]
             },
             {
@@ -702,7 +1280,8 @@ function Temporary_Info() {
                     { x: new Date(2020, 3, 16), y:  341 },
                     { x: new Date(2020, 3, 17), y:  266 },
                     { x: new Date(2020, 3, 18), y:  306 },
-                    { x: new Date(2020, 3, 19), y:  312 }
+                    { x: new Date(2020, 3, 19), y:  312 },
+                    { x: new Date(2020, 3, 20), y:  492 }
                 ]
             }
         ],
@@ -711,497 +1290,4 @@ function Temporary_Info() {
 
 }
 
-
-
-
-/********* Dynamic /API Section *********/
-// Doughnut Chart Corona %
-function setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered_Array) {
-    var Chart_covid = new CanvasJS.Chart("chart_covid", {
-        exportEnabled: true,
-        animationEnabled: true,
-        title: {
-          text: "COVID-19 timeline in Bangladesh",
-        },
-        axisX: {
-          valueFormatString: "DD MMM",
-        },
-        axisY: {
-          title: "Number of People",
-        },
-        legend: {
-          verticalAlign: "top",
-          horizontalAlign: "right",
-          dockInsidePlotArea: true,
-        },
-        toolTip: {
-          shared: true,
-        },
-        data: [
-          {
-            name: "Infected",
-            showInLegend: true,
-            legendMarkerType: "circle",
-            type: "spline",
-            color: "#64b5f6",
-            markerSize: 0,
-            dataPoints: covid_Infected_Array,
-          },
-          {
-            name: "Deaths",
-            showInLegend: true,
-            legendMarkerType: "circle",
-            type: "spline",
-            color: "#d50000",
-            markerSize: 0,
-            dataPoints: covid_Deaths_Array,
-          },
-          {
-            name: "Recovered",
-            showInLegend: true,
-            legendMarkerType: "circle",
-            type: "spline",
-            color: "#43a047",
-            markerSize: 0,
-            dataPoints: covid_Recovered_Array,
-          },
-        ],
-    });
-    Chart_covid.render();
-}
-
-function setPercent_chart(Coronavirus_cases, Deaths, Recovered) {
-    var Chart_doughnut = new CanvasJS.Chart("chart_doughnut", {
-        theme: "light1",
-        exportFileName: "Doughnut Chart",
-        exportEnabled: true,
-        animationEnabled: true,
-        title:{
-            text: "Attack Percent(%) in BD"
-        },
-        legend:{
-            cursor: "pointer",
-            itemclick: explodePie
-        },
-        data: [{
-            type: "doughnut",
-            innerRadius: 90,
-            showInLegend: true,
-            toolTipContent: "<b>{name}</b>: {y} (#percent%)",
-            indexLabel: "{name} - #percent%",
-            dataPoints: [
-                { y: Coronavirus_cases, name: "Coronavirus cases" },
-                { y: Deaths, name: "Deaths" },
-                { y: Recovered, name: "Recovered" }
-             ]
-        }]
-    });
-    Chart_doughnut.render();
-}
-
-// Spline Chart Daily Positive cases
-function setInfected_chart(covid_Positive_Daily) {
-    var Chart_spline = new CanvasJS.Chart("chart_spline", {
-        animationEnabled: true,
-        title:{
-            text: "COVID-19 Positives in Bangladesh"
-        },
-        axisX:{
-            valueFormatString: "DD MMM"
-        },
-        axisY: {
-            title: "Number of Cases",
-            includeZero: false
-        },
-        data: [{
-            type: "column",
-            xValueFormatString: "DD MMM",
-            color: "#0288d1",
-            dataPoints: covid_Positive_Daily
-        }]
-    });
-    Chart_spline.render();
-}
-
- // Line Chart Daily Deaths
-function setDeath_chart(covid_Deaths_Daily) {
-    var Chart_line = new CanvasJS.Chart("chart_line", {
-        theme: "light1", // "light1", "light2", "dark1", "dark2"
-        animationEnabled: true,
-        title:{
-            text: "COVID-19 Deaths in Bangladesh"   
-        },
-        axisX: {
-            valueFormatString: "DD MMM"
-        },
-        axisY:{
-            includeZero: false
-        },
-        data: [{        
-            type: "column",
-            markerSize: 12,
-            xValueFormatString: "DD MMM",
-            yValueFormatString: "###",
-            color: "#de4536",
-            dataPoints: covid_Deaths_Daily
-        }]
-    });
-    Chart_line.render();
-}
-
-
-
-
-
-/********* Static Section *********/
-// Load data without API ( Data Entry Static Way)
-function API_Fail_Then_loadData() {
-    // Total COVID-19 Info
-    var Chart_covid = new CanvasJS.Chart("chart_covid", {
-        theme: "light1",
-        exportEnabled: true,
-        animationEnabled: true,
-        title: {
-          text: "COVID-19 timeline in Bangladesh",
-        },
-        axisX: {
-          valueFormatString: "DD MMM",
-        },
-        axisY: {
-          title: "Number of People",
-        },
-        legend: {
-          verticalAlign: "top",
-          horizontalAlign: "right",
-          dockInsidePlotArea: true,
-        },
-        toolTip: {
-          shared: true,
-        },
-        data: [
-          {
-            name: "Infected",
-            showInLegend: true,
-            legendMarkerType: "circle",
-            type: "area",
-            color: "#64b5f6",
-            markerSize: 0,
-            dataPoints: [
-                { x: new Date(2020, 2, 08), y:  3 },
-                { x: new Date(2020, 2, 09), y:  3 },
-                { x: new Date(2020, 2, 10), y:  3 },
-                { x: new Date(2020, 2, 11), y:  3 },
-                { x: new Date(2020, 2, 12), y:  3 },
-                { x: new Date(2020, 2, 13), y:  3 },
-                { x: new Date(2020, 2, 14), y:  5 },
-                { x: new Date(2020, 2, 15), y:  5 },
-                { x: new Date(2020, 2, 16), y:  8 },
-                { x: new Date(2020, 2, 17), y:  10 },
-                { x: new Date(2020, 2, 18), y:  14 },
-                { x: new Date(2020, 2, 19), y:  18 },
-                { x: new Date(2020, 2, 20), y:  20 },
-                { x: new Date(2020, 2, 21), y:  24 },
-                { x: new Date(2020, 2, 22), y:  27 },
-                { x: new Date(2020, 2, 23), y:  33 },
-                { x: new Date(2020, 2, 24), y:  39 },
-                { x: new Date(2020, 2, 25), y:  39 },
-                { x: new Date(2020, 2, 26), y:  44 },
-                { x: new Date(2020, 2, 27), y:  48 },
-                { x: new Date(2020, 2, 28), y:  48 },
-                { x: new Date(2020, 2, 29), y:  48 },
-                { x: new Date(2020, 2, 30), y:  49 },
-                { x: new Date(2020, 2, 31), y:  51 },
-                { x: new Date(2020, 3, 1), y:  54 },
-                { x: new Date(2020, 3, 2), y:  56 },
-                { x: new Date(2020, 3, 3), y:  61 },
-                { x: new Date(2020, 3, 4), y:  70 },
-                { x: new Date(2020, 3, 5), y:  88 },
-                { x: new Date(2020, 3, 6), y:  123 },
-                { x: new Date(2020, 3, 7), y:  164 },
-                { x: new Date(2020, 3, 8), y:  218 },
-                { x: new Date(2020, 3, 9), y:  330 },
-                { x: new Date(2020, 3, 10), y:  424 },
-                { x: new Date(2020, 3, 11), y:  482 },
-                { x: new Date(2020, 3, 12), y:  621 },
-                { x: new Date(2020, 3, 13), y:  803 },
-                { x: new Date(2020, 3, 14), y:  1012 },
-                { x: new Date(2020, 3, 15), y:  1231 },
-                { x: new Date(2020, 3, 16), y:  1572 },
-                { x: new Date(2020, 3, 17), y:  1838 },
-                { x: new Date(2020, 3, 18), y:  2144 },
-                { x: new Date(2020, 3, 19), y:  2456 }
-            ],
-          },
-          {
-            name: "Deaths",
-            showInLegend: true,
-            legendMarkerType: "circle",
-            type: "area",
-            color: "#d50000",
-            markerSize: 0,
-            dataPoints: [        
-                { x: new Date(2020, 02, 8), y: 0 },
-                { x: new Date(2020, 02, 9), y: 0 },
-                { x: new Date(2020, 02, 10), y: 0 },
-                { x: new Date(2020, 02, 11), y: 0 },
-                { x: new Date(2020, 02, 12), y: 0 },
-                { x: new Date(2020, 02, 13), y: 0 },
-                { x: new Date(2020, 02, 14), y: 0 },
-                { x: new Date(2020, 02, 15), y: 0 },
-                { x: new Date(2020, 02, 16), y: 0 },
-                { x: new Date(2020, 02, 17), y: 0 },
-                { x: new Date(2020, 02, 18), y: 1 },
-                { x: new Date(2020, 02, 19), y: 1 },
-                { x: new Date(2020, 02, 20), y: 1 },
-                { x: new Date(2020, 02, 21), y: 2 },
-                { x: new Date(2020, 02, 22), y: 2 },
-                { x: new Date(2020, 02, 23), y: 3 },
-                { x: new Date(2020, 02, 24), y: 4 },
-                { x: new Date(2020, 02, 25), y: 5 },
-                { x: new Date(2020, 02, 26), y: 5 },
-                { x: new Date(2020, 02, 27), y: 5 },
-                { x: new Date(2020, 02, 28), y: 5 },
-                { x: new Date(2020, 02, 29), y: 5 },
-                { x: new Date(2020, 02, 30), y: 5 },
-                { x: new Date(2020, 02, 31), y: 5 },
-                { x: new Date(2020, 03, 1), y: 6 },
-                { x: new Date(2020, 03, 2), y: 6 },
-                { x: new Date(2020, 03, 3), y: 6 },
-                { x: new Date(2020, 03, 4), y: 8 },
-                { x: new Date(2020, 03, 5), y: 9 },
-                { x: new Date(2020, 03, 6), y: 12 },
-                { x: new Date(2020, 03, 7), y: 17 },
-                { x: new Date(2020, 03, 8), y: 20 },
-                { x: new Date(2020, 03, 9), y: 21 },
-                { x: new Date(2020, 03, 10), y: 27 },
-                { x: new Date(2020, 03, 11), y: 30 },
-                { x: new Date(2020, 03, 12), y: 34 },
-                { x: new Date(2020, 03, 13), y: 39 },
-                { x: new Date(2020, 03, 14), y: 46 },
-                { x: new Date(2020, 03, 15), y: 50 },
-                { x: new Date(2020, 03, 16), y: 60 },
-                { x: new Date(2020, 03, 17), y: 75 },
-                { x: new Date(2020, 03, 18), y: 84 },
-                { x: new Date(2020, 03, 19), y: 91 }
-            ],
-          },
-          {
-            name: "Recovered",
-            showInLegend: true,
-            legendMarkerType: "circle",
-            type: "area",
-            color: "#43a047",
-            markerSize: 0,
-            dataPoints: [        
-                { x: new Date(2020, 02, 8), y: 0 },
-                { x: new Date(2020, 02, 9), y: 0 },
-                { x: new Date(2020, 02, 10), y: 0 },
-                { x: new Date(2020, 02, 11), y: 0 },
-                { x: new Date(2020, 02, 12), y: 0 },
-                { x: new Date(2020, 02, 13), y: 0 },
-                { x: new Date(2020, 02, 14), y: 0 },
-                { x: new Date(2020, 02, 15), y: 0 },
-                { x: new Date(2020, 02, 16), y: 2 },
-                { x: new Date(2020, 02, 17), y: 3 },
-                { x: new Date(2020, 02, 18), y: 3 },
-                { x: new Date(2020, 02, 19), y: 3 },
-                { x: new Date(2020, 02, 20), y: 3 },
-                { x: new Date(2020, 02, 21), y: 3 },
-                { x: new Date(2020, 02, 22), y: 3 },
-                { x: new Date(2020, 02, 23), y: 3 },
-                { x: new Date(2020, 02, 24), y: 5 },
-                { x: new Date(2020, 02, 25), y: 7 },
-                { x: new Date(2020, 02, 26), y: 11 },
-                { x: new Date(2020, 02, 27), y: 11 },
-                { x: new Date(2020, 02, 28), y: 15 },
-                { x: new Date(2020, 02, 29), y: 15 },
-                { x: new Date(2020, 02, 30), y: 19 },
-                { x: new Date(2020, 02, 31), y: 25 },
-                { x: new Date(2020, 03, 1), y: 25 },
-                { x: new Date(2020, 03, 2), y: 25 },
-                { x: new Date(2020, 03, 3), y: 26 },
-                { x: new Date(2020, 03, 4), y: 30 },
-                { x: new Date(2020, 03, 5), y: 33 },
-                { x: new Date(2020, 03, 6), y: 33 },
-                { x: new Date(2020, 03, 7), y: 33 },
-                { x: new Date(2020, 03, 8), y: 33 },
-                { x: new Date(2020, 03, 9), y: 33 },
-                { x: new Date(2020, 03, 10), y: 33 },
-                { x: new Date(2020, 03, 11), y: 36 },
-                { x: new Date(2020, 03, 12), y: 39 },
-                { x: new Date(2020, 03, 13), y: 42 },
-                { x: new Date(2020, 03, 14), y: 42 },
-                { x: new Date(2020, 03, 15), y: 49 },
-                { x: new Date(2020, 03, 16), y: 49 },
-                { x: new Date(2020, 03, 17), y: 58 },
-                { x: new Date(2020, 03, 18), y: 66 },
-                { x: new Date(2020, 03, 19), y: 75 }
-            ],
-          },
-        ],
-    });
-    Chart_covid.render();
-
-    // Attack Info Percent
-    var Chart_doughnut = new CanvasJS.Chart("chart_doughnut", {
-        theme: "light1",
-        exportFileName: "Doughnut Chart",
-        exportEnabled: true,
-        animationEnabled: true,
-        title:{
-            text: "Attack Percent(%) in BD"
-        },
-        legend:{
-            cursor: "pointer",
-            itemclick: explodePie
-        },
-        data: [{
-            type: "doughnut",
-            innerRadius: 90,
-            showInLegend: true,
-            toolTipContent: "<b>{name}</b>: {y} (#percent%)",
-            indexLabel: "{name} - #percent%",
-            dataPoints: [
-                { y: 2456, name: "Coronavirus cases" },
-                { y: 91, name: "Deaths" },
-                { y: 75, name: "Recovered" }
-             ]
-        }]
-    });
-    Chart_doughnut.render();
-
-    // Daily positive cases
-    var Chart_spline = new CanvasJS.Chart("chart_spline", {
-        theme: "light1",
-        animationEnabled: true,
-        title:{
-            text: "COVID-19 Positives in Bangladesh"
-        },
-        axisX:{
-            valueFormatString: "DD MMM"
-        },
-        axisY: {
-            title: "Number of Cases",
-            includeZero: false
-        },
-        data: [{
-            type: "column",
-            xValueFormatString: "DD MMM",
-            color: "#0288d1",
-            dataPoints: [
-                { x: new Date(2020, 2, 08), y:  3 },
-                { x: new Date(2020, 2, 09), y:  0 },
-                { x: new Date(2020, 2, 10), y:  0 },
-                { x: new Date(2020, 2, 11), y:  0 },
-                { x: new Date(2020, 2, 12), y:  0 },
-                { x: new Date(2020, 2, 13), y:  0 },
-                { x: new Date(2020, 2, 14), y:  2 },
-                { x: new Date(2020, 2, 15), y:  0 },
-                { x: new Date(2020, 2, 16), y:  3 },
-                { x: new Date(2020, 2, 17), y:  2 },
-                { x: new Date(2020, 2, 18), y:  4 },
-                { x: new Date(2020, 2, 19), y:  4 },
-                { x: new Date(2020, 2, 20), y:  2 },
-                { x: new Date(2020, 2, 21), y:  4 },
-                { x: new Date(2020, 2, 22), y:  3 },
-                { x: new Date(2020, 2, 23), y:  6 },
-                { x: new Date(2020, 2, 24), y:  6 },
-                { x: new Date(2020, 2, 25), y:  0 },
-                { x: new Date(2020, 2, 26), y:  5 },
-                { x: new Date(2020, 2, 27), y:  4 },
-                { x: new Date(2020, 2, 28), y:  0 },
-                { x: new Date(2020, 2, 29), y:  0 },
-                { x: new Date(2020, 2, 30), y:  1 },
-                { x: new Date(2020, 2, 31), y:  2 },
-                { x: new Date(2020, 3, 1), y:  3 },
-                { x: new Date(2020, 3, 2), y:  2 },
-                { x: new Date(2020, 3, 3), y:  5 },
-                { x: new Date(2020, 3, 4), y:  9 },
-                { x: new Date(2020, 3, 5), y:  18 },
-                { x: new Date(2020, 3, 6), y:  35 },
-                { x: new Date(2020, 3, 7), y:  41 },
-                { x: new Date(2020, 3, 8), y:  54 },
-                { x: new Date(2020, 3, 9), y:  112 },
-                { x: new Date(2020, 3, 10), y:  94 },
-                { x: new Date(2020, 3, 11), y:  58 },
-                { x: new Date(2020, 3, 12), y:  139 },
-                { x: new Date(2020, 3, 13), y:  182 },
-                { x: new Date(2020, 3, 14), y:  209 },
-                { x: new Date(2020, 3, 15), y:  219 },
-                { x: new Date(2020, 3, 16), y:  341 },
-                { x: new Date(2020, 3, 17), y:  266 },
-                { x: new Date(2020, 3, 18), y:  306 },
-                { x: new Date(2020, 3, 19), y:  312 }
-            ]
-        }]
-    });
-    Chart_spline.render();
-
-    // Daily Deaths Cases
-    var Chart_line = new CanvasJS.Chart("chart_line", {
-        theme: "light1", // "light1", "light2", "dark1", "dark2"
-        animationEnabled: true,
-        title:{
-            text: "COVID-19 Deaths in Bangladesh"   
-        },
-        axisX: {
-            valueFormatString: "DD MMM"
-        },
-        axisY:{
-            includeZero: false
-        },
-        data: [{        
-            type: "column",
-            markerSize: 12,
-            xValueFormatString: "DD MMM",
-            yValueFormatString: "###",
-            color: "#de4536",
-            dataPoints: [        
-                { x: new Date(2020, 02, 8), y: 0 },
-                { x: new Date(2020, 02, 9), y: 0 },
-                { x: new Date(2020, 02, 10), y: 0 },
-                { x: new Date(2020, 02, 11), y: 0 },
-                { x: new Date(2020, 02, 12), y: 0 },
-                { x: new Date(2020, 02, 13), y: 0 },
-                { x: new Date(2020, 02, 14), y: 0 },
-                { x: new Date(2020, 02, 15), y: 0 },
-                { x: new Date(2020, 02, 16), y: 0 },
-                { x: new Date(2020, 02, 17), y: 0 },
-                { x: new Date(2020, 02, 18), y: 1 },
-                { x: new Date(2020, 02, 19), y: 0 },
-                { x: new Date(2020, 02, 20), y: 0 },
-                { x: new Date(2020, 02, 21), y: 1 },
-                { x: new Date(2020, 02, 22), y: 0 },
-                { x: new Date(2020, 02, 23), y: 1 },
-                { x: new Date(2020, 02, 24), y: 1 },
-                { x: new Date(2020, 02, 25), y: 1 },
-                { x: new Date(2020, 02, 26), y: 0 },
-                { x: new Date(2020, 02, 27), y: 0 },
-                { x: new Date(2020, 02, 28), y: 0 },
-                { x: new Date(2020, 02, 29), y: 0 },
-                { x: new Date(2020, 02, 30), y: 0 },
-                { x: new Date(2020, 02, 31), y: 0 },
-                { x: new Date(2020, 03, 1), y: 1 },
-                { x: new Date(2020, 03, 2), y: 0 },
-                { x: new Date(2020, 03, 3), y: 0 },
-                { x: new Date(2020, 03, 4), y: 2 },
-                { x: new Date(2020, 03, 5), y: 1 },
-                { x: new Date(2020, 03, 6), y: 3 },
-                { x: new Date(2020, 03, 7), y: 5 },
-                { x: new Date(2020, 03, 8), y: 3 },
-                { x: new Date(2020, 03, 9), y: 1 },
-                { x: new Date(2020, 03, 10), y: 6 },
-                { x: new Date(2020, 03, 11), y: 3 },
-                { x: new Date(2020, 03, 12), y: 4 },
-                { x: new Date(2020, 03, 13), y: 5 },
-                { x: new Date(2020, 03, 14), y: 7 },
-                { x: new Date(2020, 03, 15), y: 4 },
-                { x: new Date(2020, 03, 16), y: 10 },
-                { x: new Date(2020, 03, 17), y: 15 },
-                { x: new Date(2020, 03, 18), y:  9 },
-                { x: new Date(2020, 03, 19), y:  7 }
-            ]
-        }]
-    });
-    Chart_line.render();
-}
+*/

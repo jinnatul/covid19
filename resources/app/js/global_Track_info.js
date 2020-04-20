@@ -7,12 +7,13 @@ $(function() {
     $.get(apiURL, function() {})
         .done(function(res) {
             set_Info(res);
-            //console.log(res)
         })
+        .fail(function () {
+            M.toast({html: 'Internal Problem!!!'})
+        });
 })
 
 function set_Info(res) {
-
     let Info_Continent_Table = "<table class='highlight'><tr><th>Country</th><th>Cases</th><th>TodayCases</th>";
         Info_Continent_Table += "<th>Deaths</th><th>TodayDeaths</th><th>Recovered</th><th>Active</th>";
         Info_Continent_Table += "<th>Critical</th><th>TotalTests</th></tr>";
