@@ -252,17 +252,16 @@ function DivitionCount() {
             toolTipContent: "<b>{label}</b>: {y}",
             showInLegend: "true",
             legendText: "{label}",
-            color: "red",
             indexLabelFontSize: 16,
             indexLabel:  "{y}",
             dataPoints: [
-                { y: 1663, label: "Dhaka" },
-                { y: 97, label: "Chattagram" },
-                { y: 43, label: "Rangpur" },
-                { y: 32, label: "Mymensingh" },
-                { y: 36, label: "Barishal" },
+                { y: 1869, label: "Dhaka" },
+                { y: 105, label: "Chattagram" },
+                { y: 47, label: "Rangpur" },
+                { y: 66, label: "Mymensingh" },
+                { y: 41, label: "Barishal" },
                 { y: 7, label: "Sylhet" },
-                { y: 5, label: "Rajshahi" },
+                { y: 9, label: "Rajshahi" },
                 { y: 6, label: "Khulna" }           
             ]
         }]
