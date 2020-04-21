@@ -1,9 +1,10 @@
 $(function() {
     let apiURL = "https://corona-bd.herokuapp.com/district"
-
+    $('#district').hide();
     $.get(apiURL, function() {})
         .done(function(res) {
             mapMaker(res);
+            $('#district').show();
         })
         .fail(function () {
             M.toast({html: 'Internal Problem!!!'})

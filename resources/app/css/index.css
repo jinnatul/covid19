@@ -8,6 +8,12 @@
     overflow-y: scroll;
 }
 
+.scrollableTable {
+    width: auto;
+    height: 30rem;
+    overflow-y: scroll;
+}
+
 .chart_Design {
     height: 376px;
     max-width: 920px;

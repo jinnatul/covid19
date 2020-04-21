@@ -22,8 +22,9 @@
                 <ul class="right hide-on-med-and-down">
                   <li><a class="navFontSize scroll" href="#home">Home</a></li>
                   <li><a class="navFontSize scroll" href="#bangladesh">Bangladesh</a></li>
-                  <li><a class="navFontSize scroll" href="#district">District</a></li>
+                  <li><a class="navFontSize scroll" href="#district">Map</a></li>
                   <li><a class="navFontSize scroll" href="#charts">Charts</a></li>
+                  <li><a class="navFontSize scroll" href="#dhaka">Dhaka</a></li>
                   <li><a class="navFontSize scroll" href="#hotLine">HotLine</a></li>
                   <li><a class="navFontSize scroll" href="#faq">FAQ</a></li>
                   <li><a class="navFontSize scroll" href="#global">Global</a></li>
@@ -58,7 +59,7 @@
 
     <!--World Info-->
     <div class="customContainer" id="home">
-        <h4 class="center-align">COVID-19 Summary</h4>
+        <h4 class="center-align headerText">COVID-19 Summary</h4>
         <div class="row">
             <h5 class="center-align">World</h5>
             <div class="col s12 m3">
@@ -168,7 +169,7 @@
 
     <!--COVID-19 Bangladesh Daily Records-->
     <div class="customContainer"  id="bangladesh">
-        <h4 class="center-align">BD Daily Info</h4>
+        <h4 class="center-align headerText">BD Daily Info</h4>
         <div class="col s12 l8 m8 scrollable">
             <div id="bd_Track_Info"></div>
         </div>
@@ -177,7 +178,7 @@
 
     <!--Bangladesh District Cases-->
     <div class="customContainer" id="district">
-        <h4 class="center-align">District Affected</h4>
+        <h4 class="center-align headerText">District Affected</h4>
  
         <!--Map Cases-->
         <div class="row">
@@ -208,7 +209,7 @@
 
     <!--Charts-->
     <div class="customContainer" id="charts">
-        <h4 class="center-align">Charts</h4>
+        <h4 class="center-align headerText">Charts</h4>
          <!--Total COVID-19 Info-->
         <div class="row">
             <div class="col s12 m12">
@@ -263,13 +264,32 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
+    <div class="customContainer" id="dhaka">
+        <div class="row">
+            <h4 class="center-align headerText"> Confirmed cases in Dhaka city</h4>
+            <div class="card">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 m4 l4">
+                            <input id="search" type="text" autocomplete="off" />
+                            <label for="arealsearch">Search for a location...</label>
+                        </div>
+                        <div class="col s12 m12 l12 scrollableTable">
+                            <div id="dhakaCityInfo"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!--Hot Line Numbers (BD)-->
     <div class="customContainer" id="hotLine">
-        <h4 class="center-align">HotLine (IEDCR-BD)</h4>
+        <h4 class="center-align headerText">HotLine (IEDCR-BD)</h4>
         <table class="centered">
             <tr>
                 <td>
@@ -333,7 +353,7 @@
 
     <!--Coronaviruses Info-->
     <div class="customContainer" id="faq">
-        <h4 class="center-align">FAQ</h4>
+        <h4 class="center-align headerText">FAQ</h4>
         <div class="row">
             <ul class="collapsible popout">
                 <li>
@@ -465,7 +485,7 @@
 
     <!--COVID-19 in World-->
     <div class="customContainer" id="global">
-        <h4 class="center-align">COVID-19 in Global</h4>
+        <h4 class="center-align headerText">COVID-19 in Global</h4>
         <div class="row">
             <ul class="collapsible popout">
                 <li>
@@ -512,6 +532,7 @@
     <script src="resources/app/js/chart.js"></script>
     <script src="resources/app/js/index.js"></script>
     <script src="resources/app/js/bdmap.js"></script>
+    <script src="resources/app/js/dhakaCity.js"></script>
     <script>
         window.onscroll = scroll;
          function scroll() {
