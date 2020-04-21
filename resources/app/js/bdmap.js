@@ -31,6 +31,7 @@ function mapMaker(res) {
         name = name.replace("Hobiganj", "Habiganj")
         name = name.replace("Panchagar", "Panchagarh")
         name = name.replace("Cox’s bazar", "CoxsBazar")
+        name = name.replace("Narshingdi", "Narsingdi")
         dataMAP[name] = res["data"][index]["count"]
 
         //set color on Each district base on affected count
