@@ -1,6 +1,5 @@
 let bd_Info_Array = [];
 $(function() {
-    $('#bangladesh').hide();
 
     bd_Info_Array.push({Date: '2020-03-08', T_Tests: 'x',T_Positive_Cases: 3, T_Deaths: 0, T_Recovary: 'x', Total: 3});
     bd_Info_Array.push({Date: '2020-03-09', T_Tests: 'x',T_Positive_Cases: 0, T_Deaths: 0, T_Recovary: 'x', Total: 3});
@@ -62,5 +61,4 @@ $(function() {
     bd_table += "</table>";
     $("#bd_Track_Info").html(bd_table);
 
-    $('#bangladesh').show();
 })

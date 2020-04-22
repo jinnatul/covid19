@@ -1,11 +1,9 @@
 $(function() {
     let dhakaCityURL = "https://teamtigers.github.io/covid19-dataset-bd/dhakacity/dhakacity.json";
-    $('#dhaka').hide();
     $.get(dhakaCityURL, function(){}) 
         .done(function(res) {
             let dhakacityArray = Object.entries(res);
             makeTable(dhakacityArray);
-            $('#dhaka').show();
         })
         .fail(function () {
             M.toast({html: 'Internal Problem!!!'})

@@ -8,7 +8,6 @@ window.onload = function () {
     let covid_Deaths_Daily = [];
     let covid_Positive_Daily = [];
 
-    $('#charts').hide();
     $.get(apiURL, function() {})
         .done(function(res) {
             let sizeResponse = res["Bangladesh"].length;
@@ -33,7 +32,6 @@ window.onload = function () {
             
             setInfected_chart(covid_Positive_Daily);
             setDeath_chart(covid_Deaths_Daily);
-            $('#charts').show();
         })
         .fail(function () {
             M.toast({html: 'Internal Problem!!!'})
