@@ -3,6 +3,7 @@ $(function() {
     $.get(dhakaCityURL, function(){}) 
         .done(function(res) {
             let dhakacityArray = Object.entries(res);
+            $('#dhakaAreaCount').text(dhakacityArray.length);
             makeTable(dhakacityArray);
         })
         .fail(function () {

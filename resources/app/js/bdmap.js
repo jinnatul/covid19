@@ -12,7 +12,7 @@ $(function() {
 
 function mapMaker(res) {
 
-    $('#districtCount').text("Affected District: " + (res["data"].length - 2))
+    $('#districtCount').text(res["data"].length - 2)
     var tooltip = document.querySelector('#each_District');
     var svgObject = document.getElementById('district_Map').contentDocument;
     var svgSelector = svgObject.querySelector('.country');
