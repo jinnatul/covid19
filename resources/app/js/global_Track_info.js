@@ -1,7 +1,5 @@
 $(function() {
 
-    Counter();
-
     let apiURL = "https://coronavirus-19-api.herokuapp.com/countries";
     
     $.get(apiURL, function() {})
@@ -77,23 +75,4 @@ function makeChart(index, res) {
         }]
     });
     Chart_World.render();
-}
-
-// Text Start 0 to N
-function Counter() {
-    $(".count").each(function () {
-        $(this).prop("Counter", 0)
-            .animate(
-            {
-              Counter: $(this).text(),
-            },
-            {
-                duration: 1000,
-                easing: "swing",
-                step: function (now) {
-                    $(this).text(Math.ceil(now));
-                },
-            }
-        );
-    });
 }

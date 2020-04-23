@@ -1,10 +1,8 @@
 $(function() {
     let apiURL = "https://corona-bd.herokuapp.com/district"
-    $('#district').hide();
     $.get(apiURL, function() {})
         .done(function(res) {
             mapMaker(res);
-            $('#district').show();
         })
         .fail(function () {
             M.toast({html: 'Internal Problem!!!'})
@@ -34,6 +32,7 @@ function mapMaker(res) {
         name = name.replace("Cox’s bazar", "CoxsBazar")
         name = name.replace("Narshingdi", "Narsingdi")
         dataMAP[name] = res["data"][index]["count"]
+        if (name === "Dhaka (District)") dataMAP["Dhaka"] += res["data"][index]["count"]
 
         //set color on Each district base on affected count
         let disName = "#" + name;
