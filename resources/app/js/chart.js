@@ -255,14 +255,14 @@ function DivitionCount() {
             indexLabelFontSize: 16,
             indexLabel:  "{y}",
             dataPoints: [
-                { y: 2702, label: "Dhaka" },
-                { y: 144, label: "Chattagram" },
-                { y: 60, label: "Rangpur" },
-                { y: 133, label: "Mymensingh" },
-                { y: 71, label: "Barishal" },
-                { y: 20, label: "Sylhet" },
-                { y: 25, label: "Rajshahi" },
-                { y: 23, label: "Khulna" }           
+                { y: 3502, label: "Dhaka" },
+                { y: 156, label: "Chattagram" },
+                { y: 70, label: "Rangpur" },
+                { y: 139, label: "Mymensingh" },
+                { y: 86, label: "Barishal" },
+                { y: 49, label: "Sylhet" },
+                { y: 32, label: "Rajshahi" },
+                { y: 38, label: "Khulna" }           
             ]
         }]
     });
