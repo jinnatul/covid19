@@ -1,5 +1,4 @@
 $(function() {
-
     let apiURL = "https://coronavirus-19-api.herokuapp.com/countries";
     
     $.get(apiURL, function() {})
