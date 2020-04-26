@@ -37,10 +37,10 @@
         <!--Marquee session-->
         <div>
             <marquee behavior="scroll" direction="left" onmousedown="this.stop();" onmouseup="this.start()">
-                <h6>COVID19_Tracker provide live COVID-19 information about Bangladesh and World. Update Time: (24/04/2020: 11.30pm) 
-                    World--> Coronavirus cases: 2847500, Deaths: 197994, Recovered: 811993, Critical Cases: 58303. 
-                    Bangladesh--> Coronavirus cases: 4998, Deaths: 140, Recovered: 112, Total Tests: 42813
-                    Last 24 Hour cases: 309, Last 24 Hour Deaths: 9, Active cases: 4746, Cases Per One Million: 30     
+                <h6>COVID19_Tracker provide live COVID-19 information about Bangladesh and World.
+                    World--> Coronavirus cases: 2932327, Deaths: 203603, Recovered: 839094, Critical Cases: 57836. 
+                    Bangladesh--> Coronavirus cases: 5416, Deaths: 145, Recovered: 121, Total Tests: 46589
+                    Last 24 Hour cases: 418, Last 24 Hour Deaths: 5, Active cases: 5149, Cases Per One Million: 33     
                 </h6>
             </marquee>
         </div>
@@ -66,7 +66,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Coronavirus cases</h6>
-                            <h3 class="blue-text count" id="total_cases_World">2847500</h3>
+                            <h3 class="blue-text count" id="total_cases_World">2932327</h3>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Deaths</h6>
-                            <h3 class="red-text count" id="total_deaths_World">197994</h3>
+                            <h3 class="red-text count" id="total_deaths_World">203603</h3>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Recovered</h6>
-                            <h3 class="green-text count" id="total_recovary_World">811993</h3>
+                            <h3 class="green-text count" id="total_recovary_World">839094</h3>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Critical Cases</h6>
-                            <h3 class="cyan-text count" id="total_critical_World">58303</h3>
+                            <h3 class="cyan-text count" id="total_critical_World">57836</h3>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     <div class="card center-align hoverable">                 
                         <div class="card-content"> 
                             <h6>Coronavirus cases</h6>
-                            <h3 class="blue-text count" id="total_cases_BD">4998</h3>
+                            <h3 class="blue-text count" id="total_cases_BD">5416</h3>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Deaths</h6>
-                            <h3 class="red-text count" id="total_deaths_BD">140</h3>
+                            <h3 class="red-text count" id="total_deaths_BD">145</h3>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Recovered</h6>
-                            <h3 class="green-text count" id="total_recovary_BD">112</h3>
+                            <h3 class="green-text count" id="total_recovary_BD">121</h3>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Total Tests</h6>
-                            <h3 class="cyan-text count" id="total_test_BD">42813</h3>
+                            <h3 class="cyan-text count" id="total_test_BD">46589</h3>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                     <div class="card center-align hoverable">                 
                         <div class="card-content"> 
                             <h6>Last 24 Hour cases</h6>
-                            <h3 class="blue-text count" id="today_cases_BD">309</h3>
+                            <h3 class="blue-text count" id="today_cases_BD">418</h3>
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Last 24 Hour Deaths</h6>
-                            <h3 class="red-text count" id="today_deaths_BD">9</h3>
+                            <h3 class="red-text count" id="today_deaths_BD">5</h3>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Active cases</h6>
-                            <h3 class="red-text accent-1 count" id="active_BD">4746</h3>
+                            <h3 class="red-text accent-1 count" id="active_BD">5149</h3>
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                     <div class="card center-align hoverable">           
                         <div class="card-content"> 
                             <h6>Cases Per One Million</h6>
-                            <h3 class="cyan-text count" id="casesPerOneMillion_BD">30</h3>
+                            <h3 class="cyan-text count" id="casesPerOneMillion_BD">33</h3>
                         </div>
                     </div>
                 </div>
@@ -280,6 +280,10 @@
                                 <input id="search" type="text" autocomplete="off" />
                                 <label for="arealsearch">Search for a location...</label>
                             </div>
+                            <div class="right-align">
+                                <a class="btn-floating tooltipped btn-small waves-effect waves-light orange darken-4" id="accending">A</a>
+                                <a class="btn-floating tooltipped btn-small waves-effect waves-light deep-purple darken-4" id="decending">D</a>
+                              </div>
                             <div class="col s12 m12 l12 scrollableTable">
                                 <div id="dhakaCityInfo"></div>
                             </div>
