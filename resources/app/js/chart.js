@@ -6,6 +6,7 @@ window.onload = function () {
     let covid_Recovered_Array = [];
     let covid_Deaths_Daily = [];
     let covid_Positive_Daily = [];
+    let covid_Recovered_Daily = [];
     let covid_DailyTest = [];
 
     $.get(apiURL, function() {})
@@ -20,6 +21,7 @@ window.onload = function () {
                 // Daily deaths & positive cases
                 covid_Positive_Daily.push({ x: new Date(res[index]["Date"]), y: res[index]["Today_Positive"] });
                 covid_Deaths_Daily.push({ x: new Date(res[index]["Date"]), y: res[index]["Today_Deaths"] });
+                covid_Recovered_Daily.push({ x: new Date(res[index]["Date"]), y: res[index]["Today_Recovered"] });
 
                 // Daily Test vs Cases
                 covid_DailyTest.push({ x: new Date(res[index]["Date"]), y:  res[index]["Today_Tests"] });
@@ -31,6 +33,7 @@ window.onload = function () {
                 res[sizeResponse - 1]["Total_Deaths"], 
                 res[sizeResponse - 1]["Total_Recovered"]);
             
+            setRecovered_chart(covid_Recovered_Daily);
             setInfected_chart(covid_Positive_Daily);
             setDeath_chart(covid_Deaths_Daily);
             setDaily_Test_vs_Positive_Cases(covid_DailyTest, covid_Positive_Daily);
@@ -156,12 +159,38 @@ function explodePie (e) {
 	e.chart.render();
 }
 
+ // Daily Recover cases
+ function setRecovered_chart(covid_Recovered_Daily) {
+    var Chart_Recovered_Timeline = new CanvasJS.Chart("chart_Recovered_Timeline", {
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        animationEnabled: true,
+        title:{
+            text: "Recovered Timeline"   
+        },
+        axisX: {
+            valueFormatString: "DD MMM"
+        },
+        axisY:{
+            includeZero: false
+        },
+        data: [{        
+            type: "column",
+            markerSize: 12,
+            xValueFormatString: "DD MMM",
+            yValueFormatString: "###",
+            color: "green",
+            dataPoints: covid_Recovered_Daily
+        }]
+    });
+    Chart_Recovered_Timeline.render();
+}
+
 // Daily Positive cases
 function setInfected_chart(covid_Positive_Daily) {
     var Chart_spline = new CanvasJS.Chart("chart_spline", {
         animationEnabled: true,
         title:{
-            text: "COVID-19 Positives in Bangladesh"
+            text: "Positives Timeline"
         },
         axisX:{
             valueFormatString: "DD MMM"
@@ -186,7 +215,7 @@ function setDeath_chart(covid_Deaths_Daily) {
         theme: "light1", // "light1", "light2", "dark1", "dark2"
         animationEnabled: true,
         title:{
-            text: "COVID-19 Deaths in Bangladesh"   
+            text: "Deaths Timeline"   
         },
         axisX: {
             valueFormatString: "DD MMM"
@@ -247,36 +276,4 @@ function setDaily_Test_vs_Positive_Cases(dailyTest, dailyPositive) {
         ],
     });
     Chart_TestVsPositive.render();
-}
-
-// Column Chart Division wise Cases
-function setDivitionCount() {
-    var Chart_Division_Count = new CanvasJS.Chart("chart_Division_Count", {
-        theme: "light1", // "light1", "light2", "dark1", "dark2"
-        exportEnabled: true,
-        animationEnabled: true,
-        title: {
-            text:  "Division wise cases in BD"
-        },
-        data: [{
-            type: "column",
-            startAngle: 25,
-            toolTipContent: "<b>{label}</b>: {y}",
-            showInLegend: "true",
-            legendText: "{label}",
-            indexLabelFontSize: 16,
-            indexLabel:  "{y}",
-            dataPoints: [
-                { y: 3502, label: "Dhaka" },
-                { y: 156, label: "Chattagram" },
-                { y: 70, label: "Rangpur" },
-                { y: 139, label: "Mymensingh" },
-                { y: 86, label: "Barishal" },
-                { y: 49, label: "Sylhet" },
-                { y: 32, label: "Rajshahi" },
-                { y: 38, label: "Khulna" }           
-            ]
-        }]
-    });
-    Chart_Division_Count.render();
 }
