@@ -37,8 +37,7 @@ window.onload = function () {
             setInfected_chart(covid_Positive_Daily);
             setDeath_chart(covid_Deaths_Daily);
             setDaily_Test_vs_Positive_Cases(covid_DailyTest, covid_Positive_Daily);
-            setDivitionCount();
-        })
+         })
         .fail(function () {
             M.toast({html: 'Internal Problem!!!'})
         });    
