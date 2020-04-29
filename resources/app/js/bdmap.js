@@ -17,7 +17,7 @@ function mapMaker(res) {
     var svgObject = document.getElementById('district_Map').contentDocument;
     var svgSelector = svgObject.querySelector('.country');
 
-    let dataMAP = {};
+    let dataMAP = {}, sum = 0;
 
     for (let index = 0; index < res["data"].length; index++) {
         let name = res["data"][index]["name"];
@@ -31,33 +31,39 @@ function mapMaker(res) {
         name = name.replace("Panchagar", "Panchagarh")
         name = name.replace("Cox’s bazar", "CoxsBazar")
         name = name.replace("Narshingdi", "Narsingdi")
-        dataMAP[name] = res["data"][index]["count"]
-        if (name === "Dhaka (District)") dataMAP["Dhaka"] += res["data"][index]["count"]
+        if (name === "Dhaka (District)") {
+            dataMAP["Dhaka"][0] += res["data"][index]["count"];
+            dataMAP["Dhaka"][1] += res["data"][index]["prev_count"];
+        }
+        dataMAP[name] = [res["data"][index]["count"], res["data"][index]["prev_count"]]
 
+        sum += parseInt(res["data"][index]["count"]);
         //set color on Each district base on affected count
         let disName = "#" + name;
         if (name === "Dhaka (District)") continue;
-        if (res["data"][index]["count"] > 0 && res["data"][index]["count"] <= 20) {
+        if (res["data"][index]["count"] > 0 && res["data"][index]["count"] <= 50) {
             $(svgObject.querySelector(disName)).css("fill", "#e57373");
         }
-        else if (res["data"][index]["count"] > 20 && res["data"][index]["count"] <= 50) {
+        else if (res["data"][index]["count"] > 50 && res["data"][index]["count"] <= 100) {
             $(svgObject.querySelector(disName)).css("fill", "#ef5350");
         }
-        else if (res["data"][index]["count"] > 50 && res["data"][index]["count"] <= 100) {
+        else if (res["data"][index]["count"] > 100 && res["data"][index]["count"] <= 150) {
             $(svgObject.querySelector(disName)).css("fill", "#f44336");
         }
-        else if (res["data"][index]["count"] > 100) {
+        else if (res["data"][index]["count"] > 150) {
             $(svgObject.querySelector(disName)).css("fill", "#d50000");
         }
     }
 
-    
     $tooltip = $('#each_District');
     $(svgSelector).mouseover(function(event) {
-        var currentLocation = dataMAP[event.target.id];
         $tooltip.html(event.target.id);
-        if(currentLocation!==undefined){
-            $tooltip.html(event.target.id + ": "+ currentLocation);
+        if(dataMAP[event.target.id]!==undefined){
+            var affectedCount = dataMAP[event.target.id][0];
+            let different = affectedCount - dataMAP[event.target.id][1];
+            let str = "<h6 class='center-align'>"+event.target.id+"</h6>"+"Total cases: "+affectedCount +"<br> New Cases: "+different;
+                str += "<br>Affect (%): "+((affectedCount / sum) * 100).toFixed(2)+"%";
+            $tooltip.html(str);
         }
         else {
             $tooltip.html(event.target.id + ": 0");
@@ -65,7 +71,7 @@ function mapMaker(res) {
 
         tooltip.style.display = 'block';
         $(each_District).css('top', event.pageY + 250);
-        $(each_District).css('left', event.pageX + 30);
+        $(each_District).css('left', event.pageX - 70);
 
     });
     $(svgSelector).mouseleave(function(event) {
