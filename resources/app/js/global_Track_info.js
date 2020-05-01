@@ -40,6 +40,8 @@ function set_Info(res) {
 
     globalDropdown += "</select>";
     $('#dropDownId').html(globalDropdown);
+    // Default world chart
+    makeChart(0, res)
 
     $(document).ready(function(){
         $('select').formSelect();
