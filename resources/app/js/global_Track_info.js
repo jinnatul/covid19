@@ -54,7 +54,7 @@ function set_Info(res) {
 }
 
 function makeChart(index, res) {
-
+    console.log(res)
     var Chart_World = new CanvasJS.Chart("globalInfo", {
         theme: "light1",
         exportEnabled: true,
@@ -68,10 +68,13 @@ function makeChart(index, res) {
             indexLabel: "{name}",
             dataPoints: [
                 { y: res[index]["cases"], name: "Coronavirus cases" },
+                { y: res[index]["todayCases"], name: "Today cases" },
                 { y: res[index]["deaths"], name: "Deaths" },
+                { y: res[index]["todayDeaths"], name: "Today Deaths" },
                 { y: res[index]["recovered"], name: "Recovered" },
                 { y: res[index]["active"], name: "Active Cases" },
-                { y: res[index]["critical"], name: "Critical" }
+                { y: res[index]["critical"], name: "Critical" },
+                { y: res[index]["casesPerOneMillion"], name: "Cases Per One Million" }
              ]
         }]
     });
