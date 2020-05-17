@@ -1,12 +1,17 @@
 $(function() {
     let apiURL = "https://coronavirus-19-api.herokuapp.com/countries";
-    
+    $("main").hide();
     $.get(apiURL, function() {})
         .done(function(res) {
             set_Info(res);
+            $('.mainLoader').hide();
+            $("main").show();
         })
         .fail(function () {
             M.toast({html: 'Internal Problem!!!'})
+        })
+        .always(function () {
+            numberCounter();
         });
 })
 
@@ -24,6 +29,9 @@ function set_Info(res) {
             $('#total_deaths_World').text(res[index]["deaths"])
             $('#total_recovary_World').text(res[index]["recovered"])
             $('#total_critical_World').text(res[index]["critical"])
+
+            // Make global chart
+            setGlobal_chart(res[index]["cases"], res[index]["deaths"], res[index]["recovered"]);
         }
         //set BD summary
         else if (res[index]["country"] === "Bangladesh") {
@@ -53,8 +61,9 @@ function set_Info(res) {
     });
 }
 
+
+/* Make column chart */
 function makeChart(index, res) {
-    console.log(res)
     var Chart_World = new CanvasJS.Chart("globalInfo", {
         theme: "light1",
         exportEnabled: true,
@@ -67,16 +76,71 @@ function makeChart(index, res) {
             toolTipContent: "<b>{name}</b>: {y}",
             indexLabel: "{name}",
             dataPoints: [
-                { y: res[index]["cases"], name: "Coronavirus cases" },
+                { y: res[index]["cases"], name: "Positive" },
                 { y: res[index]["todayCases"], name: "Today cases" },
                 { y: res[index]["deaths"], name: "Deaths" },
-                { y: res[index]["todayDeaths"], name: "Today Deaths" },
                 { y: res[index]["recovered"], name: "Recovered" },
-                { y: res[index]["active"], name: "Active Cases" },
-                { y: res[index]["critical"], name: "Critical" },
-                { y: res[index]["casesPerOneMillion"], name: "Cases Per One Million" }
+                { y: res[index]["active"], name: "Active Cases" }
              ]
         }]
     });
     Chart_World.render();
+}
+
+function numberCounter() {
+    $(".count").each(function () {
+      $(this)
+        .prop("Counter", 0)
+        .animate(
+          {
+            Counter: $(this).text(),
+          },
+          {
+            duration: 3000,
+            easing: "swing",
+            step: function (now) {
+              $(this).text(Math.ceil(now));
+            },
+          }
+        );
+    });
+}
+
+
+// World Coronavirus_cases vs Deaths vs Recovered
+function setGlobal_chart(Coronavirus_cases, Deaths, Recovered) {
+    var Chart_Global = new CanvasJS.Chart("chart_Global", {
+        theme: "light1",
+        exportFileName: "Doughnut Chart",
+        exportEnabled: true,
+        animationEnabled: true,
+        title:{
+            text: ""
+        },
+        legend:{
+            cursor: "pointer",
+            itemclick: explodePie
+        },
+        data: [{
+            type: "doughnut",
+            innerRadius: 90,
+            showInLegend: true,
+            toolTipContent: "<b>{name}</b>: {y} (#percent%)",
+            indexLabel: "{name} - #percent%",
+            dataPoints: [
+                { y: Coronavirus_cases - Deaths - Recovered, name: "Active cases" },
+                { y: Deaths, name: "Deaths" },
+                { y: Recovered, name: "Recovered" }
+             ]
+        }]
+    });
+    Chart_Global.render();
+}
+function explodePie (e) {
+	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+	} else {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+	}
+	e.chart.render();
 }

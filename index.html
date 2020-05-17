@@ -8,7 +8,11 @@
         
         <link rel="stylesheet" href="resources/lib/materialize/css/materialize.min.css">
         <link rel="stylesheet" href="resources/app/css/index.css">
-        
+        <style>
+            main{
+                display:none
+            }
+        </style>
     </head>
     <body>
 
@@ -32,465 +36,489 @@
                 </div>
                 </nav>
             </div>
+            <!--preloader component-->
+            <div class="mainLoader">
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </header>
-         
 
-        <!--Scrolling section-->
-        <div class="fixed-action-btn">
-            <a
-                class="btn-floating btn-medium blue-grey darken-4 tooltipped"
-                data-position="left"
-                data-tooltip="Top"
-                id="scrollTop"
-                onclick="toTop()">
-                <img style="height: 40px; width: 40px;" src="resources/app/image/arrowUP.jpg" alt="arw" srcset="">
-            </a>
-        </div>
+        <main>
+            <!--Scrolling section-->
+            <div class="fixed-action-btn">
+                <a
+                    class="btn-floating btn-medium blue-grey darken-4 tooltipped"
+                    data-position="left"
+                    data-tooltip="Top"
+                    id="scrollTop"
+                    onclick="toTop()">
+                    <img style="height: 40px; width: 40px;" src="resources/app/image/arrowUP.jpg" alt="arw" srcset="">
+                </a>
+            </div>
 
-        <!--World Info-->
-        <div class="customContainer" id="home">
-            <h4 class="center-align headerText">COVID-19 Summary</h4>
-            <div class="row">
-                <h5 class="center-align">World</h5>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Coronavirus cases</h6>
-                            <h3 class="blue-text count" id="total_cases_World">3659103</h3>
+            <!--World Info-->
+            <div class="customContainer" id="home">
+                <h4 class="center-align headerText">COVID-19 Summary</h4>
+                <div class="row">
+                    <h5 class="center-align">World</h5>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Coronavirus cases</h6>
+                                <h3 class="blue-text count" id="total_cases_World"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Deaths</h6>
+                                <h3 class="red-text count" id="total_deaths_World"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Recovered</h6>
+                                <h3 class="green-text count" id="total_recovary_World"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Critical Cases</h6>
+                                <h3 class="cyan-text count" id="total_critical_World"></h3>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Deaths</h6>
-                            <h3 class="red-text count" id="total_deaths_World">252573</h3>
+
+                <!--BD Info-->
+                <div class="row">
+                    <h5 class="center-align">Bangladesh</h5>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">                 
+                            <div class="card-content"> 
+                                <h6>Coronavirus cases</h6>
+                                <h3 class="blue-text count" id="total_cases_BD"></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Recovered</h6>
-                            <h3 class="green-text count" id="total_recovary_World">1203404</h3>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Deaths</h6>
+                                <h3 class="red-text count" id="total_deaths_BD"></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Critical Cases</h6>
-                            <h3 class="cyan-text count" id="total_critical_World">49657</h3>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Recovered</h6>
+                                <h3 class="green-text count" id="total_recovary_BD"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Total Tests</h6>
+                                <h3 class="cyan-text count" id="total_test_BD"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">                 
+                            <div class="card-content"> 
+                                <h6>Last 24 Hour cases</h6>
+                                <h3 class="blue-text count" id="today_cases_BD"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Last 24 Hour Deaths</h6>
+                                <h3 class="red-text count" id="today_deaths_BD"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Active cases</h6>
+                                <h3 class="red-text accent-1 count" id="active_BD"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card center-align hoverable">           
+                            <div class="card-content"> 
+                                <h6>Cases Per One Million</h6>
+                                <h3 class="cyan-text count" id="casesPerOneMillion_BD"></h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
 
-            <!--BD Info-->
-            <div class="row">
-                <h5 class="center-align">Bangladesh</h5>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">                 
-                        <div class="card-content"> 
-                            <h6>Coronavirus cases</h6>
-                            <h3 class="blue-text count" id="total_cases_BD">10929</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Deaths</h6>
-                            <h3 class="red-text count" id="total_deaths_BD">183</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Recovered</h6>
-                            <h3 class="green-text count" id="total_recovary_BD">1403</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Total Tests</h6>
-                            <h3 class="cyan-text count" id="total_test_BD">93405</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">                 
-                        <div class="card-content"> 
-                            <h6>Last 24 Hour cases</h6>
-                            <h3 class="blue-text count" id="today_cases_BD">786</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Last 24 Hour Deaths</h6>
-                            <h3 class="red-text count" id="today_deaths_BD">1</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Active cases</h6>
-                            <h3 class="red-text accent-1 count" id="active_BD">9343</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card center-align hoverable">           
-                        <div class="card-content"> 
-                            <h6>Cases Per One Million</h6>
-                            <h3 class="cyan-text count" id="casesPerOneMillion_BD">66</h3>
-                        </div>
-                    </div>
+            <!--COVID-19 Bangladesh Daily Records-->
+            <div class="customContainer"  id="bangladesh">
+                <h4 class="center-align headerText">BD Daily Info</h4>
+                <div class="col s12 l8 m8 scrollable">
+                    <div id="bd_Track_Info"></div>
                 </div>
             </div>
-        </div>
+
+
+            <!--Bangladesh District Cases-->
+            <div class="customContainer" id="district">
+                <h4 class="center-align headerText">District Affected</h4>
         
-
-        <!--COVID-19 Bangladesh Daily Records-->
-        <div class="customContainer"  id="bangladesh">
-            <h4 class="center-align headerText">BD Daily Info</h4>
-            <div class="col s12 l8 m8 scrollable">
-                <div id="bd_Track_Info"></div>
-            </div>
-        </div>
-
-
-        <!--Bangladesh District Cases-->
-        <div class="customContainer" id="district">
-            <h4 class="center-align headerText">District Affected</h4>
-    
-            <!--Map Cases-->
-            <div class="row">
-                <div class="card">
-                    <div class="card-content">
-                        <h6 class="center-align">Total Affected District: <span id="districtCount"></span></h6>
-                        <p id ="each_District"></p>
-                        <div>
-                            <img class="left" src="resources/app/image/green.png" alt="green" srcset=""><h6 style="margin: 2rem;">Free Area</h6>
-                            <img class="left" src="resources/app/image/red1.png" alt="red1" srcset=""><h6 style="margin: 2rem;">Affected Range: 1 - 50</h6>
-                            <img class="left" src="resources/app/image/red2.png" alt="red2" srcset=""><h6 style="margin: 2rem;">Affected Range: 51 - 100</h6>
-                            <img class="left" src="resources/app/image/red3.png" alt="red3" srcset=""><h6 style="margin: 2rem;">Affected Range: 101 - 150</h6>
-                            <img class="left" src="resources/app/image/red4.png" alt="red4" srcset=""><h6 style="margin: 2rem;">Affected Range:  > 150</h6>
-                        </div>
-                        
-                        <iframe 
-                            src="resources/app/image/bdmap.svg" 
-                            id = "district_Map" 
-                            title="map" 
-                            width="1000"
-                            height="900" 
-                            frameBorder="0">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--Charts-->
-        <div class="customContainer" id="charts">
-            <h4 class="center-align headerText">Charts</h4>
-            <!--Total COVID-19 Info-->
-            <div class="row">
-                <div class="col s12 m12">
-                    <div class="card hoverable">
+                <!--Map Cases-->
+                <div class="row">
+                    <div class="card">
                         <div class="card-content">
-                            <div class="card chart_Design" id="chart_covid"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Doughnut Chart BD ratio-->
-                <div class="col s12 m6">
-                    <div class="card hoverable">
-                        <div class="card-content">
-                            <div class="card chart_Design" id="chart_doughnut"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recover Timeline -->
-                <div class="col s12 m6">
-                    <div class="card hoverable">
-                        <div class="card-content">
-                            <div class="card chart_Design" id="chart_Recovered_Timeline"></div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!--Spline Chart Daily Positives-->
-                <div class="col s12 m6">
-                    <div class="card hoverable">
-                        <div class="card-content">
-                            <div class="card chart_Design" id="chart_spline"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Line Chart Daily Deaths-->
-                <div class="col s12 m6">
-                    <div class="card hoverable">
-                        <div class="card-content">
-                            <div class="card chart_Design" id="chart_line"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Daily Test vs Positive Cases-->
-                <div class="col s12 m12">
-                    <div class="card hoverable">
-                        <div class="card-content">
-                            <div class="card chart_Design" id="chart_TestVsPositive"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="customContainer" id="dhaka">
-            <div class="row">
-                <h4 class="center-align headerText"> Confirmed cases in Dhaka city</h4>
-                <div class="card">
-                    <div class="card-content">
-                        <div class="row">
-                            <div class="center-align">
-                                <h6> Total affected area in Dhaka city: <span  id="dhakaAreaCount"></span></h6>
+                            <h6 class="center-align">Total Affected District: <span id="districtCount"></span></h6>
+                            <p id ="each_District"></p>
+                            <div>
+                                <img class="left" src="resources/app/image/green.png" alt="green" srcset=""><h6 style="margin: 2rem;">Free Area</h6>
+                                <img class="left" src="resources/app/image/red1.png" alt="red1" srcset=""><h6 style="margin: 2rem;">Affected Range: 1 - 50</h6>
+                                <img class="left" src="resources/app/image/red2.png" alt="red2" srcset=""><h6 style="margin: 2rem;">Affected Range: 51 - 100</h6>
+                                <img class="left" src="resources/app/image/red3.png" alt="red3" srcset=""><h6 style="margin: 2rem;">Affected Range: 101 - 150</h6>
+                                <img class="left" src="resources/app/image/red4.png" alt="red4" srcset=""><h6 style="margin: 2rem;">Affected Range:  > 150</h6>
                             </div>
-                            <div class="input-field col s12 m4 l4">
-                                <input id="search" type="text" autocomplete="off" />
-                                <label for="arealsearch">Search for a location...</label>
+                            
+                            <iframe 
+                                src="resources/app/image/bdmap.svg" 
+                                id = "district_Map" 
+                                title="map" 
+                                width="1000"
+                                height="900" 
+                                frameBorder="0">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Charts-->
+            <div class="customContainer" id="charts">
+                <h4 class="center-align headerText">Charts</h4>
+                <!--Total COVID-19 Info-->
+                <div class="row">
+                    <div class="col s12 m12">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <div class="card chart_Design" id="chart_covid"></div>
                             </div>
-                            <div class="right-align">
-                                <a class="btn-floating tooltipped btn-small waves-effect waves-light orange darken-4" id="accending">A</a>
-                                <a class="btn-floating tooltipped btn-small waves-effect waves-light deep-purple darken-4" id="decending">D</a>
-                              </div>
-                            <div class="col s12 m12 l12 scrollableTable">
-                                <div id="dhakaCityInfo"></div>
+                        </div>
+                    </div>
+
+                    <!--Doughnut Chart BD ratio-->
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <div class="card chart_Design" id="chart_doughnut"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recover Timeline -->
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <div class="card chart_Design" id="chart_Recovered_Timeline"></div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!--Spline Chart Daily Positives-->
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <div class="card chart_Design" id="chart_spline"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Line Chart Daily Deaths-->
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <div class="card chart_Design" id="chart_line"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Daily Test vs Positive Cases-->
+                    <div class="col s12 m12">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <div class="card chart_Design" id="chart_TestVsPositive"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-
-        <!--Hot Line Numbers (BD)-->
-        <div class="customContainer" id="hotLine">
-            <h4 class="center-align headerText">HotLine (IEDCR-BD)</h4>
-            <table class="centered">
-                <tr>
-                    <td>
-                        <a href="tel:333"><h6>333</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:16263"><h6>16263</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:01401184551"><h6>01401184551</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:01401184554"><h6>01401184554</h6></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="tel:01401184555"><h6>01401184555</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:01401184556"><h6>01401184556</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:01401184559"><h6>01401184559</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:01401184560"><h6>01401184560</h6></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="tel:01401184563"><h6>01401184563</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:01401184568"><h6>01401184568</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:01927711784"><h6>01927711784</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:01927711785"><h6>01927711785</h6></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="tel:01937000011"><h6>01937000011</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:01937110011"><h6>01937110011</h6></a>
-                    </td>
-                    <td>
-                        <a href="tel:"></a>
-                    </td>
-                    <td>
-                        <a href="tel:"></a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-
-        <!--Coronaviruses Info-->
-        <div class="customContainer" id="faq">
-            <h4 class="center-align headerText">FAQ</h4>
-            <div class="row">
-                <ul class="collapsible popout">
-                    <li>
-                        <div class="collapsible-header">
-                            <h6>What is a coronavirus?</h6>
+            <div class="customContainer" id="dhaka">
+                <div class="row">
+                    <h4 class="center-align headerText"> Confirmed cases in Dhaka city</h4>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="center-align">
+                                    <h6> Total affected area in Dhaka city: <span  id="dhakaAreaCount"></span></h6>
+                                </div>
+                                <div class="input-field col s12 m4 l4">
+                                    <input id="search" type="text" autocomplete="off" />
+                                    <label for="arealsearch">Search for a location...</label>
+                                </div>
+                                <div class="right-align">
+                                    <a class="btn-floating tooltipped btn-small waves-effect waves-light orange darken-4" id="accending">A</a>
+                                    <a class="btn-floating tooltipped btn-small waves-effect waves-light deep-purple darken-4" id="decending">D</a>
+                                </div>
+                                <div class="col s12 m12 l12 scrollableTable">
+                                    <div id="dhakaCityInfo"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="collapsible-body">
-                            <p>Coronaviruses are a large family of viruses which may cause illness in animals or humans. In
-                                humans, several coronaviruses are known to cause respiratory infections ranging from the
-                                common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS) and
-                                Severe Acute Respiratory Syndrome (SARS). The most recently discovered coronavirus causes
-                                coronavirus disease COVID-19.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Hot Line Numbers (BD)-->
+            <div class="customContainer" id="hotLine">
+                <h4 class="center-align headerText">HotLine (IEDCR-BD)</h4>
+                <table class="centered">
+                    <tr>
+                        <td>
+                            <a href="tel:333"><h6>333</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:16263"><h6>16263</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:01401184551"><h6>01401184551</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:01401184554"><h6>01401184554</h6></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="tel:01401184555"><h6>01401184555</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:01401184556"><h6>01401184556</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:01401184559"><h6>01401184559</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:01401184560"><h6>01401184560</h6></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="tel:01401184563"><h6>01401184563</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:01401184568"><h6>01401184568</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:01927711784"><h6>01927711784</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:01927711785"><h6>01927711785</h6></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="tel:01937000011"><h6>01937000011</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:01937110011"><h6>01937110011</h6></a>
+                        </td>
+                        <td>
+                            <a href="tel:"></a>
+                        </td>
+                        <td>
+                            <a href="tel:"></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <!--Coronaviruses Info-->
+            <div class="customContainer" id="faq">
+                <h4 class="center-align headerText">FAQ</h4>
+                <div class="row">
+                    <ul class="collapsible popout">
+                        <li>
+                            <div class="collapsible-header">
+                                <h6>What is a coronavirus?</h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <p>Coronaviruses are a large family of viruses which may cause illness in animals or humans. In
+                                    humans, several coronaviruses are known to cause respiratory infections ranging from the
+                                    common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS) and
+                                    Severe Acute Respiratory Syndrome (SARS). The most recently discovered coronavirus causes
+                                    coronavirus disease COVID-19.</p>
+                                    <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
+                            </div>
+                        </li>
+                        <li class="active">
+                            <div class="collapsible-header">
+                                <h6>What is COVID-19?</h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <p>COVID-19 is the infectious disease caused by the most recently discovered coronavirus. This
+                                    new virus and disease were unknown before the outbreak began in Wuhan, China, in December
+                                    2019.</p>
+                                    <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <h6>What are the symptoms of COVID-19?</h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <p>The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients
+                                    may have aches and pains, nasal congestion, runny nose, sore throat or diarrhea. These
+                                    symptoms are usually mild and begin gradually. Some people become infected but don’t
+                                    develop any symptoms and don't feel unwell. Most people (about 80%) recover from the
+                                    disease without needing special treatment. Around 1 out of every 6 people who gets COVID-19
+                                    becomes seriously ill and develops difficulty breathing. Older people, and those with u nderlying
+                                    medical problems like high blood pressure, heart problems or diabetes, are more likely to
+                                    develop serious illness. People with fever, cough and difficulty breathing should seek medical
+                                    attention.</p>
                                 <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
-                        </div>
-                    </li>
-                    <li class="active">
-                        <div class="collapsible-header">
-                            <h6>What is COVID-19?</h6>
-                        </div>
-                        <div class="collapsible-body">
-                            <p>COVID-19 is the infectious disease caused by the most recently discovered coronavirus. This
-                                new virus and disease were unknown before the outbreak began in Wuhan, China, in December
-                                2019.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <h6>Can the virus that causes COVID-19 be transmitted through the air?</h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <p>Studies to date suggest that the virus that causes COVID-19 is mainly transmitted through
+                                    contact with respiratory droplets rather than through the air. See previous answer on “How
+                                    does COVID-19 spread?”</p>
+                                <a target="_blank" href="">Source</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <h6>Can I catch COVID-19 from the feces of someone with the disease?</h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <p>The risk of catching COVID-19 from the feces of an infected person appears to be low. While
+                                    initial investigations suggest the virus may be present in feces in some cases, spread through
+                                    this route is not a main feature of the outbreak. WHO is assessing ongoing research on the ways
+                                    COVID-19 is spread and will continue to share new findings. Because this is a risk, however, it is
+                                    another reason to clean hands regularly, after using the bathroom and before eating.</p>
+                                <a target="_blank" href="">Source</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <h6>How likely am I to catch COVID-19?</h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <p>The risk depends on where you are - and more specifically, whether there is a COVID-19
+                                    outbreak unfolding there.</p>
                                 <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <h6>What are the symptoms of COVID-19?</h6>
-                        </div>
-                        <div class="collapsible-body">
-                            <p>The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients
-                                may have aches and pains, nasal congestion, runny nose, sore throat or diarrhea. These
-                                symptoms are usually mild and begin gradually. Some people become infected but don’t
-                                develop any symptoms and don't feel unwell. Most people (about 80%) recover from the
-                                disease without needing special treatment. Around 1 out of every 6 people who gets COVID-19
-                                becomes seriously ill and develops difficulty breathing. Older people, and those with u nderlying
-                                medical problems like high blood pressure, heart problems or diabetes, are more likely to
-                                develop serious illness. People with fever, cough and difficulty breathing should seek medical
-                                attention.</p>
-                            <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <h6>Can the virus that causes COVID-19 be transmitted through the air?</h6>
-                        </div>
-                        <div class="collapsible-body">
-                            <p>Studies to date suggest that the virus that causes COVID-19 is mainly transmitted through
-                                contact with respiratory droplets rather than through the air. See previous answer on “How
-                                does COVID-19 spread?”</p>
-                            <a target="_blank" href="">Source</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <h6>Can I catch COVID-19 from the feces of someone with the disease?</h6>
-                        </div>
-                        <div class="collapsible-body">
-                            <p>The risk of catching COVID-19 from the feces of an infected person appears to be low. While
-                                initial investigations suggest the virus may be present in feces in some cases, spread through
-                                this route is not a main feature of the outbreak. WHO is assessing ongoing research on the ways
-                                COVID-19 is spread and will continue to share new findings. Because this is a risk, however, it is
-                                another reason to clean hands regularly, after using the bathroom and before eating.</p>
-                            <a target="_blank" href="">Source</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <h6>How likely am I to catch COVID-19?</h6>
-                        </div>
-                        <div class="collapsible-body">
-                            <p>The risk depends on where you are - and more specifically, whether there is a COVID-19
-                                outbreak unfolding there.</p>
-                            <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <h6>Who is at risk of developing severe illness?</h6>
-                        </div>
-                        <div class="collapsible-body">
-                            <p>While we are still learning about how COVID-2019 affects people, older persons and persons
-                                with pre-existing medical conditions (such as high blood pressure, heart disease, lung disease,
-                                cancer or diabetes) appear to develop serious illness more often than others.</p>
-                            <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <h6>How to put on, use, take off and dispose of a mask?</h6>
-                        </div>
-                        <div class="collapsible-body">
-                            <ol>
-                                <li>Remember, a mask should only be used by health workers, care takers, and individuals
-                                    with respiratory symptoms, such as fever and cough.</li>
-                                <li>Before touching the mask, clean hands with an alcohol-based hand rub or soap and
-                                    water</li>
-                                <li>Take the mask and inspect it for tears or holes.</li>
-                                <li>Orient which side is the top side (where the metal strip is).</li>
-                                <li>Ensure the proper side of the mask faces outwards (the coloured side).</li>
-                                <li>Place the mask to your face. Pinch the metal strip or stiff edge of the mask so it moulds
-                                    to the shape of your nose.</li>
-                                <li>Pull down the mask’s bottom so it covers your mouth and your chin.</li>
-                                <li>After use, take off the mask; remove the elastic loops from behind the ears while
-                                    keeping the mask away from your face and clothes, to avoid touching potentially
-                                    contaminated surfaces of the mask.</li>
-                                <li>Discard the mask in a closed bin immediately after use.</li>
-                                <li>Perform hand hygiene after touching or discarding the mask – Use alcohol-based hand
-                                    rub or, if visibly soiled, wash your hands with soap and water.</li>
-                            </ol>
-                            <a target="_blank" href="">Source</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <h6>Can I catch COVID-19 from my pet?</h6>
-                        </div>
-                        <div class="collapsible-body">
-                            <p>No. There is no evidence that companion animals or pets such as cats and dogs have been
-                                infected or could spread the virus that causes COVID-19.</p>
-                            <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
-                        </div>
-                    </li>
-                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <h6>Who is at risk of developing severe illness?</h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <p>While we are still learning about how COVID-2019 affects people, older persons and persons
+                                    with pre-existing medical conditions (such as high blood pressure, heart disease, lung disease,
+                                    cancer or diabetes) appear to develop serious illness more often than others.</p>
+                                <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <h6>How to put on, use, take off and dispose of a mask?</h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <ol>
+                                    <li>Remember, a mask should only be used by health workers, care takers, and individuals
+                                        with respiratory symptoms, such as fever and cough.</li>
+                                    <li>Before touching the mask, clean hands with an alcohol-based hand rub or soap and
+                                        water</li>
+                                    <li>Take the mask and inspect it for tears or holes.</li>
+                                    <li>Orient which side is the top side (where the metal strip is).</li>
+                                    <li>Ensure the proper side of the mask faces outwards (the coloured side).</li>
+                                    <li>Place the mask to your face. Pinch the metal strip or stiff edge of the mask so it moulds
+                                        to the shape of your nose.</li>
+                                    <li>Pull down the mask’s bottom so it covers your mouth and your chin.</li>
+                                    <li>After use, take off the mask; remove the elastic loops from behind the ears while
+                                        keeping the mask away from your face and clothes, to avoid touching potentially
+                                        contaminated surfaces of the mask.</li>
+                                    <li>Discard the mask in a closed bin immediately after use.</li>
+                                    <li>Perform hand hygiene after touching or discarding the mask – Use alcohol-based hand
+                                        rub or, if visibly soiled, wash your hands with soap and water.</li>
+                                </ol>
+                                <a target="_blank" href="">Source</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <h6>Can I catch COVID-19 from my pet?</h6>
+                            </div>
+                            <div class="collapsible-body">
+                                <p>No. There is no evidence that companion animals or pets such as cats and dogs have been
+                                    infected or could spread the virus that causes COVID-19.</p>
+                                <a target="_blank" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">Source</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <!--COVID-19 in World-->
-        <div class="customContainer" id="global">
-            <h4 class="center-align headerText">COVID-19 in Global</h4>
-            <div class="row">
-                <div class="col s12 m12">
-                    <div class="card hoverable">
-                        <div id="dropDownId"></div>
-                        <div id="globalInfo"></div>
+            <!--COVID-19 in World-->
+            <div class="customContainer" id="global">
+                <h4 class="center-align headerText">COVID-19 in Global</h4>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <div class="card chart_Design" id="chart_Global"></div>
+                            </div>
+                        </div>
                     </div>
-                 </div> 
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div id="dropDownId"></div>
+                            <div id="globalInfo"></div>
+                        </div>
+                    </div> 
+                </div>
             </div>
-        </div>
+        </main>
         
  
         <!--Script section--> 

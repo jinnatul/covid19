@@ -141,7 +141,7 @@ function setPercent_chart(Coronavirus_cases, Deaths, Recovered) {
             toolTipContent: "<b>{name}</b>: {y} (#percent%)",
             indexLabel: "{name} - #percent%",
             dataPoints: [
-                { y: Coronavirus_cases, name: "Coronavirus cases" },
+                { y: Coronavirus_cases - Deaths - Recovered, name: "Active cases" },
                 { y: Deaths, name: "Deaths" },
                 { y: Recovered, name: "Recovered" }
              ]
@@ -173,7 +173,7 @@ function explodePie (e) {
             includeZero: false
         },
         data: [{        
-            type: "column",
+            type: "area",
             markerSize: 12,
             xValueFormatString: "DD MMM",
             yValueFormatString: "###",
@@ -187,6 +187,7 @@ function explodePie (e) {
 // Daily Positive cases
 function setInfected_chart(covid_Positive_Daily) {
     var Chart_spline = new CanvasJS.Chart("chart_spline", {
+        theme: "light1",
         animationEnabled: true,
         title:{
             text: "Positives Timeline"
@@ -195,12 +196,13 @@ function setInfected_chart(covid_Positive_Daily) {
             valueFormatString: "DD MMM"
         },
         axisY: {
-            title: "Number of Cases",
             includeZero: false
         },
         data: [{
-            type: "column",
+            type: "area",
+            markerSize: 12,
             xValueFormatString: "DD MMM",
+            yValueFormatString: "###",
             color: "#0288d1",
             dataPoints: covid_Positive_Daily
         }]
@@ -223,7 +225,7 @@ function setDeath_chart(covid_Deaths_Daily) {
             includeZero: false
         },
         data: [{        
-            type: "column",
+            type: "area",
             markerSize: 12,
             xValueFormatString: "DD MMM",
             yValueFormatString: "###",
