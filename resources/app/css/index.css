@@ -34,12 +34,6 @@
     font-size: large;
 }
 
-#logoImage {
-    height: 60px;
-    width: 60px;
-    margin: 2px 15px;
-}
-
 #each_District {
   position: absolute;
   display: none;
@@ -54,6 +48,8 @@
   padding: 20px;
   pointer-events:none;
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
 #district_Map {
@@ -66,6 +62,7 @@
     font-size: larger;
 }
 
+/* Pre loader */
 .mainLoader {
     top: 0px;
     left: 0px;
@@ -77,4 +74,21 @@
     justify-content: center;
     background-color: white;
     background-color: rgba(255, 255, 255, 0.5);
-  }
+}
+
+/* logo rotate 360 */
+#logoImage {
+    width: 60px;
+    height: 60px;
+    margin: 2px 15px;
+    -webkit-animation:spin 7s linear infinite;
+    -moz-animation:spin 7s linear infinite;
+    animation:spin 7s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.navClass {
+    background-color: rgb(33, 138, 174)
+}

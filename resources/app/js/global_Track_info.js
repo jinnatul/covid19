@@ -17,7 +17,7 @@ $(function() {
 
 function set_Info(res) {
    
-    let globalDropdown = "<select id = 'data_dropdown'><option value='' disabled selected>Choose your option</option>";
+    let globalDropdown = "<select id = 'data_dropdown'><option value='' disabled selected>Select Country</option>";
 
     for (let index = 0; index < res.length - 7; index++) {
         if (index == 6) continue;
