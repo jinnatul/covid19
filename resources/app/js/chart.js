@@ -6,6 +6,7 @@ window.onload = function () {
     let covid_Recovered_Array = [];
     let covid_Deaths_Daily = [];
     let covid_Positive_Daily = [];
+    let covid_Positive_Last7 = [];
     let covid_Recovered_Daily = [];
     let covid_DailyTest = [];
 
@@ -23,11 +24,14 @@ window.onload = function () {
                 covid_Deaths_Daily.push({ x: new Date(res[index]["Date"]), y: res[index]["Today_Deaths"] });
                 covid_Recovered_Daily.push({ x: new Date(res[index]["Date"]), y: res[index]["Today_Recovered"] });
 
+                if (sizeResponse - index <= 7)
+                    covid_Positive_Last7.push({ x: new Date(res[index]["Date"]), y: res[index]["Today_Positive"] });
                 // Daily Test vs Cases
                 covid_DailyTest.push({ x: new Date(res[index]["Date"]), y:  res[index]["Today_Tests"] });
             }
             setMake_BD_Table(res);
-            setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered_Array);
+            setDaily_Test_vs_Positive_Cases(covid_DailyTest, covid_Positive_Daily);
+            setLast7Infected_chart(covid_Positive_Last7);
             setPercent_chart(
                 res[sizeResponse - 1]["Total_Positive"], 
                 res[sizeResponse - 1]["Total_Deaths"], 
@@ -36,7 +40,7 @@ window.onload = function () {
             setRecovered_chart(covid_Recovered_Daily);
             setInfected_chart(covid_Positive_Daily);
             setDeath_chart(covid_Deaths_Daily);
-            setDaily_Test_vs_Positive_Cases(covid_DailyTest, covid_Positive_Daily);
+            setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered_Array);
          })
         .fail(function () {
             M.toast({html: 'Internal Problem!!!'})
@@ -66,61 +70,77 @@ function setMake_BD_Table(res) {
     $("#bd_Track_Info").html(bd_table);
 }
 
-function setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered_Array) {
-    var Chart_covid = new CanvasJS.Chart("chart_covid", {
+//Daily Test vs Positive Cases
+function setDaily_Test_vs_Positive_Cases(dailyTest, dailyPositive) {
+    var Chart_TestVsPositive = new CanvasJS.Chart("chart_TestVsPositive", {
         exportEnabled: true,
         animationEnabled: true,
         title: {
-          text: "COVID-19 timeline in Bangladesh",
+            text: "Daily Test vs Positive Cases",
         },
         axisX: {
-          valueFormatString: "DD MMM",
-        },
-        axisY: {
-          title: "Number of People",
+            valueFormatString: "DD MMM",
         },
         legend: {
-          verticalAlign: "top",
-          horizontalAlign: "right",
-          dockInsidePlotArea: true,
+            verticalAlign: "top",
+            horizontalAlign: "right",
+            dockInsidePlotArea: true,
         },
         toolTip: {
-          shared: true,
+            shared: true,
         },
         data: [
-          {
-            name: "Infected",
-            showInLegend: true,
-            legendMarkerType: "circle",
-            type: "spline",
-            color: "#64b5f6",
-            markerSize: 0,
-            dataPoints: covid_Infected_Array,
-          },
-          {
-            name: "Deaths",
-            showInLegend: true,
-            legendMarkerType: "circle",
-            type: "spline",
-            color: "#d50000",
-            markerSize: 0,
-            dataPoints: covid_Deaths_Array,
-          },
-          {
-            name: "Recovered",
-            showInLegend: true,
-            legendMarkerType: "circle",
-            type: "spline",
-            color: "#43a047",
-            markerSize: 0,
-            dataPoints: covid_Recovered_Array,
-          },
+            {
+                name: "Tests",
+                showInLegend: true,
+                legendMarkerType: "circle",
+                type: "spline",
+                color: "blue",
+                markerSize: 0,
+                dataPoints: dailyTest,
+            },
+            {
+                name: "Positive",
+                showInLegend: true,
+                legendMarkerType: "circle",
+                type: "spline",
+                color: "#d50000",
+                markerSize: 0,
+                dataPoints: dailyPositive,
+            }
         ],
     });
-    Chart_covid.render();
+    Chart_TestVsPositive.render();
 }
 
-// Coronavirus_cases vs Deaths vs Recovered
+
+// Last 7 Dailys Positive cases
+function setLast7Infected_chart(covid_Positive_Last7) {
+    var Chart_Last7Days = new CanvasJS.Chart("chart_Last7Days", {
+        theme: "light1",
+        animationEnabled: true,
+        title:{
+            text: "Last 7 Days Positives"
+        },
+        axisX:{
+            valueFormatString: "DD MMM"
+        },
+        axisY: {
+            includeZero: false
+        },
+        data: [{
+            type: "column",
+            markerSize: 12,
+            xValueFormatString: "DD MMM",
+            yValueFormatString: "###",
+            color: "red",
+            dataPoints: covid_Positive_Last7
+        }]
+    });
+    Chart_Last7Days.render();
+}
+
+// Coronavirus % in bd
 function setPercent_chart(Coronavirus_cases, Deaths, Recovered) {
     var Chart_doughnut = new CanvasJS.Chart("chart_doughnut", {
         theme: "light1",
@@ -236,45 +256,58 @@ function setDeath_chart(covid_Deaths_Daily) {
     Chart_line.render();
 }
 
-//Daily Test vs Positive Cases
-function setDaily_Test_vs_Positive_Cases(dailyTest, dailyPositive) {
-    var Chart_TestVsPositive = new CanvasJS.Chart("chart_TestVsPositive", {
+
+/* Total cases vs death vs recovered timeline */
+function setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered_Array) {
+    var Chart_covid = new CanvasJS.Chart("chart_covid", {
         exportEnabled: true,
         animationEnabled: true,
         title: {
-            text: "Daily Test vs Positive Cases",
+          text: "COVID-19 timeline in Bangladesh",
         },
         axisX: {
-            valueFormatString: "DD MMM",
+          valueFormatString: "DD MMM",
+        },
+        axisY: {
+          title: "Number of People",
         },
         legend: {
-            verticalAlign: "top",
-            horizontalAlign: "right",
-            dockInsidePlotArea: true,
+          verticalAlign: "top",
+          horizontalAlign: "right",
+          dockInsidePlotArea: true,
         },
         toolTip: {
-            shared: true,
+          shared: true,
         },
         data: [
-            {
-                name: "Tests",
-                showInLegend: true,
-                legendMarkerType: "circle",
-                type: "spline",
-                color: "blue",
-                markerSize: 0,
-                dataPoints: dailyTest,
-            },
-            {
-                name: "Positive",
-                showInLegend: true,
-                legendMarkerType: "circle",
-                type: "spline",
-                color: "#d50000",
-                markerSize: 0,
-                dataPoints: dailyPositive,
-            }
+          {
+            name: "Infected",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "spline",
+            color: "#64b5f6",
+            markerSize: 0,
+            dataPoints: covid_Infected_Array,
+          },
+          {
+            name: "Deaths",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "spline",
+            color: "#d50000",
+            markerSize: 0,
+            dataPoints: covid_Deaths_Array,
+          },
+          {
+            name: "Recovered",
+            showInLegend: true,
+            legendMarkerType: "circle",
+            type: "spline",
+            color: "#43a047",
+            markerSize: 0,
+            dataPoints: covid_Recovered_Array,
+          },
         ],
     });
-    Chart_TestVsPositive.render();
+    Chart_covid.render();
 }
