@@ -1,5 +1,5 @@
 window.onload = function () {
-    let apiURL = "https://jinnatul.github.io/Kid-Projects/covidBD/bdcovid.json";
+    let apiURL = "https://jinnatul.github.io/kidProjects/covidBD/bdcovid.json";
   
     let covid_Infected_Array = [];
     let covid_Deaths_Array = [];
