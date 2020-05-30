@@ -10,6 +10,7 @@ window.onload = function () {
     let covid_Positive_Last7 = [];
     let covid_Recovered_Daily = [];
     let covid_DailyTest = [];
+    let percentAffect = [];
 
     $.get(apiURL, function() {})
         .done(function(res) {
@@ -32,9 +33,11 @@ window.onload = function () {
                     
                 // Daily Test vs Cases
                 covid_DailyTest.push({ x: new Date(res[index]["Date"]), y:  res[index]["Today_Tests"] });
+                let val = (res[index]["Today_Positive"] * 1) / (res[index]["Today_Tests"] * 1);
+                percentAffect.push({ x: new Date(res[index]["Date"]), y:  (val * 100).toFixed(2) });
             }
             setMake_BD_Table(res);
-            setDaily_Test_vs_Positive_Cases(covid_DailyTest, covid_Positive_Daily);
+            setDaily_Test_vs_Positive_Cases(covid_DailyTest, covid_Positive_Daily, percentAffect);
             setLast7Infected_chart(covid_Positive_Last7);
             setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered_Array);
             setLast7Deaths_chart(covid_Death_Last7);
@@ -77,10 +80,12 @@ function setMake_BD_Table(res) {
 }
 
 //Daily Test vs Positive Cases
-function setDaily_Test_vs_Positive_Cases(dailyTest, dailyPositive) {
+function setDaily_Test_vs_Positive_Cases(dailyTest, dailyPositive, percentAffect) {
+  
     var Chart_TestVsPositive = new CanvasJS.Chart("chart_TestVsPositive", {
         exportEnabled: true,
         animationEnabled: true,
+        zoomEnabled: true,
         title: {
             text: "Test vs Cases",
         },
@@ -113,6 +118,15 @@ function setDaily_Test_vs_Positive_Cases(dailyTest, dailyPositive) {
                 color: "red",
                 markerSize: 0,
                 dataPoints: dailyPositive,
+            },
+            {
+                name: "Affect (%)",
+                showInLegend: true,
+                legendMarkerType: "circle",
+                type: "spline",
+                color: "orange",
+                markerSize: 0,
+                dataPoints: percentAffect,
             }
         ],
     });
@@ -151,6 +165,7 @@ function setCovid_Info(covid_Infected_Array, covid_Deaths_Array, covid_Recovered
     var Chart_covid = new CanvasJS.Chart("chart_covid", {
         exportEnabled: true,
         animationEnabled: true,
+        zoomEnabled: true,
         title: {
           text: "COVID-19 Timeline",
         },
@@ -270,6 +285,7 @@ function explodePie (e) {
     var Chart_Recovered_Timeline = new CanvasJS.Chart("chart_Recovered_Timeline", {
         theme: "light1", // "light1", "light2", "dark1", "dark2"
         animationEnabled: true,
+        zoomEnabled: true,
         title:{
             text: "Recovered Timeline"   
         },
@@ -296,6 +312,7 @@ function setInfected_chart(covid_Positive_Daily) {
     var Chart_spline = new CanvasJS.Chart("chart_spline", {
         theme: "light1",
         animationEnabled: true,
+        zoomEnabled: true,
         title:{
             text: "Positives Timeline"
         },
@@ -322,6 +339,7 @@ function setDeath_chart(covid_Deaths_Daily) {
     var Chart_line = new CanvasJS.Chart("chart_line", {
         theme: "light1", // "light1", "light2", "dark1", "dark2"
         animationEnabled: true,
+        zoomEnabled: true,
         title:{
             text: "Deaths Timeline"   
         },
