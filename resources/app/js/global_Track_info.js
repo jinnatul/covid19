@@ -28,7 +28,7 @@ function set_Info(res) {
             $('#total_cases_World').text(res[index]["cases"])
             $('#total_deaths_World').text(res[index]["deaths"])
             $('#total_recovary_World').text(res[index]["recovered"])
-            $('#total_critical_World').text(res[index]["critical"])
+            //$('#total_critical_World').text(res[index]["critical"])
 
             // Make global chart
             setGlobal_chart(res[index]["cases"], res[index]["deaths"], res[index]["recovered"]);
@@ -38,11 +38,12 @@ function set_Info(res) {
             $('#total_cases_BD').text(res[index]["cases"])
             $('#total_deaths_BD').text(res[index]["deaths"])
             $('#total_recovary_BD').text(res[index]["recovered"])
-            $('#total_test_BD').text(res[index]["totalTests"])
+            //$('#total_test_BD').text(res[index]["totalTests"])
             $('#today_cases_BD').text(res[index]["todayCases"])
             $('#today_deaths_BD').text(res[index]["todayDeaths"])
             $('#active_BD').text(res[index]["active"])
-            $('#casesPerOneMillion_BD').text(res[index]["casesPerOneMillion"])
+            //$('#casesPerOneMillion_BD').text(res[index]["casesPerOneMillion"])
+            console.log(res[index])
         }
     }
 

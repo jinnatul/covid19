@@ -2,6 +2,10 @@
     margin: 4rem;
 }
 
+.round {
+    border-radius: 20px;
+}
+  
 .scrollable {
     width: auto;
     height: 20rem;
@@ -91,4 +95,9 @@
 
 .navClass {
     background-color: rgb(33, 138, 174)
+}
+
+.cardsImage {
+    max-width: 6rem;
+    max-height: 6rem;
 }
