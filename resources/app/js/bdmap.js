@@ -41,16 +41,16 @@ function mapMaker(res) {
         //set color on Each district base on affected count
         let disName = "#" + name;
         if (name === "Dhaka (District)") continue;
-        if (res["data"][index]["count"] > 0 && res["data"][index]["count"] <= 50) {
+        if (res["data"][index]["count"] > 0 && res["data"][index]["count"] <= 500) {
             $(svgObject.querySelector(disName)).css("fill", "#e57373");
         }
-        else if (res["data"][index]["count"] > 50 && res["data"][index]["count"] <= 100) {
+        else if (res["data"][index]["count"] > 500 && res["data"][index]["count"] <= 1000) {
             $(svgObject.querySelector(disName)).css("fill", "#ef5350");
         }
-        else if (res["data"][index]["count"] > 100 && res["data"][index]["count"] <= 150) {
+        else if (res["data"][index]["count"] > 1000 && res["data"][index]["count"] <= 5000) {
             $(svgObject.querySelector(disName)).css("fill", "#f44336");
         }
-        else if (res["data"][index]["count"] > 150) {
+        else if (res["data"][index]["count"] > 5000) {
             $(svgObject.querySelector(disName)).css("fill", "#d50000");
         }
     }
