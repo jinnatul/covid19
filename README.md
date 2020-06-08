@@ -29,7 +29,7 @@ situation of COVID-19 and how the virus is spreading.
         of World or select any infected country and show affected range against each country 
 
 ### COVID-19 Summary
-![1](https://user-images.githubusercontent.com/31995155/82359634-f3a16a00-9a29-11ea-8172-3cfcd0450a4b.png)
+![1](https://user-images.githubusercontent.com/31995155/84078593-0096f500-a9fb-11ea-80ec-b40d85e8c0be.png)
 
 ### Map Visualization (Bangladesh)
 ![2](https://user-images.githubusercontent.com/31995155/82359667-0156ef80-9a2a-11ea-8a68-0bf6e800da18.png)
