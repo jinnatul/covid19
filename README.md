@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="300" height="300" src="https://user-images.githubusercontent.com/31995155/85232025-eeb34a00-b41d-11ea-88a4-89450b2d2dfa.png">
+</p>
+
 # covid19
 An application which keeps track of the COVID-19 with real time data.
 
