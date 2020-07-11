@@ -30,7 +30,6 @@
                     <li><a class="navFontSize scroll" href="#bangladesh">Bangladesh</a></li>
                     <li><a class="navFontSize scroll" href="#district">BD-Map</a></li>
                     <li><a class="navFontSize scroll" href="#charts">BD-Charts</a></li>
-                    <li><a class="navFontSize scroll" href="#dhaka">BD-Dhaka</a></li>
                     <li><a class="navFontSize scroll" href="#hotLine">BD-HotLine</a></li>
                     <li><a class="navFontSize scroll" href="#faq">FAQ</a></li>
                     <li><a class="navFontSize scroll" href="#global">Global</a></li>
@@ -253,33 +252,15 @@
 
             <!--Bangladesh District Cases-->
             <div class="customContainer" id="district">
-                <h4 class="center-align headerText">District Affected</h4>
-        
-                <!--Map Cases-->
-                <div class="row">
-                    <div class="card">
-                        <div class="card-content">
-                            <h6 class="center-align">Total Affected District: <span id="districtCount"></span></h6>
-                            <p id ="each_District"></p>
-                            <div>
-                                <img class="left" src="resources/app/image/green.png" alt="green" srcset=""><h6 style="margin: 2rem;">Free Area</h6>
-                                <img class="left" src="resources/app/image/red1.png" alt="red1" srcset=""><h6 style="margin: 2rem;">Affected Range: 1 - 500</h6>
-                                <img class="left" src="resources/app/image/red2.png" alt="red2" srcset=""><h6 style="margin: 2rem;">Affected Range: 501 - 1000</h6>
-                                <img class="left" src="resources/app/image/red3.png" alt="red3" srcset=""><h6 style="margin: 2rem;">Affected Range: 1001 - 5000</h6>
-                                <img class="left" src="resources/app/image/red4.png" alt="red4" srcset=""><h6 style="margin: 2rem;">Affected Range:  > 5001</h6>
-                            </div>
-                            
-                            <iframe 
-                                src="resources/app/image/bdmap.svg" 
-                                id = "district_Map" 
-                                title="map" 
-                                width="1000"
-                                height="900" 
-                                frameBorder="0">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
+                <iframe
+                    src="https://pro-js.github.io/bdCovidMap/"
+                    height="400"
+                    width="200"
+                    frameborder="0"
+                    scrolling="auto"
+                    class="frame-area"
+                    title="BD COVID-19 MAP"
+                    ></iframe>
             </div>
 
             <!--Charts-->
@@ -360,6 +341,7 @@
                 </div>
             </div>
 
+            <!--
             <div class="customContainer" id="dhaka">
                 <div class="row">
                     <h4 class="center-align headerText"> Confirmed cases in Dhaka city</h4>
@@ -384,7 +366,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
 
             <!--Hot Line Numbers (BD)-->
@@ -665,7 +647,6 @@
         <script src="resources/app/js/global_Track_info.js"></script>
         <script src="resources/app/js/chart.js"></script>
         <script src="resources/app/js/index.js"></script>
-        <script src="resources/app/js/bdmap.js"></script>
         <script src="resources/app/js/dhakaCity.js"></script>
         <script>
             window.onscroll = scroll;

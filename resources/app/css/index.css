@@ -101,3 +101,13 @@
     max-width: 6rem;
     max-height: 6rem;
 }
+
+.frame-area {
+    display: block;
+    width: 100%; /* RESPONSIVE WIDTH */
+    max-width: 1330px;
+    height: 600px;
+    overflow: auto;
+    margin: 0px;
+    padding: 0px;
+}
